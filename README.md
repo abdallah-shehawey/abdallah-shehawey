@@ -10,11 +10,10 @@ I'm an Embedded Systems enthusiast with a strong background in electronics and t
 
 I'm a communication and electronics student who is passionate about Embedded Software.
 
-- 🎓 &nbsp; Graduated From : Faculty of Enineering (Electronics and Communication department) - Al Azhar Unversity.
-- Grade : Excellent with honours (Rank : 1st ).
-- 💼 &nbsp; Working as an Embedded Software Engineer at Valeo Egypt.
-- 🌱 &nbsp; Learning more about Microcontrollers , Embedded Sofware , Embedded Linux and AUTOSAR. 
-- 📫 How to reach me: [Linkedin](https://www.linkedin.com/in/mahmoud-karem-zamel) [Gmail](https://www.mahmoudkarem.me@gmail.com)
+- 🎓 &nbsp; **Education** : Third-year Electrical Engineering student, Department of Electrical Engineering, Al-Azhar University.
+- 🔌 &nbsp; **Current Role** : Vice Head of the Embedded Systems section at AZEX, leading hands-on sessions and developing educational content.
+-  🚗 &nbsP;  **Focus**: Embedded software engineering with a concentration in the **automotive field**.
+- 🌱 &nbsp; Learning more about Microcontrollers , Embedded Sofware and AUTOSAR.
 
 ---
 
