@@ -25,6 +25,18 @@ I'm an Embedded Systems enthusiast with a strong background in electronics and t
 
 ---
 
+### ✨ Visitors 
+
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=abdallah-shehawey" alt="abdallah-shehawey" /> </p>
+
+---
+
+### 📊 Profile stats
+
+[![Abdallah AbdelMomen 's github stats](https://github-readme-stats.vercel.app/api?username=abdallah-shehawey&show_icons=true&title_color=fff&icon_color=79ff97&text_color=9f9f9f&bg_color=151515)](https://github.com/abdallah-shehawey/github-readme-stats)
+
+---
+
 ## 🔗 Connect with Me:
 
 <p align="left">
