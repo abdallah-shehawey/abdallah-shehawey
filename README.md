@@ -3,7 +3,7 @@
 I'm an Embedded Systems enthusiast with a strong background in electronics and telecommunications engineering, currently studying at Al-Azhar University's Faculty of Engineering. My journey so far has included diverse projects, a teaching role in C programming, and collaborative experience in coding competitions and hackathons.
 
 ---
-<img width="400" align="right" alt="Github" src="https://user-images.githubusercontent.com/48678280/88862734-4903af80-d201-11ea-968b-9c939d88a37c.gif" />
+<img width="200" align="right" alt="Github" src="https://user-images.githubusercontent.com/48678280/88862734-4903af80-d201-11ea-968b-9c939d88a37c.gif" />
 
 ## 👨🏻‍💻 About Me
 - 🎓 **Education**: Third-year Electrical Engineering student, Department of Electrical Engineering, Al-Azhar University.
