@@ -8,6 +8,8 @@ I'm an Embedded Systems enthusiast with a strong background in electronics and t
 
 <h3> 👨🏻‍💻 &nbsp;About Me </h3>
 
+I'm a communication and electronics student who is passionate about Embedded Software.
+
 - 🎓 &nbsp; **Education** : Third-year Electrical Engineering student, Department of Electrical Engineering, Al-Azhar University.
 - 🔌 &nbsp; **Current Role** : Vice Head of the Embedded Systems section at AZEX, leading hands-on sessions and developing educational content.
 - 🚗 &nbsp;  **Focus**: Embedded software engineering with a concentration in the **automotive field**.
