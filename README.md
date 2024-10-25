@@ -12,7 +12,7 @@ I'm a communication and electronics student who is passionate about Embedded Sof
 
 - 🎓 &nbsp; **Education** : Third-year Electrical Engineering student, Department of Electrical Engineering, Al-Azhar University.
 - 🔌 &nbsp; **Current Role** : Vice Head of the Embedded Systems section at AZEX, leading hands-on sessions and developing educational content.
--  🚗 &nbsP;  **Focus**: Embedded software engineering with a concentration in the **automotive field**.
+- 🚗 &nbsp;  **Focus**: Embedded software engineering with a concentration in the **automotive field**.
 - 🌱 &nbsp; Learning more about Microcontrollers , Embedded Sofware and AUTOSAR.
 
 ---
