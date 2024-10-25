@@ -25,9 +25,23 @@ I'm an Embedded Systems enthusiast with a strong background in electronics and t
 
 ---
 
-## 📫 Connect with Me
-- **LinkedIn**: [www.linkedin.com/in/abdallah-shehawey)
-- **Email**:    [shehawey9@gmail.com)
-- **Facebook**: [https://www.facebook.com/abdullahshehawey)
+## 🔗 Connect with Me:
+
+<p align="left">
+  <a href="shehawey9@gmail.com">
+    <img src="https://img.shields.io/badge/Gmail-red?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail">
+  </a>
+  <a href="https://github.com/abdallah-shehawey">
+    <img src="https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+  </a>
+  <a href="https://wa.me/+201501899476">
+    <img src="https://img.shields.io/badge/WhatsApp-green?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp">
+  </a>
+  <a href="https://www.linkedin.com/in/abdallah-shehawey">
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+  </a>
+</p>
+
+---
 
 Looking forward to connecting with like-minded enthusiasts and professionals!
