@@ -40,6 +40,9 @@ I'm an Embedded Systems enthusiast with a strong background in electronics and t
   <a href="https://www.linkedin.com/in/abdallah-shehawey">
         <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?style=plastic&logo=linkedin&logoColor=white" alt="LinkedIn"/>
   </a>
+  <a href="https://www.facebook.com/abdullahshehawey">
+        <img src="https://img.shields.io/badge/facebook-%231877F2.svg?style=plastic&logo=facebook&logoColor=white" alt="Facebook"/>
+  </a>
 </p>
 
 ---
