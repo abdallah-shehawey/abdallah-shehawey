@@ -27,7 +27,7 @@ I'm an Embedded Systems enthusiast with a strong background in electronics and t
 
 ## 📫 Connect with Me
 - **LinkedIn**: [www.linkedin.com/in/abdallah-shehawey)
-- **Email**: [shehawey9@gmail.com)
+- **Email**:    [shehawey9@gmail.com)
 - **Facebook**: [https://www.facebook.com/abdullahshehawey)
 
 Looking forward to connecting with like-minded enthusiasts and professionals!
