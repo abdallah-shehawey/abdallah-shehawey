@@ -29,16 +29,16 @@ I'm an Embedded Systems enthusiast with a strong background in electronics and t
 
 <p align="left">
   <a href="shehawey9@gmail.com">
-    <img src="https://img.shields.io/badge/Gmail-red?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail">
+    <img src="https://img.icons8.com/color/48/000000/gmail--v1.png" alt="Gmail"/>
   </a>
   <a href="https://github.com/abdallah-shehawey">
-    <img src="https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+    <img src="https://img.icons8.com/ios-glyphs/48/000000/github.png" alt="GitHub"/>
   </a>
   <a href="https://wa.me/+201501899476">
-    <img src="https://img.shields.io/badge/WhatsApp-green?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp">
+   <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp"/>
   </a>
   <a href="https://www.linkedin.com/in/abdallah-shehawey">
-    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+        <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn"/>
   </a>
 </p>
 
