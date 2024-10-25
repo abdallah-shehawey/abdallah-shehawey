@@ -28,7 +28,7 @@ I'm an Embedded Systems enthusiast with a strong background in electronics and t
 ## 🔗 Connect with Me:
 
 <p align="left">
-  <a href="shehawey9@gmail.com">
+  <a href="mailto:shehawey9@gmail.com">
     <img img src="https://img.shields.io/badge/gmail-%23EA4335.svg?style=plastic&logo=gmail&logoColor=white" alt="Gmail"/>
   </a>
   <a href="https://github.com/abdallah-shehawey">
