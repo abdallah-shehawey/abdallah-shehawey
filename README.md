@@ -1,3 +1,5 @@
+<p align="center"><img src="https://i.imgur.com/A6bWGFl.gif"/></p>
+
 # 👋 Hi there, I'm Abdallah!
 
 I'm an Embedded Systems enthusiast with a strong background in electronics and telecommunications engineering, currently studying at Al-Azhar University's Faculty of Engineering. My journey so far has included diverse projects, a teaching role in C programming, and collaborative experience in coding competitions and hackathons.
