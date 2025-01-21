@@ -23,7 +23,7 @@ I'm a communication and electronics student who is passionate about Embedded Sof
 - **Programming**: Proficient in **C programming** (5-star certified on Hacker Rank), with experience in delivering lectures and workshops.
 - **Microcontrollers**: Specialization with **ATmega32**, including hands-on projects with keypads, LCDs, and seven-segment displays.
 - **Software Development**: Project work with real-world embedded applications and control systems.
-- **Languages**: Advanced in English (Level 4) and Arabic.
+- **Languages**: Advanced in English and Arabic.
 
 - 💻 &nbsp;
 ![C](https://img.shields.io/badge/-C-black?style=flat-square&logo=c)
