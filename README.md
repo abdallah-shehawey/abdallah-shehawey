@@ -2,7 +2,7 @@
 
 <h1>👋 Hi there, welcome to my GitHub profile</h1>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=900&size=30&duration=2000&pause=500&vCenter=true&width=750&lines=Hello+GitHub;I'm+Abdallah+AbdelMomen;Embedded+Software+Engineer" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=1000&size=47&duration=2000&pause=500&vCenter=true&width=1000&lines=Hello+GitHub;I'm+Abdallah+AbdelMomen;Embedded+Software+Engineer" alt="Typing SVG" />
 
 </div>
 
