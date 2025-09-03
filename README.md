@@ -1,6 +1,10 @@
-<p align="center"><img src="https://i.imgur.com/A6bWGFl.gif"/></p>
+<div>
 
-# 👋 Hi there, I'm Abdallah!
+<h1>👋 Hi there, welcome to my GitHub profile</h1>
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=900&size=30&duration=2000&pause=500&vCenter=true&width=750&lines=Hello+GitHub;I'm+Abdallah+AbdelMomen;Embedded+Software+Engineer" alt="Typing SVG" />
+
+</div>
 
 I'm an Embedded Systems enthusiast with a strong background in electronics and telecommunications engineering, currently studying at Al-Azhar University's Faculty of Engineering. My journey so far has included diverse projects, a teaching role in C programming, and collaborative experience in coding competitions and hackathons.
 
