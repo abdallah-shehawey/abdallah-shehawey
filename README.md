@@ -1,9 +1,9 @@
 # 👋 Hi there.
-<div>
+<h1 align="center">
   
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=1000&size=47&duration=2000&pause=500&vCenter=true&width=1000&lines=I'm+Abdallah+AbdelMomen;Embedded+Software+Engineer" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=1000&size=47&duration=2000&pause=500&center=true&vCenter=true&width=1000&lines=I'm+Abdallah+AbdelMomen;Embedded+Software+Engineer" alt="Typing SVG" />
 
-</div>
+</h1>
 
 I'm an Embedded Systems enthusiast with a strong background in electronics and telecommunications engineering, currently studying at Al-Azhar University's Faculty of Engineering. My journey so far has included diverse projects, a teaching role in C programming, and collaborative experience in coding competitions and hackathons.
 
