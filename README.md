@@ -63,6 +63,14 @@ I'm a communication and electronics student who is passionate about Embedded Sof
 
 <p align="center">
   <img src="https://github-readme-stats-bfr3.vercel.app/api?username=abdallah-shehawey&show_icons=true&theme=radical" alt="github stats" width="420" height="165"/>
+  <a href="https://git.io/streak-stats">
+  <img 
+    src="https://github-readme-streak-stats-three-sand.vercel.app?user=abdallah-shehawey&theme=radical" 
+    alt="GitHub Streak Stats" 
+    width="420" 
+    height="165"
+  />
+</a>
 </p>
 
 
