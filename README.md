@@ -62,11 +62,17 @@ I'm a communication and electronics student who is passionate about Embedded Sof
 ### 📊 Profile stats
 
 <p align="center">
-  <img src="https://github-readme-stats-fjlm.vercel.app/api?username=abdallah-shehawey&show_icons=true&theme=radical" alt="github stats" width="420" height="165"/>
-  <img href="https://git.io/streak-stats" src="https://github-readme-streak-stats-three-sand.vercel.app?user=abdallah-shehawey&theme=radical" alt="GitHub Streak Stats" width="420"  height="165"/?>
+  <img 
+    src="https://github-readme-stats-fjlm.vercel.app/api?username=abdallah-shehawey&show_icons=true&theme=radical" 
+    alt="GitHub Stats" 
+    width="420"
+  />
+  <img 
+    src="https://github-readme-streak-stats-three-sand.vercel.app?user=abdallah-shehawey&theme=radical" 
+    alt="GitHub Streak Stats" 
+    width="420"
+  />
 </p>
-
-
 
 ---
 
