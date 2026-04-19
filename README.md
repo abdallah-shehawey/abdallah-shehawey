@@ -71,7 +71,7 @@ I'm a communication and electronics student who is passionate about Embedded Sof
   <img 
     src="https://github-readme-streak-stats-three-sand.vercel.app?user=abdallah-shehawey&theme=transparent" 
     alt="GitHub Streak Stats" 
-    width="420"
+    width="400"
     height="165"
   />
 </p>
