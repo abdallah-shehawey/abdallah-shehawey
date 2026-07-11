@@ -79,8 +79,8 @@ Embedded Systems engineer with a strong background in electronics and telecommun
 ### 📊 GitHub Stats
 
 <p align="center">
-  <img height="165" src="https://github-readme-stats-fjlm.vercel.app/api?username=abdallah-shehawey&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats"/>
-  <img height="165" src="https://github-readme-streak-stats-three-sand.vercel.app?user=abdallah-shehawey&theme=tokyonight&hide_border=true" alt="GitHub Streak"/>
+  <img height="165" src="https://github-readme-stats-fjlm.vercel.app/api?username=abdallah-shehawey&show_icons=true&theme=dracula&hide_border=true" alt="GitHub Stats"/>
+  <img height="165" src="https://github-readme-streak-stats-three-sand.vercel.app?user=abdallah-shehawey&theme=dracula&hide_border=true" alt="GitHub Streak"/>
 </p>
 
 ---
