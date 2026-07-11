@@ -1,108 +1,118 @@
 # 👋 Hi there.
-<h1 align="center">
-  
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=1000&size=47&duration=2000&pause=500&center=true&vCenter=true&width=1000&lines=I'm+Abdallah+AbdelMomen;Embedded+Software+Engineer" alt="Typing SVG" />
 
+<h1 align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=1000&size=40&duration=2500&pause=500&center=true&vCenter=true&width=1000&lines=Hi%2C+I'm+Abdallah+AbdelMomen;Embedded+Software+Engineer;Bare-Metal+%7C+RTOS+%7C+AUTOSAR;ARM+Cortex-M+%7C+AVR;Embedded+Linux+%7C+Yocto" alt="Typing SVG" />
 </h1>
 
-I'm an Embedded Systems enthusiast with a strong background in electronics and telecommunications engineering, currently studying at Al-Azhar University's Faculty of Engineering. My journey so far has included diverse projects, a teaching role in C programming, and collaborative experience in coding competitions and hackathons.
-
----
-<img width="200" align="right" alt="Github" src="https://user-images.githubusercontent.com/48678280/88862734-4903af80-d201-11ea-968b-9c939d88a37c.gif" />
-
-
-<h3> 👨🏻‍💻 &nbsp;About Me </h3>
-
-I'm a communication and electronics student who is passionate about Embedded Software.
-
-- 🎓 &nbsp; **Education** : Final-year Electrical Engineering student, Department of communication and electronics, Al-Azhar University.
-- 🔌 &nbsp; **Current Role** : Vice Head of the Embedded Systems section at AZEX, leading hands-on sessions and developing educational content.
-- 🚗 &nbsp;  **Focus**: Embedded software engineering with a concentration in the **automotive field**.
-- 🌱 &nbsp; Learning more about Microcontrollers , Embedded Sofware and AUTOSAR.
+I'm an Embedded Systems enthusiast with a strong background in electronics and telecommunications engineering, a graduate of Al-Azhar University's Faculty of Engineering. My journey so far has included diverse projects, a teaching role in C programming, and collaborative experience in coding competitions and hackathons.
 
 ---
 
-## 🛠️ Skills & Tools
-- **Programming**: Proficient in **C programming** (5-star certified on Hacker Rank), with experience in delivering lectures and workshops.
-- **Microcontrollers**: Specialization with **ATmega32**, including hands-on projects with keypads, LCDs, and seven-segment displays.
-- **Software Development**: Project work with real-world embedded applications and control systems.
-- **Languages**: Advanced in English and Arabic.
+<img width="200" align="right" alt="Coding" src="https://user-images.githubusercontent.com/48678280/88862734-4903af80-d201-11ea-968b-9c939d88a37c.gif" />
 
-- 💻 &nbsp;
-![Python](https://img.shields.io/badge/-Python-333333?style=flat&logo=python)
-![C](https://img.shields.io/badge/-C-black?style=flat-square&logo=c)
-![C++](https://img.shields.io/badge/-C++-333333?style=flat&logo=C%2B%2B&logoColor=00599C)
+### 👨🏻‍💻 About Me
 
-- ⚙️ &nbsp;
-![Git](https://img.shields.io/badge/-Git-333333?style=flat&logo=git)
-![GitHub](https://img.shields.io/badge/-GitHub-333333?style=flat&logo=github)
-![Markdown](https://img.shields.io/badge/-Markdown-333333?style=flat&logo=markdown)
-![Linux](https://img.shields.io/badge/-Linux-333333?style=flat&logo=Linux&logoColor=FCC624)
-![Ubuntu](https://img.shields.io/badge/-Ubuntu-333333?style=flat&logo=ubuntu)
-![RedHat](https://img.shields.io/badge/-Red%20Hat-333333?style=flat&logo=redhat&logoColor=EE0000)
+Embedded Systems engineer with a strong background in electronics and telecommunications, and a passion for low-level embedded software.
 
-- 🔧 &nbsp;
-![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-333333?style=flat&logo=visual-studio-code&logoColor=007ACC)
-![Eclipse](https://img.shields.io/badge/-Eclipse-333333?style=flat&logo=eclipse-ide&logoColor=2C2255)
+- 🎓 &nbsp; **Education** — Graduate, Electrical Engineering (Communications & Electronics), Al-Azhar University
+- 🚗 &nbsp; **Focus** — Embedded software engineering with a concentration in the **automotive** field
+- 🌱 &nbsp; **Currently learning** — Microcontrollers, RTOS, **AUTOSAR**, and **Embedded Linux** (Raspberry Pi, Linux Kernel, Yocto/Buildroot)
 
 ---
 
-## 💡 Future Goals
-- 🌍 **Global Impact**: Aspire to become a skilled embedded engineer, joining an international team to develop cutting-edge solutions in the automotive industry.
-- 📈 **Continuous Learning**: Enhancing my embedded systems expertise and exploring more advanced topics in the field.
+### 🛠️ Skills & Tools
+
+**Languages**
+
+<p>
+  <img src="https://img.shields.io/badge/-C-333333?style=flat&logo=c" alt="C"/>
+  <img src="https://img.shields.io/badge/-C++-333333?style=flat&logo=C%2B%2B&logoColor=00599C" alt="C++"/>
+  <img src="https://img.shields.io/badge/-Python-333333?style=flat&logo=python" alt="Python"/>
+  <img src="https://img.shields.io/badge/-Assembly-333333?style=flat&logo=assemblyscript&logoColor=00599C" alt="Assembly"/>
+</p>
+
+**Embedded & Firmware**
+
+<p>
+  <img src="https://img.shields.io/badge/-ATmega32-333333?style=flat&logo=arduino" alt="ATmega32"/>
+  <img src="https://img.shields.io/badge/-AVR-333333?style=flat&logo=espressif" alt="AVR"/>
+  <img src="https://img.shields.io/badge/-STM32-333333?style=flat&logo=stmicroelectronics&logoColor=03234B" alt="STM32"/>
+  <img src="https://img.shields.io/badge/-ARM%20Cortex--M-333333?style=flat&logo=arm&logoColor=0091BD" alt="ARM Cortex-M"/>
+  <img src="https://img.shields.io/badge/-RTOS-333333?style=flat&logo=freertos" alt="RTOS"/>
+  <img src="https://img.shields.io/badge/-AUTOSAR-333333?style=flat&logo=autodesk" alt="AUTOSAR"/>
+  <img src="https://img.shields.io/badge/-Proteus-333333?style=flat&logo=proteus" alt="Proteus"/>
+</p>
+
+**Embedded Linux**
+
+<p>
+  <img src="https://img.shields.io/badge/-Raspberry%20Pi-333333?style=flat&logo=raspberrypi&logoColor=A22846" alt="Raspberry Pi"/>
+  <img src="https://img.shields.io/badge/-Linux%20Kernel-333333?style=flat&logo=linux&logoColor=FCC624" alt="Linux Kernel"/>
+  <img src="https://img.shields.io/badge/-Yocto%20%2F%20Buildroot-333333?style=flat&logo=yocto&logoColor=DBA510" alt="Yocto / Buildroot"/>
+  <img src="https://img.shields.io/badge/-Bash-333333?style=flat&logo=gnubash&logoColor=4EAA25" alt="Bash"/>
+</p>
+
+**Tools & Environment**
+
+<p>
+  <img src="https://img.shields.io/badge/-Git-333333?style=flat&logo=git" alt="Git"/>
+  <img src="https://img.shields.io/badge/-GitHub-333333?style=flat&logo=github" alt="GitHub"/>
+  <img src="https://img.shields.io/badge/-Visual%20Studio%20Code-333333?style=flat&logo=visual-studio-code&logoColor=007ACC" alt="VS Code"/>
+  <img src="https://img.shields.io/badge/-Eclipse-333333?style=flat&logo=eclipse-ide&logoColor=2C2255" alt="Eclipse"/>
+  <img src="https://img.shields.io/badge/-Linux-333333?style=flat&logo=Linux&logoColor=FCC624" alt="Linux"/>
+  <img src="https://img.shields.io/badge/-Ubuntu-333333?style=flat&logo=ubuntu" alt="Ubuntu"/>
+  <img src="https://img.shields.io/badge/-Red%20Hat-333333?style=flat&logo=redhat&logoColor=EE0000" alt="Red Hat"/>
+  <img src="https://img.shields.io/badge/-Markdown-333333?style=flat&logo=markdown" alt="Markdown"/>
+</p>
+
+> 🏆 &nbsp; **5-star C (Gold)** on HackerRank &nbsp;·&nbsp; hands-on with keypads, LCDs, and seven-segment displays &nbsp;·&nbsp; fluent in English & Arabic
 
 ---
 
-### ✨ Visitors 
+### 💡 Goals
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=abdallah-shehawey" alt="abdallah-shehawey" /> </p>
+- 🌍 &nbsp; Grow into a skilled embedded engineer on an international team building automotive solutions
+- 📈 &nbsp; Keep deepening my embedded systems expertise and explore advanced topics in the field
 
 ---
 
-### 📊 Profile stats
+### 📊 GitHub Stats
 
 <p align="center">
-  <img 
-    src="https://github-readme-stats-fjlm.vercel.app/api?username=abdallah-shehawey&show_icons=true&theme=transparent" 
-    alt="GitHub Stats" 
-    width="400"
-    height="165"
-  />
-  <img 
-    src="https://github-readme-streak-stats-three-sand.vercel.app?user=abdallah-shehawey&theme=transparent" 
-    alt="GitHub Streak Stats" 
-    width="400"
-    height="165"
-  />
+  <img height="165" src="https://github-readme-stats-fjlm.vercel.app/api?username=abdallah-shehawey&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats"/>
+  <img height="165" src="https://github-readme-streak-stats-three-sand.vercel.app?user=abdallah-shehawey&theme=tokyonight&hide_border=true" alt="GitHub Streak"/>
 </p>
 
 ---
 
-## 🔗 Connect with Me:
+### ✨ Visitors
+
+<p align="left">
+  <img src="https://komarev.com/ghpvc/?username=abdallah-shehawey" alt="abdallah-shehawey" />
+</p>
+
+---
+
+### 🔗 Connect with Me
 
 <p align="left">
   <a href="https://www.linkedin.com/in/abdallah-shehawey">
-        <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?style=plastic&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+    <img src="https://img.shields.io/badge/LinkedIn-%230A66C2.svg?style=plastic&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjUgMHoiLz48L3N2Zz4=&logoColor=white" alt="LinkedIn"/>
   </a>
-  
-   <a href="https://wa.me/+201501899476">
-   <img src="https://img.shields.io/badge/whatsapp-%2325D366.svg?style=plastic&logo=whatsapp&logoColor=white" alt="Whatsapp"/>
+  <a href="https://wa.me/+201501899476">
+    <img src="https://img.shields.io/badge/whatsapp-%2325D366.svg?style=plastic&logo=whatsapp&logoColor=white" alt="Whatsapp"/>
   </a>
-
   <a href="https://www.facebook.com/abdullahshehawey">
-        <img src="https://img.shields.io/badge/facebook-%231877F2.svg?style=plastic&logo=facebook&logoColor=white" alt="Facebook"/>
+    <img src="https://img.shields.io/badge/facebook-%231877F2.svg?style=plastic&logo=facebook&logoColor=white" alt="Facebook"/>
   </a>
-  
   <a href="mailto:shehawey9@gmail.com">
-    <img img src="https://img.shields.io/badge/gmail-%23EA4335.svg?style=plastic&logo=gmail&logoColor=white" alt="Gmail"/>
+    <img src="https://img.shields.io/badge/gmail-%23EA4335.svg?style=plastic&logo=gmail&logoColor=white" alt="Gmail"/>
   </a>
-  
   <a href="https://github.com/abdallah-shehawey">
     <img src="https://img.shields.io/badge/github-%23181717.svg?style=plastic&logo=github&logoColor=white" alt="GitHub"/>
   </a>
-  
 </p>
 
 ---
 
-Looking forward to connecting with like-minded enthusiasts and professionals!
+<p align="center"><i>Looking forward to connecting with like-minded enthusiasts and professionals!</i></p>
