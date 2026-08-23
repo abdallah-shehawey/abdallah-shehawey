@@ -131,8 +131,8 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
 ### 📊 GitHub Stats
 
 <p align="center">
-  <img height="165" src="https://github-readme-stats-fjlm.vercel.app/api?username=abdallah-shehawey&show_icons=true&theme=dracula&hide_border=true" alt="GitHub Stats"/>
-  <img height="165" src="https://github-readme-streak-stats-three-sand.vercel.app?user=abdallah-shehawey&theme=dracula&hide_border=true" alt="GitHub Streak"/>
+  <img height="165" src="https://github-readme-stats-fjlm.vercel.app/api?username=abdallah-shehawey&show_icons=true&bg_color=0b1017&title_color=58a6ff&text_color=c5d2e0&icon_color=3fb950&border_color=182231" alt="GitHub Stats"/>
+  <img height="165" src="https://github-readme-streak-stats-three-sand.vercel.app?user=abdallah-shehawey&background=0b1017&ring=58a6ff&fire=3fb950&currStreakLabel=58a6ff&sideLabels=c5d2e0&currStreakNum=e6edf6&sideNums=e6edf6&dates=5b6b80&border=182231" alt="GitHub Streak"/>
 </p>
 
 ---
