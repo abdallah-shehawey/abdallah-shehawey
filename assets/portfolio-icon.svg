@@ -1,10 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0f172a"/>
-  <g transform="translate(5, 44) scale(0.0125, -0.0125)">
-    <path d="M931 1212 1049 1025 380 627 1049 232 924 43 152 524V730Z" fill="#22d3ee" transform="translate(0, 0)"/>
-    <path d="M824 317H369L283 0H0L433 1383H769L1201 0H910ZM418 522H773L596 1178Z" fill="#2dd4bf" transform="translate(820, 0)"/>
-    <path d="M1114 397Q1114 271 1049.5 174.5Q985 78 863.5 24.0Q742 -30 571 -30Q391 -30 262.0 23.5Q133 77 46 161L190 322Q265 254 358.0 216.5Q451 179 567 179Q678 179 753.5 230.0Q829 281 829 379Q829 435 805.0 474.5Q781 514 722.5 545.0Q664 576 560 607Q331 677 222.0 772.5Q113 868 113 1028Q113 1147 179.0 1233.5Q245 1320 357.0 1366.5Q469 1413 609 1413Q763 1413 880.0 1368.5Q997 1324 1086 1242L949 1087Q878 1148 795.5 1177.0Q713 1206 628 1206Q527 1206 461.5 1166.0Q396 1126 396 1046Q396 997 423.5 962.5Q451 928 517.5 898.0Q584 868 702 832Q825 795 917.5 743.0Q1010 691 1062.0 608.5Q1114 526 1114 397Z" fill="#34d399" transform="translate(1640, 0)"/>
-    <path d="M282 -218 74 -123 920 1629 1126 1532Z" fill="#4ade80" transform="translate(2460, 0)"/>
-    <path d="M271 1212 1049 731V524L277 43L152 226L822 627L152 1020Z" fill="#4ade80" transform="translate(3280, 0)"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#38bdf8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#818cf8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <rect width="64" height="64" rx="12" fill="url(#bg)"/>
+  <!-- Left bracket < -->
+  <polyline points="22,20 12,32 22,44" stroke="url(#accent)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Right bracket > -->
+  <polyline points="42,20 52,32 42,44" stroke="url(#accent)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Slash / -->
+  <line x1="36" y1="18" x2="28" y2="46" stroke="#f8fafc" stroke-width="3.5" stroke-linecap="round" opacity="0.85"/>
 </svg>
