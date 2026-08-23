@@ -19,7 +19,7 @@
   <img src="assets/divider.svg?v=a80ccd500d" width="900" alt="" />
 </p>
 
-### <img src="assets/icons/user.svg?v=bb60fcbf51" width="21" alt="" /> Hey, I'm Abdallah
+## <img src="assets/icons/user.svg?v=bb60fcbf51" width="23" alt="" /> Hey, I'm Abdallah
 
 **Embedded Software Engineer** specializing in C/C++, RTOS, and hardware-software integration —
 from bare-metal drivers written from scratch to AUTOSAR and Embedded Linux, with a focus on the
