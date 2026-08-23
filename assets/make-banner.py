@@ -123,7 +123,7 @@ C = dict(shell="#070b10", win="#0b1017", edge="#182231", bar="#0c131c",
          live="#3fb950", foot="#31435a", tag="#46586e")
 
 INFO = [
-    ("head", "abdallah@embedded", None),
+    ("head", "shehawey@embedded", None),
     ("kv", "Name:", "Abdallah Shehawey"),
     ("kv", "Role:", "Embedded Software Engineer"),
     ("kv", "Based:", "El Mahalla El Kubra, Gharbia, Egypt"),
@@ -131,7 +131,7 @@ INFO = [
     ("kv", "Writes:", "shinux.vercel.app / Notes from below the OS"),
     ("gap", None, None),
     ("sec", "BUILD.FOCUS", None),
-    ("kv", "MCU:", "ARM Cortex-M, AVR, PIC"),
+    ("kv", "MCU:", "ARM Cortex-M, AVR, PIC, Arduino, ESP32"),
     ("kv", "RTOS:", "FreeRTOS, scheduling, IPC"),
     ("kv", "Vehicle:", "AUTOSAR, CAN, LIN, V2X safety"),
     ("kv", "Linux:", "Yocto, QEMU, drivers, Raspberry Pi"),
@@ -247,7 +247,7 @@ def main():
   <circle cx="20" cy="16" r="4.5" fill="#e05c54" opacity="0.75"/>
   <circle cx="37" cy="16" r="4.5" fill="#d9a026" opacity="0.75"/>
   <circle cx="54" cy="16" r="4.5" fill="#33a852" opacity="0.75"/>
-  <text class="bar" x="450" y="20" text-anchor="middle">abdallah@embedded  ~  %  ./profile<tspan class="blink" fill="#58a6ff"> &#9608;</tspan></text>
+  <text class="bar" x="450" y="20" text-anchor="middle">shehawey@embedded  ~  %  ./profile<tspan class="blink" fill="#58a6ff"> &#9608;</tspan></text>
   <circle class="pulse" cx="797" cy="16" r="3.4" fill="{C['live']}"/>
   <text class="live" x="808" y="19.5">BUILDING</text>
 

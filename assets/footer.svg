@@ -36,13 +36,13 @@
 
 
   <!-- terminal session line -->
-  <text class="prompt" x="30" y="38">abdallah@embedded  ~  % </text>
+  <text class="prompt" x="30" y="38">shehawey@embedded  ~  % </text>
   <text class="cmd" x="282" y="38">echo</text>
   <text class="arg" x="318" y="38">"Thanks for visiting!"</text>
   <text class="ok" x="30" y="58">Thanks for visiting!</text>
 
   <!-- exit prompt -->
-  <text class="prompt" x="30" y="82">abdallah@embedded  ~  % </text>
+  <text class="prompt" x="30" y="82">shehawey@embedded  ~  % </text>
   <text class="cmd" x="282" y="82">exit</text>
   <text class="arg" x="318" y="82">0</text>
   <text class="blink cmd" x="330" y="82">█</text>
