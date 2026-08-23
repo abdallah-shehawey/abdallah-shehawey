@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
     <source media="(max-width: 760px)" srcset="assets/banner-mobile.svg?v=f415c9215d">
-    <img src="assets/banner.svg?v=e534804c18" width="900" alt="Abdallah Shehawey — Embedded Software Engineer" />
+    <img src="assets/banner.svg?v=402c7f3449" width="900" alt="Abdallah Shehawey — Embedded Software Engineer" />
   </picture>
 </p>
 
@@ -129,5 +129,8 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
 ---
 
 <p align="center">
-  <img src="assets/footer.svg" width="900" alt="Thanks for visiting!" />
+  <picture>
+    <source media="(max-width: 760px)" srcset="assets/footer-mobile.svg?v=62cc9a53ab">
+    <img src="assets/footer.svg?v=67ef5b272c" width="900" alt="Thanks for visiting!" />
+  </picture>
 </p>

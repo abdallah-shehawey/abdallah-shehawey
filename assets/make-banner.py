@@ -144,7 +144,7 @@ MONO = ("ui-monospace,'SF Mono','JetBrains Mono','Fira Code',"
 # monospace are unreadable.
 DESKTOP = dict(
     out="banner.svg", W=900, H=556, bar_h=34, foot_y=516, foot_text=540,
-    cols=84, rows=82, scanlines=True, art_bands=1,
+    cols=84, rows=82, scanlines=True, art_bands=1, glyph_x=True,
     art=(28.0, 76.0, 316.0, 409.0),
     pa=(14, 46, 344, 454), pb=(370, 46, 516, 454),
     kx=394, lx0=478, lx1=530, vx=538, line=20.0, start=104.0, rule_x2=874,
@@ -153,7 +153,7 @@ DESKTOP = dict(
 )
 MOBILE = dict(
     out="banner-mobile.svg", W=440, H=940, bar_h=30, foot_y=898, foot_text=920,
-    cols=84, rows=82, scanlines=False, art_bands=8,
+    cols=84, rows=82, scanlines=False, art_bands=8, glyph_x=False,
     art=(64.0, 70.0, 312.0, 404.0),
     pa=(10, 40, 420, 448), pb=(10, 500, 420, 386),
     kx=30, lx0=112, lx1=148, vx=156, line=17.0, start=544.0, rule_x2=412,
@@ -166,26 +166,44 @@ INK = ((0xf0, 0xf6, 0xfc), (0x79, 0xc0, 0xff))   # art gradient, top-left -> bot
 
 
 def art_svg(art, L):
-    """The ASCII grid as text runs, one per row.
+    """The ASCII grid. Two ways of writing it, and the layout picks.
 
-    Two measurements shape this, both taken with the SVG in an <img> and the
-    CPU throttled 4x, counting raster time over 3s of animation:
+    `glyph_x` gives every glyph its own absolute x and drops the spaces. It is
+    the only form that is completely immune to whatever font the reader's
+    browser forces on the document -- the grid cannot drift, because nothing
+    about it comes from the font. It is also by far the most expensive thing
+    to rasterise, and GitHub serves this inside an <img>, where the scanner
+    sweep redraws the whole image every frame: 5033ms of raster per 3s against
+    893ms, measured on a phone profile at 4x CPU throttle and dpr3.
 
-    * per-glyph absolute x cost 5015ms against 790ms for one run per row.
-    * a gradient fill across the whole grid cost 885ms against 776ms flat.
+    So the desktop card keeps it -- a laptop can afford it, and the owner
+    browses with a forced font -- and the phone card takes one run per row
+    instead, with the cell width coming from letter-spacing. That lands on the
+    same grid for any face with the usual 0.6em advance and drifts only a few
+    percent for one that does not.
 
-    So: one run per row, and the cell width comes from letter-spacing rather
-    than from textLength. textLength pins the width exactly, but both of its
-    modes are worse: lengthAdjust="spacing" places every glyph by hand and
-    costs 2438ms, and "spacingAndGlyphs" scales the run, which welds runs of
-    = and / into solid rules and smears the portrait. letter-spacing lands on
-    the same grid for any font whose advance is the usual 0.6em, and drifts
-    only a few percent for one that isn't. `art_bands` fakes the ink gradient
-    with flat-filled bands, which reads identically at this size.
+    textLength would pin the width exactly and was tried both ways, but each
+    mode is worse than either of these: lengthAdjust="spacing" places every
+    glyph by hand for 2438ms, and "spacingAndGlyphs" scales the run, which
+    welds runs of = and / into solid rules and smears the portrait.
     """
     ax, ay, aw, ah = L["art"]
     cols, rows = L["cols"], L["rows"]
     cw, ch = aw / cols, ah / rows
+    fs = round(ch * 0.96, 2)
+
+    if L.get("glyph_x"):
+        out = []
+        for r, line in enumerate(art):
+            xs = [f"{round(ax + c * cw, 2):g}"
+                  for c, ch_ in enumerate(line) if ch_ != " "]
+            glyphs = line.replace(" ", "")
+            if not glyphs:
+                continue
+            out.append(f'<text x="{" ".join(xs)}" '
+                       f'y="{round(ay + (r + 0.82) * ch, 2):g}">{escape(glyphs)}</text>')
+        return '<g class="art">\n      ' + "\n      ".join(out) + "\n    </g>", fs, None
+
     runs = []
     for r, line in enumerate(art):
         run = line.rstrip()
@@ -201,6 +219,8 @@ def art_svg(art, L):
     if bands <= 1:
         body = ['<text class="art">\n      ' + "\n      ".join(runs) + "\n    </text>"]
     else:
+        # A gradient across five thousand glyphs costs 885ms of raster per 3s
+        # where flat fills cost 776ms. Bands read identically at this size.
         body = []
         for i in range(bands):
             chunk = runs[i * len(runs) // bands:(i + 1) * len(runs) // bands]
@@ -211,7 +231,6 @@ def art_svg(art, L):
                                           for a, b in zip(*INK))
             body.append(f'<text class="art" fill="{col}">\n      '
                         + "\n      ".join(chunk) + "\n    </text>")
-    fs = round(ch * 0.96, 2)
     return "\n    ".join(body), fs, round(cw - fs * MONO_ADVANCE, 3)
 
 
@@ -261,6 +280,7 @@ def render(L, art):
     SCANLINES = (f'<rect width="{W}" height="{H}" rx="18" fill="url(#scanlines)"/>\n'
                  ) if scanlines else ""
     ART_FILL = "fill: url(#ink); " if L.get("art_bands", 1) <= 1 else ""
+    ART_LS = "" if LS is None else f"letter-spacing: {LS}px; "
 
     live = ""
     if L["live_cx"] is not None:
@@ -306,7 +326,7 @@ def render(L, art):
     text {{ font-family: {MONO}; white-space: pre; }}
     .bar  {{ font-size: {f['bar']}px;  fill: #8b949e; }}
     .lbl  {{ font-size: {f['lbl']}px;  fill: #6e7b8b; letter-spacing: 1.5px; }}
-    .art  {{ font-size: {FS}px; letter-spacing: {LS}px; {ART_FILL}}}
+    .art  {{ font-size: {FS}px; {ART_LS}{ART_FILL}}}
     .hd   {{ font-size: {f['hd']}px;   fill: #f0f6fc; font-weight: 600; }}
     .sc   {{ font-size: {f['sc']}px;   fill: #8b949e; letter-spacing: 0.6px; }}
     .k    {{ font-size: {f['kv']}px;   fill: #58a6ff; font-weight: 600; }}
@@ -380,6 +400,81 @@ def render(L, art):
 '''
 
 
+# ------------------------------------------------------------------ footer
+# The sign-off strip under the README. Same two-variant treatment as the card:
+# at 900px wide, 11px type shrinks to under 5 CSS px on a phone and is simply
+# not readable, so the phone gets its own narrower box with larger type.
+SIGNOFF = 'echo "Thanks for visiting!"'
+TAGLINE = ("BUILT WITH PASSION", "POWERED BY CAFFEINE", "DEBUGGED WITH PATIENCE")
+SHELL = "shehawey@embedded  ~  %  "
+
+FOOT_WIDE = dict(out="footer.svg", W=900, H=140, x0=30, fs=13, dim=10.5,
+                 dim_ls=2.0, rows=(40, 66, 94), sep=112, tags=((126, TAGLINE),))
+FOOT_NARROW = dict(out="footer-mobile.svg", W=440, H=172, x0=20, fs=12, dim=9.5,
+                   dim_ls=1.4, rows=(38, 64, 92), sep=112,
+                   tags=((134, TAGLINE[:2]), (154, TAGLINE[2:])))
+
+
+def footer_svg(L):
+    W, H, x0, fs = L["W"], L["H"], L["x0"], L["fs"]
+    adv = fs * MONO_ADVANCE
+    cx = x0 + len(SHELL) * adv                 # where the command starts
+    ax = cx + 5 * adv                          # ...and where its argument does
+    r1, r2, r3 = L["rows"]
+    tags = "\n  ".join(
+        f'<text class="dim" x="{W/2:g}" y="{y}" text-anchor="middle">'
+        f'{"  &#183;  ".join(parts)}</text>' for y, parts in L["tags"])
+
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}"
+     viewBox="0 0 {W} {H}" role="img" aria-label="Profile Footer">
+  <title>Profile Footer</title>
+
+  <defs>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e60c8" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#1e60c8" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="clip"><rect width="{W}" height="{H}" rx="12"/></clipPath>
+  </defs>
+
+  <style>
+    text {{ font-family: {MONO}; white-space: pre; }}
+    .prompt {{ font-size: {fs}px; fill: #5b6b80; }}
+    .cmd    {{ font-size: {fs}px; fill: #58a6ff; }}
+    .arg    {{ font-size: {fs}px; fill: #c5d2e0; }}
+    .ok     {{ font-size: {fs}px; fill: #3fb950; }}
+    .dim    {{ font-size: {L["dim"]}px; fill: #31435a; letter-spacing: {L["dim_ls"]}px; }}
+    .dot    {{ stroke: #2b3a4d; stroke-width: 1; stroke-dasharray: 1.5 3.5;
+               stroke-linecap: round; }}
+
+    .blink  {{ animation: blink 1.15s steps(1) infinite; }}
+    @keyframes blink {{ 0%,49% {{ opacity: 1 }} 50%,100% {{ opacity: 0 }} }}
+    @media (prefers-reduced-motion: reduce) {{ .blink {{ animation: none; }} }}
+  </style>
+
+  <rect width="{W}" height="{H}" rx="12" fill="#070b10"/>
+  <g clip-path="url(#clip)">
+    <rect width="{W}" height="{H}" fill="#0b1017"/>
+    <rect width="{W}" height="{H}" fill="url(#glow)"/>
+  </g>
+  <rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="12" fill="none" stroke="#182231"/>
+
+  <text class="prompt" x="{x0}" y="{r1}">{SHELL}</text>
+  <text class="cmd" x="{cx:g}" y="{r1}">echo</text>
+  <text class="arg" x="{ax:g}" y="{r1}">&#34;Thanks for visiting!&#34;</text>
+  <text class="ok" x="{x0}" y="{r2}">Thanks for visiting!</text>
+
+  <text class="prompt" x="{x0}" y="{r3}">{SHELL}</text>
+  <text class="cmd" x="{cx:g}" y="{r3}">exit</text>
+  <text class="arg" x="{ax:g}" y="{r3}">0</text>
+  <text class="blink cmd" x="{ax + 2 * adv:g}" y="{r3}">&#9608;</text>
+
+  <line class="dot" x1="{x0}" y1="{L["sep"]}" x2="{W-x0}" y2="{L["sep"]}"/>
+  {tags}
+</svg>
+'''
+
+
 def main():
     grids = {}
     stamps = {}
@@ -390,6 +485,13 @@ def main():
         svg = render(L, grids[key])
         path = os.path.join(HERE, L["out"])
         with open(path, "w") as fh:
+            fh.write(svg)
+        stamps[L["out"]] = hashlib.sha256(svg.encode()).hexdigest()[:10]
+        print(f"wrote {L['out']}  ({len(svg)/1024:.1f} KB, {L['W']}x{L['H']})")
+
+    for L in (FOOT_WIDE, FOOT_NARROW):
+        svg = footer_svg(L)
+        with open(os.path.join(HERE, L["out"]), "w") as fh:
             fh.write(svg)
         stamps[L["out"]] = hashlib.sha256(svg.encode()).hexdigest()[:10]
         print(f"wrote {L['out']}  ({len(svg)/1024:.1f} KB, {L['W']}x{L['H']})")

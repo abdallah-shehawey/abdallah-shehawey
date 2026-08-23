@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="120"
-     viewBox="0 0 900 120" role="img"
-     aria-label="Profile Footer">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="140"
+     viewBox="0 0 900 140" role="img" aria-label="Profile Footer">
   <title>Profile Footer</title>
 
   <defs>
@@ -8,46 +7,41 @@
       <stop offset="0" stop-color="#1e60c8" stop-opacity="0.08"/>
       <stop offset="1" stop-color="#1e60c8" stop-opacity="0"/>
     </linearGradient>
-    <clipPath id="clip"><rect width="900" height="120" rx="12"/></clipPath>
+    <clipPath id="clip"><rect width="900" height="140" rx="12"/></clipPath>
   </defs>
 
   <style>
     text { font-family: ui-monospace,'SF Mono','JetBrains Mono','Fira Code','DejaVu Sans Mono',Menlo,Consolas,monospace; white-space: pre; }
-    .prompt { font-size: 11px; fill: #5b6b80; }
-    .cmd    { font-size: 11px; fill: #58a6ff; }
-    .arg    { font-size: 11px; fill: #c5d2e0; }
-    .ok     { font-size: 11px; fill: #3fb950; }
-    .dim    { font-size: 9px;  fill: #31435a; letter-spacing: 1.8px; }
-    .sep    { stroke: #1d2937; stroke-width: 1; }
-    .dot    { stroke: #2b3a4d; stroke-width: 1; stroke-dasharray: 1.5 3.5; stroke-linecap: round; }
+    .prompt { font-size: 13px; fill: #5b6b80; }
+    .cmd    { font-size: 13px; fill: #58a6ff; }
+    .arg    { font-size: 13px; fill: #c5d2e0; }
+    .ok     { font-size: 13px; fill: #3fb950; }
+    .dim    { font-size: 10.5px; fill: #31435a; letter-spacing: 2.0px; }
+    .dot    { stroke: #2b3a4d; stroke-width: 1; stroke-dasharray: 1.5 3.5;
+               stroke-linecap: round; }
 
     .blink  { animation: blink 1.15s steps(1) infinite; }
     @keyframes blink { 0%,49% { opacity: 1 } 50%,100% { opacity: 0 } }
     @media (prefers-reduced-motion: reduce) { .blink { animation: none; } }
   </style>
 
-  <!-- background -->
-  <rect width="900" height="120" rx="12" fill="#070b10"/>
+  <rect width="900" height="140" rx="12" fill="#070b10"/>
   <g clip-path="url(#clip)">
-    <rect width="900" height="120" fill="#0b1017"/>
-    <rect width="900" height="120" fill="url(#glow)"/>
+    <rect width="900" height="140" fill="#0b1017"/>
+    <rect width="900" height="140" fill="url(#glow)"/>
   </g>
-  <rect x="0.5" y="0.5" width="899" height="119" rx="12" fill="none" stroke="#182231"/>
+  <rect x="0.5" y="0.5" width="899" height="139" rx="12" fill="none" stroke="#182231"/>
 
+  <text class="prompt" x="30" y="40">shehawey@embedded  ~  %  </text>
+  <text class="cmd" x="225" y="40">echo</text>
+  <text class="arg" x="264" y="40">&#34;Thanks for visiting!&#34;</text>
+  <text class="ok" x="30" y="66">Thanks for visiting!</text>
 
-  <!-- terminal session line -->
-  <text class="prompt" x="30" y="38">shehawey@embedded  ~  % </text>
-  <text class="cmd" x="282" y="38">echo</text>
-  <text class="arg" x="318" y="38">"Thanks for visiting!"</text>
-  <text class="ok" x="30" y="58">Thanks for visiting!</text>
+  <text class="prompt" x="30" y="94">shehawey@embedded  ~  %  </text>
+  <text class="cmd" x="225" y="94">exit</text>
+  <text class="arg" x="264" y="94">0</text>
+  <text class="blink cmd" x="279.6" y="94">&#9608;</text>
 
-  <!-- exit prompt -->
-  <text class="prompt" x="30" y="82">shehawey@embedded  ~  % </text>
-  <text class="cmd" x="282" y="82">exit</text>
-  <text class="arg" x="318" y="82">0</text>
-  <text class="blink cmd" x="330" y="82">█</text>
-
-  <!-- bottom tagline -->
-  <line class="dot" x1="30" y1="102" x2="870" y2="102"/>
-  <text class="dim" x="450" y="115" text-anchor="middle">BUILT WITH PASSION  ·  POWERED BY CAFFEINE  ·  DEBUGGED WITH PATIENCE</text>
+  <line class="dot" x1="30" y1="112" x2="870" y2="112"/>
+  <text class="dim" x="450" y="126" text-anchor="middle">BUILT WITH PASSION  &#183;  POWERED BY CAFFEINE  &#183;  DEBUGGED WITH PATIENCE</text>
 </svg>
