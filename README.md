@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.svg" width="900" alt="Abdallah Shehawey — Embedded Software Engineer" />
+  <img src="assets/banner.svg?v=68700607f3" width="900" alt="Abdallah Shehawey — Embedded Software Engineer" />
 </p>
 
 <p align="center">

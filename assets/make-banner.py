@@ -18,7 +18,9 @@ Two things here are deliberate and easy to break:
   its density: present as a backdrop, never competing.
 """
 
+import hashlib
 import os
+import re
 from xml.sax.saxutils import escape
 
 import numpy as np
@@ -27,6 +29,7 @@ from PIL import Image, ImageDraw, ImageFilter
 HERE = os.path.dirname(os.path.abspath(__file__))
 PHOTO = os.path.join(HERE, "portrait.jpg")
 OUT = os.path.join(HERE, "banner.svg")
+README = os.path.join(HERE, os.pardir, "README.md")
 
 # --------------------------------------------------------------------- art
 # Ramp ordered by measured ink coverage of each glyph, not by guesswork —
@@ -266,7 +269,20 @@ def main():
 '''
     with open(OUT, "w") as fh:
         fh.write(svg)
+
+    # GitHub caches README images by URL, so a rewritten banner.svg keeps
+    # serving the old picture for hours. Stamp the README's <img> with a hash
+    # of the file: new content, new URL, no stale banner.
+    digest = hashlib.sha256(svg.encode()).hexdigest()[:10]
+    with open(README) as fh:
+        readme = fh.read()
+    stamped, n = re.subn(r'(src="assets/banner\.svg)(\?v=[0-9a-f]+)?"',
+                         f'\\1?v={digest}"', readme)
+    if n:
+        with open(README, "w") as fh:
+            fh.write(stamped)
     print(f"wrote {OUT}  ({len(svg) / 1024:.1f} KB, {COLS}x{ROWS} ASCII grid)")
+    print(f"stamped README with ?v={digest} ({n} reference)")
 
 
 if __name__ == "__main__":
