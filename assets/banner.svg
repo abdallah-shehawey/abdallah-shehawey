@@ -164,35 +164,38 @@
       <text class="k" x="394" y="184">Mode:</text>
       <line class="ld" x1="478" y1="181" x2="530" y2="181"/>
       <text class="v" x="538" y="184">Bare-Metal / RTOS / Embedded Linux</text>
-      <text class="sc" x="384" y="220">- BUILD.FOCUS</text>
-      <line class="rl" x1="509.6" y1="216" x2="874" y2="216"/>
-      <text class="k" x="394" y="240">MCU:</text>
-      <line class="ld" x1="478" y1="237" x2="530" y2="237"/>
-      <text class="v" x="538" y="240">ARM Cortex-M, AVR, PIC</text>
-      <text class="k" x="394" y="260">RTOS:</text>
+      <text class="k" x="394" y="204">Writes:</text>
+      <line class="ld" x1="478" y1="201" x2="530" y2="201"/>
+      <text class="v" x="538" y="204">shinux.vercel.app / Notes from below the OS</text>
+      <text class="sc" x="384" y="240">- BUILD.FOCUS</text>
+      <line class="rl" x1="509.6" y1="236" x2="874" y2="236"/>
+      <text class="k" x="394" y="260">MCU:</text>
       <line class="ld" x1="478" y1="257" x2="530" y2="257"/>
-      <text class="v" x="538" y="260">FreeRTOS, scheduling, IPC</text>
-      <text class="k" x="394" y="280">Vehicle:</text>
+      <text class="v" x="538" y="260">ARM Cortex-M, AVR, PIC</text>
+      <text class="k" x="394" y="280">RTOS:</text>
       <line class="ld" x1="478" y1="277" x2="530" y2="277"/>
-      <text class="v" x="538" y="280">AUTOSAR, CAN, V2X safety</text>
-      <text class="k" x="394" y="300">Linux:</text>
+      <text class="v" x="538" y="280">FreeRTOS, scheduling, IPC</text>
+      <text class="k" x="394" y="300">Vehicle:</text>
       <line class="ld" x1="478" y1="297" x2="530" y2="297"/>
-      <text class="v" x="538" y="300">Yocto, drivers, Raspberry Pi</text>
-      <text class="sc" x="384" y="336">- TOOLCHAIN</text>
-      <line class="rl" x1="494.4" y1="332" x2="874" y2="332"/>
-      <text class="k" x="394" y="356">Code:</text>
-      <line class="ld" x1="478" y1="353" x2="530" y2="353"/>
-      <text class="v" x="538" y="356">C, C++, Python, Assembly</text>
-      <text class="k" x="394" y="376">IDE:</text>
+      <text class="v" x="538" y="300">AUTOSAR, CAN, LIN, V2X safety</text>
+      <text class="k" x="394" y="320">Linux:</text>
+      <line class="ld" x1="478" y1="317" x2="530" y2="317"/>
+      <text class="v" x="538" y="320">Yocto, QEMU, drivers, Raspberry Pi</text>
+      <text class="sc" x="384" y="356">- TOOLCHAIN</text>
+      <line class="rl" x1="494.4" y1="352" x2="874" y2="352"/>
+      <text class="k" x="394" y="376">Code:</text>
       <line class="ld" x1="478" y1="373" x2="530" y2="373"/>
-      <text class="v" x="538" y="376">CubeIDE, Keil uVision, Eclipse</text>
-      <text class="k" x="394" y="396">Debug:</text>
+      <text class="v" x="538" y="376">C, C++, Python, Assembly</text>
+      <text class="k" x="394" y="396">IDE:</text>
       <line class="ld" x1="478" y1="393" x2="530" y2="393"/>
-      <text class="v" x="538" y="396">JTAG, logic analyzer, scope</text>
-      <text class="k" x="394" y="416">Build:</text>
+      <text class="v" x="538" y="396">CubeIDE, Keil uVision, Eclipse</text>
+      <text class="k" x="394" y="416">Debug:</text>
       <line class="ld" x1="478" y1="413" x2="530" y2="413"/>
-      <text class="v" x="538" y="416">GCC, Make, Yocto, Git</text>
-      <text class="tg" x="384" y="458">FROM DATASHEET TO WORKING HARDWARE</text>
+      <text class="v" x="538" y="416">JTAG, logic analyzer, scope</text>
+      <text class="k" x="394" y="436">Build:</text>
+      <line class="ld" x1="478" y1="433" x2="530" y2="433"/>
+      <text class="v" x="538" y="436">GCC, Make, Yocto, Git</text>
+      <text class="tg" x="384" y="478">FROM BARE-METAL DRIVERS TO EMBEDDED LINUX</text>
 
   <line x1="0" y1="516" x2="900" y2="516" stroke="#182231"/>
   <text class="foot" x="450" y="540" text-anchor="middle">EMBEDDED SYSTEMS  /  AUTOMOTIVE  /  RTOS &amp; AUTOSAR  /  EMBEDDED LINUX</text>

@@ -124,12 +124,13 @@ INFO = [
     ("kv", "Role:", "Embedded Software Engineer"),
     ("kv", "Based:", "El Mahalla El Kubra, Gharbia, Egypt"),
     ("kv", "Mode:", "Bare-Metal / RTOS / Embedded Linux"),
+    ("kv", "Writes:", "shinux.vercel.app / Notes from below the OS"),
     ("gap", None, None),
     ("sec", "BUILD.FOCUS", None),
     ("kv", "MCU:", "ARM Cortex-M, AVR, PIC"),
     ("kv", "RTOS:", "FreeRTOS, scheduling, IPC"),
-    ("kv", "Vehicle:", "AUTOSAR, CAN, V2X safety"),
-    ("kv", "Linux:", "Yocto, drivers, Raspberry Pi"),
+    ("kv", "Vehicle:", "AUTOSAR, CAN, LIN, V2X safety"),
+    ("kv", "Linux:", "Yocto, QEMU, drivers, Raspberry Pi"),
     ("gap", None, None),
     ("sec", "TOOLCHAIN", None),
     ("kv", "Code:", "C, C++, Python, Assembly"),
@@ -137,7 +138,7 @@ INFO = [
     ("kv", "Debug:", "JTAG, logic analyzer, scope"),
     ("kv", "Build:", "GCC, Make, Yocto, Git"),
     ("gap", None, None),
-    ("tag", "FROM DATASHEET TO WORKING HARDWARE", None),
+    ("tag", "FROM BARE-METAL DRIVERS TO EMBEDDED LINUX", None),
 ]
 
 FOOTER = "EMBEDDED SYSTEMS  /  AUTOMOTIVE  /  RTOS &amp; AUTOSAR  /  EMBEDDED LINUX"

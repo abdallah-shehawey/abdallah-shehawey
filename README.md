@@ -14,14 +14,13 @@
 
 ## Hey, I'm Abdallah
 
-I'm an **embedded software engineer** based in El Mahalla El Kubra, Gharbia, Egypt. I work close to the
-metal — MCU drivers, real-time scheduling, and automotive safety systems — and I like
-taking a board from datasheet to something that actually drives.
+**Embedded Software Engineer** specializing in C/C++, RTOS, and hardware-software integration —
+from bare-metal drivers written from scratch to AUTOSAR and Embedded Linux, with a focus on the
+automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
 
 - 🎓 &nbsp; **Education** — Electronics & Communication Engineering, Al-Azhar University (Oct 2021 – May 2026) — Cumulative Grade: **Very Good**, graduation project: **Excellent**
-- 🚗 &nbsp; **Focus** — Embedded software with a concentration in the **automotive** field
 - 🌱 &nbsp; **Currently learning** — **AUTOSAR**, and **Embedded Linux** (Yocto, Linux kernel, Raspberry Pi)
-- ✍️ &nbsp; **Writing** — Linux and embedded notes on my blog, [shinux](https://shinux.vercel.app)
+- ✍️ &nbsp; **Writing** — [shinux](https://shinux.vercel.app), *notes from below the OS* — Embedded Linux, RTOS internals, and the road from firmware to the kernel
 - 🏆 &nbsp; **5-star C (Gold)** on HackerRank &nbsp;·&nbsp; fluent in Arabic & English
 
 ---
@@ -41,7 +40,9 @@ taking a board from datasheet to something that actually drives.
 
 <p>
   <img src="https://img.shields.io/badge/-ATmega32-333333?style=flat&logo=arduino" alt="ATmega32"/>
-  <img src="https://img.shields.io/badge/-AVR-333333?style=flat&logo=espressif" alt="AVR"/>
+  <img src="https://img.shields.io/badge/-AVR-333333?style=flat" alt="AVR"/>
+  <img src="https://img.shields.io/badge/-PIC-333333?style=flat" alt="PIC"/>
+  <img src="https://img.shields.io/badge/-ESP32-333333?style=flat&logo=espressif" alt="ESP32"/>
   <img src="https://img.shields.io/badge/-STM32-333333?style=flat&logo=stmicroelectronics&logoColor=03234B" alt="STM32"/>
   <img src="https://img.shields.io/badge/-ARM%20Cortex--M-333333?style=flat&logo=arm&logoColor=0091BD" alt="ARM Cortex-M"/>
   <img src="https://img.shields.io/badge/-FreeRTOS-333333?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iJTIzNENBRjUwIj48cGF0aCBkPSJNMTIgMEM1LjM3MyAwIDAgNS4zNzMgMCAxMnM1LjM3MyAxMiAxMiAxMiAxMi01LjM3MyAxMi0xMlMxOC42MjcgMCAxMiAwem0wIDMuNmE4LjQgOC40IDAgMSAxIDAgMTYuOCA4LjQgOC40IDAgMCAxIDAtMTYuOHptLTEuMiAzLjZ2OS42bDYtNC44LTYtNC44eiIvPjwvc3ZnPg==" alt="FreeRTOS"/>
@@ -66,6 +67,8 @@ taking a board from datasheet to something that actually drives.
   <img src="https://img.shields.io/badge/-Git-333333?style=flat&logo=git" alt="Git"/>
   <img src="https://img.shields.io/badge/-GitHub-333333?style=flat&logo=github" alt="GitHub"/>
   <img src="https://img.shields.io/badge/-Visual%20Studio%20Code-333333?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iJTIzMDA3QUNDIj48cGF0aCBkPSJNMjMuMTUgMi41ODdMMTguMjEuMjFhMS40OTQgMS40OTQgMCAwIDAtMS43MDUuMjlsLTkuNDYgOC42My00LjEyLTMuMTI4YS45OTkuOTk5IDAgMCAwLTEuMjc2LjA1N0wuMzI3IDcuMjYxQTEgMSAwIDAgMCAuMzI2IDguNzRMMy44OTkgMTIgLjMyNiAxNS4yNmExIDEgMCAwIDAgLjAwMSAxLjQ3OUwxLjY1IDE3Ljk0YS45OTkuOTk5IDAgMCAwIDEuMjc2LjA1N2w0LjEyLTMuMTI4IDkuNDYgOC42M2ExLjQ5MiAxLjQ5MiAwIDAgMCAxLjcwNC4yOWw0Ljk0Mi0yLjM3N0ExLjUgMS41IDAgMCAwIDI0IDIwLjA2VjMuOTM5YTEuNSAxLjUgMCAwIDAtLjg1LTEuMzUyem0tNS4xNDYgMTQuODYxTDEwLjgyNiAxMmw3LjE3OC01LjQ0OHYxMC44OTZ6Ii8+PC9zdmc+" alt="VS Code"/>
+  <img src="https://img.shields.io/badge/-STM32%20CubeIDE-333333?style=flat&logo=stmicroelectronics&logoColor=03234B" alt="STM32 CubeIDE"/>
+  <img src="https://img.shields.io/badge/-Keil%20uVision-333333?style=flat" alt="Keil uVision"/>
   <img src="https://img.shields.io/badge/-Eclipse-333333?style=flat&logo=eclipse-ide&logoColor=2C2255" alt="Eclipse"/>
   <img src="https://img.shields.io/badge/-Linux-333333?style=flat&logo=Linux&logoColor=FCC624" alt="Linux"/>
   <img src="https://img.shields.io/badge/-Ubuntu-333333?style=flat&logo=ubuntu" alt="Ubuntu"/>
