@@ -15,24 +15,31 @@
   <img src="https://komarev.com/ghpvc/?username=abdallah-shehawey&label=Profile%20views&color=58a6ff&style=flat" alt="Profile views"/>
 </p>
 
-### 👋 Hey, I'm Abdallah
+<p align="center">
+  <img src="assets/divider.svg?v=a80ccd500d" width="900" alt="" />
+</p>
+
+### <img src="assets/icons/user.svg?v=bb60fcbf51" width="21" alt="" /> Hey, I'm Abdallah
 
 **Embedded Software Engineer** specializing in C/C++, RTOS, and hardware-software integration —
 from bare-metal drivers written from scratch to AUTOSAR and Embedded Linux, with a focus on the
 automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
 
-- 🎓 &nbsp; **Education** — Electronics & Communication Engineering, Al-Azhar University (Oct 2021 – May 2026) — Cumulative Grade: **Very Good**, graduation project: **Excellent**
-- 🌱 &nbsp; **Currently learning** — **AUTOSAR**, and **Embedded Linux** (Yocto, Linux kernel, Raspberry Pi)
-- 🐧 &nbsp; **Daily driver** — **Fedora Linux**, GNU userland, `zsh` — I live in the terminal
-- 📦 &nbsp; **Maintaining** — [shinux-Repo](https://abdallah-shehawey.github.io/shinux/), a GPG-signed **dnf + apt** package repository
-- ✍️ &nbsp; **Writing** — [shinux-blog](https://shinux.vercel.app), *notes from below the OS* — Embedded Linux, RTOS internals, and the road from firmware to the kernel
-- 🏆 &nbsp; **5-star C (Gold)** on HackerRank &nbsp;·&nbsp; fluent in Arabic & English
+<p>
+<img src="assets/icons/graduation.svg?v=3bb43ec9f0" width="17" alt="" /> &nbsp; <strong>Education</strong> — Electronics & Communication Engineering, Al-Azhar University (Oct 2021 – May 2026) — Cumulative Grade: <strong>Very Good</strong>, graduation project: <strong>Excellent</strong><br/>
+<img src="assets/icons/book.svg?v=25a8974d15" width="17" alt="" /> &nbsp; <strong>Currently learning</strong> — <strong>AUTOSAR</strong>, and <strong>Embedded Linux</strong> (Yocto, Linux kernel, Raspberry Pi)<br/>
+<img src="assets/icons/terminal.svg?v=ed931b0ca7" width="17" alt="" /> &nbsp; <strong>Daily driver</strong> — <strong>Fedora Linux</strong>, GNU userland, <code>zsh</code> — I live in the terminal<br/>
+<img src="assets/icons/package.svg?v=0c0936a8b4" width="17" alt="" /> &nbsp; <strong>Maintaining</strong> — <a href="https://abdallah-shehawey.github.io/shinux/">shinux-Repo</a>, a GPG-signed <strong>dnf + apt</strong> package repository<br/>
+<img src="assets/icons/pen.svg?v=89d1236162" width="17" alt="" /> &nbsp; <strong>Writing</strong> — <a href="https://shinux.vercel.app">shinux-blog</a>, <em>notes from below the OS</em> — Embedded Linux, RTOS internals, and the road from firmware to the kernel<br/>
+<img src="assets/icons/star.svg?v=9278e869c4" width="17" alt="" /> &nbsp; <strong>5-star C (Gold)</strong> on HackerRank &nbsp;·&nbsp; fluent in Arabic & English
+
+</p>
 
 <p align="center">
   <img src="assets/divider.svg?v=a80ccd500d" width="900" alt="" />
 </p>
 
-### 🛠️ Skills & Tools
+### <img src="assets/icons/cpu.svg?v=b4a788d2e3" width="21" alt="" /> Skills & Tools
 
 **Languages**
 
@@ -116,16 +123,19 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
   <img src="assets/divider.svg?v=a80ccd500d" width="900" alt="" />
 </p>
 
-### 💡 Goals
+### <img src="assets/icons/target.svg?v=49f9bc520b" width="21" alt="" /> Goals
 
-- 🌍 &nbsp; Grow into a skilled embedded engineer on an international team building automotive solutions
-- 📈 &nbsp; Keep deepening my embedded systems expertise and explore advanced topics in the field
+<p>
+<img src="assets/icons/globe.svg?v=e3684f694c" width="17" alt="" /> &nbsp; Grow into a skilled embedded engineer on an international team building automotive solutions<br/>
+<img src="assets/icons/trending.svg?v=fac9188e0c" width="17" alt="" /> &nbsp; Keep deepening my embedded systems expertise and explore advanced topics in the field
+
+</p>
 
 <p align="center">
   <img src="assets/divider.svg?v=a80ccd500d" width="900" alt="" />
 </p>
 
-### 📊 GitHub Stats
+### <img src="assets/icons/chart.svg?v=29647211f4" width="21" alt="" /> GitHub Stats
 
 <p align="center">
   <img height="165" src="https://github-readme-stats-fjlm.vercel.app/api?username=abdallah-shehawey&show_icons=true&bg_color=0b1017&title_color=58a6ff&text_color=c5d2e0&icon_color=3fb950&border_color=182231" alt="GitHub Stats"/>

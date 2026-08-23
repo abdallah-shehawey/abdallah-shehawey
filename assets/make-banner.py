@@ -520,6 +520,48 @@ def divider_svg(L):
 '''
 
 
+# ------------------------------------------------------------------- icons
+# The bullets and section headings used stock emoji, which render in whatever
+# each platform's emoji font decides and never match anything else here. These
+# are 24px line icons in the one accent instead -- same colour and weight as
+# the divider, and readable on GitHub's dark and light themes alike.
+ICON_ACCENT = "#58a6ff"
+ICONS = {
+    "user": '<circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/>',
+    "graduation": '<path d="M2.5 9 12 4.4 21.5 9 12 13.6 2.5 9Z"/>'
+                  '<path d="M6.6 11v5.2c0 1.5 2.4 2.9 5.4 2.9s5.4-1.4 5.4-2.9V11"/>',
+    "book": '<path d="M12 6.8C10.4 5.4 8.3 4.7 5.6 4.7H2.8v13.1h2.8c2.7 0 4.8.7 6.4 2.1"/>'
+            '<path d="M12 6.8c1.6-1.4 3.7-2.1 6.4-2.1h2.8v13.1h-2.8c-2.7 0-4.8.7-6.4 2.1"/>'
+            '<path d="M12 6.8V20"/>',
+    "terminal": '<rect x="2.6" y="4.4" width="18.8" height="15.2" rx="2.4"/>'
+                '<path d="m7 9.6 3 2.9-3 2.9"/><path d="M12.8 15.4h4.4"/>',
+    "package": '<path d="m12 3 8.5 4.6v8.8L12 21l-8.5-4.6V7.6L12 3Z"/>'
+               '<path d="m3.7 7.7 8.3 4.5 8.3-4.5"/><path d="M12 12.2V21"/>',
+    "pen": '<path d="M4 20.2h4.2L20 8.4a2.9 2.9 0 0 0-4.1-4.1L4 16v4.2Z"/>'
+           '<path d="m14.4 5.9 3.7 3.7"/>',
+    "star": '<path d="m12 3.1 2.78 5.63 6.22.9-4.5 4.39 1.06 6.19L12 17.29 '
+            '6.44 20.21 7.5 14.02 3 9.63l6.22-.9L12 3.1Z"/>',
+    "cpu": '<rect x="6.2" y="6.2" width="11.6" height="11.6" rx="1.6"/>'
+           '<rect x="9.6" y="9.6" width="4.8" height="4.8" rx="0.8"/>'
+           '<path d="M9.5 2.6v3.6M14.5 2.6v3.6M9.5 17.8v3.6M14.5 17.8v3.6'
+           'M2.6 9.5h3.6M2.6 14.5h3.6M17.8 9.5h3.6M17.8 14.5h3.6"/>',
+    "target": '<circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="4.6"/>'
+              '<circle cx="12" cy="12" r="1.4" fill="' + ICON_ACCENT + '" stroke="none"/>',
+    "globe": '<circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2"/>'
+             '<path d="M12 3.4c2.3 2.4 3.6 5.4 3.6 8.6S14.3 18.2 12 20.6'
+             'C9.7 18.2 8.4 15.2 8.4 12S9.7 5.8 12 3.4Z"/>',
+    "trending": '<path d="m3.5 16.8 5.6-5.6 3.6 3.6 7.8-7.8"/><path d="M15.4 7h5.1v5.1"/>',
+    "chart": '<path d="M4 20.4h16"/><path d="M7.6 20.4v-6.2M12 20.4V6.4M16.4 20.4v-9.4"/>',
+}
+
+
+def icon_svg(body):
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" '
+            f'viewBox="0 0 24 24" fill="none" stroke="{ICON_ACCENT}" '
+            f'stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" '
+            f'role="presentation" aria-hidden="true">{body}</svg>\n')
+
+
 def main():
     grids = {}
     stamps = {}
@@ -533,6 +575,15 @@ def main():
             fh.write(svg)
         stamps[L["out"]] = hashlib.sha256(svg.encode()).hexdigest()[:10]
         print(f"wrote {L['out']}  ({len(svg)/1024:.1f} KB, {L['W']}x{L['H']})")
+
+    icons_dir = os.path.join(HERE, "icons")
+    os.makedirs(icons_dir, exist_ok=True)
+    for name, body in ICONS.items():
+        svg = icon_svg(body)
+        with open(os.path.join(icons_dir, f"{name}.svg"), "w") as fh:
+            fh.write(svg)
+        stamps[f"icons/{name}.svg"] = hashlib.sha256(svg.encode()).hexdigest()[:10]
+    print(f"wrote {len(ICONS)} icons in assets/icons/")
 
     svg = divider_svg(DIVIDER)
     with open(os.path.join(HERE, DIVIDER["out"]), "w") as fh:
