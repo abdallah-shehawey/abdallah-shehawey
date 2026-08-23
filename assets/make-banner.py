@@ -16,7 +16,7 @@ import urllib.request
 from xml.sax.saxutils import escape
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageFilter, ImageOps
+from PIL import Image, ImageDraw, ImageFilter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 AVATAR_URL = "https://github.com/abdallah-shehawey.png?size=460"
@@ -24,9 +24,10 @@ AVATAR = os.path.join(HERE, ".avatar-cache.png")
 OUT = os.path.join(HERE, "banner.svg")
 
 # --------------------------------------------------------------------- art
-RAMP = " .:-=+*#%@"
-COLS, ROWS = 52, 37
-CROP = (63, 24, 319, 268)          # subject box in the 460x460 avatar
+# Ramp ordered by measured ink coverage of each glyph in a monospace face.
+RAMP = " `.'~!;/=|ltsnXaw8mMQB@$"
+COLS, ROWS = 56, 56
+CROP = (112, 18, 252, 205)         # head and shoulders in the 460x460 avatar
 
 # Subject outline, traced by hand in avatar pixels. Everything outside is
 # dropped, which is what keeps the busy photo background out of the ASCII.
@@ -42,9 +43,9 @@ FIGURE = [
     (145, 57),
 ]
 
-FEATHER, BLUR, GAMMA = 4, 0.6, 1.15
-FLOOR, W_TONE, W_EDGE = 0.24, 0.58, 0.42
-P_LO, P_HI, CUT = 1, 97, 0.05
+FEATHER, BLUR, GAMMA = 3, 0.25, 1.0
+L_SIGMA, L_STRENGTH, L_MIX = 0.10, 2.5, 0.85
+P_LO, P_HI, CUT = 1, 99, 0.03
 
 
 def ascii_portrait():
@@ -56,34 +57,40 @@ def ascii_portrait():
     ImageDraw.Draw(mask).polygon(FIGURE, fill=255)
     mask = mask.filter(ImageFilter.GaussianBlur(FEATHER)).crop(CROP)
 
-    gray = ImageOps.autocontrast(rgb.convert("L"), cutoff=1)
-    gray = gray.crop(CROP).filter(ImageFilter.GaussianBlur(BLUR))
+    gray = rgb.convert("L").crop(CROP).filter(ImageFilter.GaussianBlur(BLUR))
 
-    g = np.asarray(gray.resize((COLS, ROWS), Image.LANCZOS), np.float32) / 255.0
-    m = np.asarray(mask.resize((COLS, ROWS), Image.LANCZOS), np.float32) / 255.0
+    g = np.asarray(gray, np.float32) / 255.0
 
-    # Stretch tones over the subject's own range only, or the dark suit clips
-    # to a solid block of '@'.
-    inside = g[m > 0.5]
+    # Local contrast: subtract a heavily blurred copy so the lit face and the
+    # near-black suit each get the whole ramp instead of sharing one range.
+    # Without this the face flattens into blank space and stops being a face.
+    sigma = L_SIGMA * (CROP[2] - CROP[0])
+    lp = np.asarray(Image.fromarray((g * 255).astype(np.uint8))
+                    .filter(ImageFilter.GaussianBlur(sigma)), np.float32) / 255.0
+    flat = np.clip(0.5 + L_STRENGTH * (g - lp), 0, 1)
+    tone = np.clip(L_MIX * flat + (1 - L_MIX) * g, 0, 1)
+
+    def cells(a):
+        return np.asarray(Image.fromarray((np.clip(a, 0, 1) * 255).astype(np.uint8))
+                          .resize((COLS, ROWS), Image.LANCZOS), np.float32) / 255.0
+
+    t, m = cells(tone), cells(np.asarray(mask, np.float32) / 255.0)
+
+    inside = t[m > 0.5]
     lo, hi = np.percentile(inside, P_LO), np.percentile(inside, P_HI)
-    g = np.clip((g - lo) / max(hi - lo, 1e-6), 0, 1)
+    t = np.clip((t - lo) / max(hi - lo, 1e-6), 0, 1)
 
-    tone = np.clip(1.0 - g, 0, 1) ** GAMMA          # dark clothing -> dense
-    gy, gx = np.gradient(g)
-    edge = np.hypot(gx, gy)
-    edge = np.clip(edge / max(np.percentile(edge[m > 0.5], 96), 1e-6), 0, 1)
-
-    dens = np.clip((FLOOR + W_TONE * tone + W_EDGE * edge) * m, 0, 1)
+    dens = np.clip(1.0 - t, 0, 1) ** GAMMA * m
     dens[dens < CUT] = 0.0
     idx = (dens * (len(RAMP) - 1)).round().astype(int)
     return ["".join(RAMP[i] for i in row) for row in idx]
 
 
 # ------------------------------------------------------------------ layout
-W, H = 900, 440
-TITLE_H, FOOT_Y = 32, 400
-AX, AY, AW, AH = 24.0, 74.0, 316.0, 304.0
-KX, LX0, LX1, VX, LINE = 386, 452, 505, 512, 15.0
+W, H = 900, 520
+TITLE_H, FOOT_Y = 32, 480
+AX, AY, AW, AH = 26.0, 76.0, 280.0, 384.0     # art box, portrait orientation
+KX, LX0, LX1, VX, LINE = 356, 440, 492, 500, 18.0
 
 MONO = ("ui-monospace,'SF Mono','JetBrains Mono','Fira Code',"
         "'DejaVu Sans Mono',Menlo,Consolas,monospace")
@@ -97,7 +104,7 @@ INFO = [
     ("head", "abdallah@embedded", None),
     ("kv", "Name:", "Abdallah Shehawey"),
     ("kv", "Role:", "Embedded Software Engineer"),
-    ("kv", "Based:", "El Mahalla, Egypt"),
+    ("kv", "Based:", "El Mahalla El Kubra, Gharbia, Egypt"),
     ("kv", "Mode:", "Bare-Metal / RTOS / Automotive"),
     ("gap", None, None),
     ("sec", "BUILD.FOCUS", None),
@@ -106,12 +113,11 @@ INFO = [
     ("kv", "Vehicle:", "AUTOSAR, CAN, V2X safety"),
     ("kv", "Linux:", "Yocto, drivers, Raspberry Pi"),
     ("gap", None, None),
-    ("sec", "SELECTED.WORK", None),
-    ("kv", "V2X:", "Collision-avoidance vehicle"),
-    ("kv", "MDDS10:", "Motor-driver board firmware"),
-    ("kv", "RTOS-AVR:", "Scheduler built from scratch"),
-    ("kv", "STM32:", "Layered COTS driver stack"),
-    ("kv", "EECE:", "Faculty yearbook platform"),
+    ("sec", "ONLINE", None),
+    ("kv", "Site:", "abdallahshehawey.vercel.app"),
+    ("kv", "Blog:", "shinux.vercel.app"),
+    ("kv", "LinkedIn:", "in/abdallah-shehawey"),
+    ("kv", "GitHub:", "@abdallah-shehawey"),
     ("gap", None, None),
     ("tag", "FROM DATASHEET TO WORKING HARDWARE", None),
 ]
@@ -135,19 +141,19 @@ def art_svg(art):
 
 
 def info_svg():
-    out, y = [], 86.0
+    out, y = [], 98.0
     for kind, a, b in INFO:
         if kind == "gap":
-            y += LINE * 0.55
+            y += LINE * 0.8
             continue
         if kind == "head":
             out.append(f'<text class="hd" x="{KX-10}" y="{y:g}">{escape(a)}</text>')
-            out.append(f'<line class="rl" x1="{KX+126}" y1="{y-4:g}" x2="874" y2="{y-4:g}"/>')
+            out.append(f'<line class="rl" x1="{KX+134}" y1="{y-4:g}" x2="874" y2="{y-4:g}"/>')
         elif kind == "tag":
             out.append(f'<text class="tg" x="{KX-10}" y="{y+6:g}">{escape(a)}</text>')
         elif kind == "sec":
             out.append(f'<text class="sc" x="{KX-10}" y="{y:g}">- {escape(a)}</text>')
-            out.append(f'<line class="rl" x1="{KX+30+len(a)*7.2:g}" y1="{y-4:g}" '
+            out.append(f'<line class="rl" x1="{KX+32+len(a)*7.6:g}" y1="{y-4:g}" '
                        f'x2="874" y2="{y-4:g}"/>')
         else:
             out.append(f'<text class="k" x="{KX}" y="{y:g}">{escape(a)}</text>')
@@ -185,10 +191,10 @@ def main():
     .bar  {{ font-size: 10.5px; fill: {C['dim']}; }}
     .lbl  {{ font-size: 8.5px;  fill: {C['label']}; letter-spacing: 1.5px; }}
     .art  {{ font-size: {FS}px; fill: url(#ink); }}
-    .hd   {{ font-size: 11px;   fill: #e6edf6; font-weight: 600; }}
-    .sc   {{ font-size: 10px;   fill: {C['sec']}; letter-spacing: 0.6px; }}
-    .k    {{ font-size: 10.5px; fill: {C['key']}; }}
-    .v    {{ font-size: 10.5px; fill: {C['val']}; }}
+    .hd   {{ font-size: 12px;   fill: #e6edf6; font-weight: 600; }}
+    .sc   {{ font-size: 10.5px;   fill: {C['sec']}; letter-spacing: 0.6px; }}
+    .k    {{ font-size: 12px; fill: {C['key']}; }}
+    .v    {{ font-size: 12px; fill: {C['val']}; }}
     .rl   {{ stroke: {C['rule']}; stroke-width: 1; }}
     .ld   {{ stroke: #2b3a4d; stroke-width: 1; stroke-dasharray: 1.5 3.5;
              stroke-linecap: round; }}
@@ -223,19 +229,19 @@ def main():
   <text class="live" x="808" y="19.5">BUILDING</text>
 
   <!-- portrait -->
-  <rect x="14" y="46" width="336" height="340" rx="8" fill="{C['panel']}" stroke="{C['panel_edge']}"/>
+  <rect x="14" y="46" width="306" height="420" rx="8" fill="{C['panel']}" stroke="{C['panel_edge']}"/>
   <text class="lbl" x="26" y="64">PORTRAIT / ABDALLAH</text>
   <g class="art">
       {ART}
   </g>
 
   <!-- profile -->
-  <rect x="362" y="46" width="524" height="340" rx="8" fill="{C['panel']}" stroke="{C['panel_edge']}"/>
-  <text class="lbl" x="374" y="64">PROFILE / ENGINEER</text>
+  <rect x="332" y="46" width="554" height="420" rx="8" fill="{C['panel']}" stroke="{C['panel_edge']}"/>
+  <text class="lbl" x="344" y="64">PROFILE / ENGINEER</text>
       {BODY}
 
   <line x1="0" y1="{FOOT_Y}" x2="{W}" y2="{FOOT_Y}" stroke="{C['edge']}"/>
-  <text class="foot" x="450" y="424" text-anchor="middle">{FOOTER}</text>
+  <text class="foot" x="450" y="504" text-anchor="middle">{FOOTER}</text>
 </svg>
 '''
     with open(OUT, "w") as fh:

@@ -3,7 +3,9 @@
 </p>
 
 <p align="center">
-  <a href="https://abdallahshehawey.vercel.app">View Portfolio</a>
+  <a href="https://abdallahshehawey.vercel.app">Portfolio</a>
+  &nbsp;·&nbsp;
+  <a href="https://shinux.vercel.app">Blog</a>
   &nbsp;·&nbsp;
   <a href="https://www.linkedin.com/in/abdallah-shehawey">LinkedIn</a>
   &nbsp;·&nbsp;
@@ -12,26 +14,15 @@
 
 ## Hey, I'm Abdallah
 
-I'm an **embedded software engineer** based in El Mahalla, Egypt. I work close to the
+I'm an **embedded software engineer** based in El Mahalla El Kubra, Gharbia, Egypt. I work close to the
 metal — MCU drivers, real-time scheduling, and automotive safety systems — and I like
 taking a board from datasheet to something that actually drives.
 
 - 🎓 &nbsp; **Education** — Electronics & Communication Engineering, Al-Azhar University (Oct 2021 – May 2026) — Cumulative Grade: **Very Good**, graduation project: **Excellent**
 - 🚗 &nbsp; **Focus** — Embedded software with a concentration in the **automotive** field
 - 🌱 &nbsp; **Currently learning** — **AUTOSAR**, and **Embedded Linux** (Yocto, Linux kernel, Raspberry Pi)
+- ✍️ &nbsp; **Writing** — Linux and embedded notes on my blog, [shinux](https://shinux.vercel.app)
 - 🏆 &nbsp; **5-star C (Gold)** on HackerRank &nbsp;·&nbsp; fluent in Arabic & English
-
----
-
-### 🚀 Selected Work
-
-| Project | What it is |
-| --- | --- |
-| **V2X Collision Avoidance** | Vehicle-to-vehicle safety system — BSW, FCW, EEBL, IMA and DNPW warnings over DSRC, on STM32 + FreeRTOS with a Raspberry Pi dashboard |
-| **Cytron MDDS10 Clone** | Bare-metal motor-driver board firmware — RC/PWM/serial input modes, H-bridge control |
-| **RTOS from Scratch** | A cooperative scheduler written for AVR, no third-party kernel |
-| **STM32 COTS Drivers** | Layered driver stack — RCC, GPIO, UART, SPI, I2C, DMA, ADC, Timers |
-| **ATmega32 Driver Suite** | Reusable MCAL/HAL drivers: keypad, LCD, seven-segment, EEPROM, ADC |
 
 ---
 
@@ -114,6 +105,9 @@ taking a board from datasheet to something that actually drives.
   </a>
   <a href="mailto:shehawey9@gmail.com">
     <img src="https://img.shields.io/badge/-Gmail-333333?style=flat&logo=gmail&logoColor=EA4335" alt="Gmail"/>
+  </a>
+  <a href="https://shinux.vercel.app">
+    <img src="https://img.shields.io/badge/-Blog-333333?style=flat&logo=vercel&logoColor=FFFFFF" alt="Blog"/>
   </a>
   <a href="https://www.hackerrank.com/abdallahShehawey">
     <img src="https://img.shields.io/badge/-HackerRank-333333?style=flat&logo=hackerrank&logoColor=00EA64" alt="HackerRank"/>
