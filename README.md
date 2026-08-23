@@ -1,22 +1,37 @@
-# 👋 Hi there.
+<p align="center">
+  <img src="assets/banner.svg" width="900" alt="Abdallah Shehawey — Embedded Software Engineer" />
+</p>
 
-<h1 align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=1000&size=40&duration=2500&pause=500&center=true&vCenter=true&width=1000&lines=Hi%2C+I'm+Abdallah+AbdelMomen;Embedded+Software+Engineer;Bare-Metal+%7C+RTOS+%7C+AUTOSAR;ARM+Cortex-M+%7C+AVR;Embedded+Linux+%7C+Yocto" alt="Typing SVG" />
-</h1>
+<p align="center">
+  <a href="https://abdallahshehawey.vercel.app">View Portfolio</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.linkedin.com/in/abdallah-shehawey">LinkedIn</a>
+  &nbsp;·&nbsp;
+  <a href="mailto:shehawey9@gmail.com">Email</a>
+</p>
 
-I'm an Embedded Systems enthusiast with a strong background in electronics and telecommunications engineering, a graduate of Al-Azhar University's Faculty of Engineering. My journey so far has included diverse projects, a teaching role in C programming, and collaborative experience in coding competitions and hackathons.
+## Hey, I'm Abdallah
+
+I'm an **embedded software engineer** based in El Mahalla, Egypt. I work close to the
+metal — MCU drivers, real-time scheduling, and automotive safety systems — and I like
+taking a board from datasheet to something that actually drives.
+
+- 🎓 &nbsp; **Education** — Electronics & Communication Engineering, Al-Azhar University (Oct 2021 – May 2026) — Cumulative Grade: **Very Good**, graduation project: **Excellent**
+- 🚗 &nbsp; **Focus** — Embedded software with a concentration in the **automotive** field
+- 🌱 &nbsp; **Currently learning** — **AUTOSAR**, and **Embedded Linux** (Yocto, Linux kernel, Raspberry Pi)
+- 🏆 &nbsp; **5-star C (Gold)** on HackerRank &nbsp;·&nbsp; fluent in Arabic & English
 
 ---
 
-<img width="200" align="right" alt="Coding" src="https://user-images.githubusercontent.com/48678280/88862734-4903af80-d201-11ea-968b-9c939d88a37c.gif" />
+### 🚀 Selected Work
 
-### 👨🏻‍💻 About Me
-
-Embedded Systems engineer with a strong background in electronics and telecommunications, and a passion for low-level embedded software.
-
-- 🎓 &nbsp; **Education** — Graduate, Electrical Engineering (Communications & Electronics), Al-Azhar University
-- 🚗 &nbsp; **Focus** — Embedded software engineering with a concentration in the **automotive** field
-- 🌱 &nbsp; **Currently learning** — Microcontrollers, RTOS, **AUTOSAR**, and **Embedded Linux** (Raspberry Pi, Linux Kernel, Yocto/Buildroot)
+| Project | What it is |
+| --- | --- |
+| **V2X Collision Avoidance** | Vehicle-to-vehicle safety system — BSW, FCW, EEBL, IMA and DNPW warnings over DSRC, on STM32 + FreeRTOS with a Raspberry Pi dashboard |
+| **Cytron MDDS10 Clone** | Bare-metal motor-driver board firmware — RC/PWM/serial input modes, H-bridge control |
+| **RTOS from Scratch** | A cooperative scheduler written for AVR, no third-party kernel |
+| **STM32 COTS Drivers** | Layered driver stack — RCC, GPIO, UART, SPI, I2C, DMA, ADC, Timers |
+| **ATmega32 Driver Suite** | Reusable MCAL/HAL drivers: keypad, LCD, seven-segment, EEPROM, ADC |
 
 ---
 
@@ -38,8 +53,9 @@ Embedded Systems engineer with a strong background in electronics and telecommun
   <img src="https://img.shields.io/badge/-AVR-333333?style=flat&logo=espressif" alt="AVR"/>
   <img src="https://img.shields.io/badge/-STM32-333333?style=flat&logo=stmicroelectronics&logoColor=03234B" alt="STM32"/>
   <img src="https://img.shields.io/badge/-ARM%20Cortex--M-333333?style=flat&logo=arm&logoColor=0091BD" alt="ARM Cortex-M"/>
-  <img src="https://img.shields.io/badge/-RTOS-333333?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iJTIzNENBRjUwIj48cGF0aCBkPSJNMTIgMEM1LjM3MyAwIDAgNS4zNzMgMCAxMnM1LjM3MyAxMiAxMiAxMiAxMi01LjM3MyAxMi0xMlMxOC42MjcgMCAxMiAwem0wIDMuNmE4LjQgOC40IDAgMSAxIDAgMTYuOCA4LjQgOC40IDAgMCAxIDAtMTYuOHptLTEuMiAzLjZ2OS42bDYtNC44LTYtNC44eiIvPjwvc3ZnPg==" alt="RTOS"/>
+  <img src="https://img.shields.io/badge/-FreeRTOS-333333?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iJTIzNENBRjUwIj48cGF0aCBkPSJNMTIgMEM1LjM3MyAwIDAgNS4zNzMgMCAxMnM1LjM3MyAxMiAxMiAxMiAxMi01LjM3MyAxMi0xMlMxOC42MjcgMCAxMiAwem0wIDMuNmE4LjQgOC40IDAgMSAxIDAgMTYuOCA4LjQgOC40IDAgMCAxIDAtMTYuOHptLTEuMiAzLjZ2OS42bDYtNC44LTYtNC44eiIvPjwvc3ZnPg==" alt="FreeRTOS"/>
   <img src="https://img.shields.io/badge/-AUTOSAR-333333?style=flat&logo=autodesk" alt="AUTOSAR"/>
+  <img src="https://img.shields.io/badge/-CAN%20Bus-333333?style=flat" alt="CAN Bus"/>
   <img src="https://img.shields.io/badge/-Proteus-333333?style=flat&logo=proteus" alt="Proteus"/>
 </p>
 
@@ -49,6 +65,7 @@ Embedded Systems engineer with a strong background in electronics and telecommun
   <img src="https://img.shields.io/badge/-Raspberry%20Pi-333333?style=flat&logo=raspberrypi&logoColor=A22846" alt="Raspberry Pi"/>
   <img src="https://img.shields.io/badge/-Linux%20Kernel-333333?style=flat&logo=linux&logoColor=FCC624" alt="Linux Kernel"/>
   <img src="https://img.shields.io/badge/-Yocto%20%2F%20Buildroot-333333?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iJTIzREJBNTEwIj48cGF0aCBkPSJNMTEuOTk5IDBDNS4zNzUgMCAuMDAyIDUuMzczLjAwMiAxMS45OTdjMCA2LjYyNSA1LjM3MyAxMS45OTggMTEuOTk3IDExLjk5OCA2LjYyNSAwIDExLjk5OC01LjM3MyAxMS45OTgtMTEuOTk4QzIzLjk5NyA1LjM3MyAxOC42MjQgMCAxMS45OTkgMHptMCAyLjRhOS41OTggOS41OTggMCAwIDEgOS41OTggOS41OTcgOS41OTggOS41OTggMCAwIDEtOS41OTggOS41OThBOS41OTggOS41OTggMCAwIDEgMi40IDExLjk5NyA5LjU5OCA5LjU5OCAwIDAgMSAxMS45OTkgMi40em0wIDMuNmE1Ljk5NyA1Ljk5NyAwIDAgMC01Ljk5NyA1Ljk5NyA1Ljk5NyA1Ljk5NyAwIDAgMCA1Ljk5NyA1Ljk5OCA1Ljk5NyA1Ljk5NyAwIDAgMCA1Ljk5OC01Ljk5OEE1Ljk5NyA1Ljk5NyAwIDAgMCAxMS45OTkgNnptMCAyLjRhMy41OTggMy41OTggMCAwIDEgMy41OTggMy41OTcgMy41OTggMy41OTggMCAwIDEtMy41OTggMy41OTggMy41OTggMy41OTggMCAwIDEtMy41OTctMy41OThBMy41OTggMy41OTggMCAwIDEgMTEuOTk5IDguNHoiLz48L3N2Zz4=" alt="Yocto / Buildroot"/>
+  <img src="https://img.shields.io/badge/-QEMU-333333?style=flat&logo=qemu&logoColor=FF6600" alt="QEMU"/>
   <img src="https://img.shields.io/badge/-Bash-333333?style=flat&logo=gnubash&logoColor=4EAA25" alt="Bash"/>
 </p>
 
@@ -61,11 +78,9 @@ Embedded Systems engineer with a strong background in electronics and telecommun
   <img src="https://img.shields.io/badge/-Eclipse-333333?style=flat&logo=eclipse-ide&logoColor=2C2255" alt="Eclipse"/>
   <img src="https://img.shields.io/badge/-Linux-333333?style=flat&logo=Linux&logoColor=FCC624" alt="Linux"/>
   <img src="https://img.shields.io/badge/-Ubuntu-333333?style=flat&logo=ubuntu" alt="Ubuntu"/>
-  <img src="https://img.shields.io/badge/-Red%20Hat-333333?style=flat&logo=redhat&logoColor=EE0000" alt="Red Hat"/>
+  <img src="https://img.shields.io/badge/-Fedora-333333?style=flat&logo=fedora&logoColor=51A2DA" alt="Fedora"/>
   <img src="https://img.shields.io/badge/-Markdown-333333?style=flat&logo=markdown" alt="Markdown"/>
 </p>
-
-> 🏆 &nbsp; **5-star C (Gold)** on HackerRank &nbsp;·&nbsp; hands-on with keypads, LCDs, and seven-segment displays &nbsp;·&nbsp; fluent in English & Arabic
 
 ---
 
@@ -85,14 +100,6 @@ Embedded Systems engineer with a strong background in electronics and telecommun
 
 ---
 
-### ✨ Visitors
-
-<p align="left">
-  <img src="https://komarev.com/ghpvc/?username=abdallah-shehawey" alt="abdallah-shehawey" />
-</p>
-
----
-
 ### 🔗 Connect with Me
 
 <p align="left">
@@ -108,11 +115,13 @@ Embedded Systems engineer with a strong background in electronics and telecommun
   <a href="mailto:shehawey9@gmail.com">
     <img src="https://img.shields.io/badge/-Gmail-333333?style=flat&logo=gmail&logoColor=EA4335" alt="Gmail"/>
   </a>
-  <a href="https://github.com/abdallah-shehawey">
-    <img src="https://img.shields.io/badge/-GitHub-333333?style=flat&logo=github" alt="GitHub"/>
+  <a href="https://www.hackerrank.com/abdallahShehawey">
+    <img src="https://img.shields.io/badge/-HackerRank-333333?style=flat&logo=hackerrank&logoColor=00EA64" alt="HackerRank"/>
   </a>
+  <img src="https://komarev.com/ghpvc/?username=abdallah-shehawey&label=Profile%20views&color=58a6ff&style=flat" alt="Profile views"/>
 </p>
 
 ---
 
-<p align="center"><i>Looking forward to connecting with like-minded enthusiasts and professionals!</i></p>
+<sub>The banner above is generated from my avatar by
+<a href="assets/make-banner.py">assets/make-banner.py</a> — run it to rebuild <code>assets/banner.svg</code>.</sub>
