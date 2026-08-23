@@ -46,12 +46,16 @@ BODY = [
     (580, 340), (628, 368), (658, 405), (676, 455), (688, 500),
     (726, 515), (734, 690),
     (762, 692), (790, 745), (792, 792), (776, 832), (744, 864),
-    (704, 886), (648, 896), (614, 940), (606, 990),
-    (588, 1040), (556, 1072), (505, 1085), (452, 1075), (416, 1042),
-    (398, 995), (394, 946),
-    (350, 1000), (340, 1080), (360, 1180), (372, 1254),
-    (490, 1254), (480, 1160), (455, 1080), (425, 1020), (400, 980),
-    (300, 990), (268, 940), (250, 880), (242, 800), (238, 700),
+    (704, 886), (648, 896),
+    # the near sneaker: right edge, toe, then along the sole
+    (614, 940), (550, 990), (585, 1040), (610, 1072),
+    (592, 1104), (468, 1106), (440, 1092),
+    # ...straight onto the standing leg's right edge and down to its shoe
+    (432, 1125), (433, 1180), (455, 1205), (478, 1232), (480, 1254),
+    (330, 1254), (334, 1212), (338, 1178),
+    # and back up that leg's left edge to the hip
+    (328, 1135), (316, 1092), (305, 1050), (294, 1008), (285, 972),
+    (268, 940), (250, 880), (242, 800), (238, 700),
     (240, 600), (246, 500), (252, 430), (266, 392), (296, 364),
     (338, 348), (386, 336), (432, 328), (452, 324),
     (448, 300), (428, 270), (412, 225), (408, 170), (412, 120),
@@ -213,6 +217,7 @@ def art_svg(art, L):
         run = run[i0:]
         runs.append(
             f'<tspan x="{ax + i0 * cw:.2f}" y="{ay + (r + 0.82) * ch:.2f}" '
+            f'textLength="{len(run) * cw:.2f}" lengthAdjust="spacingAndGlyphs" '
             f'xml:space="preserve">{escape(run)}</tspan>')
 
     bands = L.get("art_bands", 1)
@@ -231,7 +236,7 @@ def art_svg(art, L):
                                           for a, b in zip(*INK))
             body.append(f'<text class="art" fill="{col}">\n      '
                         + "\n      ".join(chunk) + "\n    </text>")
-    return "\n    ".join(body), fs, round(cw - fs * MONO_ADVANCE, 3)
+    return "\n    ".join(body), fs, None
 
 
 def info_svg(L):
@@ -475,6 +480,46 @@ def footer_svg(L):
 '''
 
 
+# ----------------------------------------------------------------- divider
+# The rule between sections. Drawn in one fixed accent -- no colour cycling --
+# and with nothing that depends on the page background, so the same file reads
+# correctly on GitHub's dark and light themes: the node is an outline, and the
+# rule breaks either side of it rather than being knocked out by a filled box.
+# The viewBox is 600 wide but it is served at 900, so the hairline scales UP on
+# a desktop and only to about 1px on a phone instead of vanishing.
+DIVIDER = dict(out="divider.svg", W=600, H=20, accent="#58a6ff")
+
+
+def divider_svg(L):
+    W, H, a = L["W"], L["H"], L["accent"]
+    mid, gap = W / 2, 22
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}"
+     viewBox="0 0 {W} {H}" role="presentation" aria-hidden="true">
+  <defs>
+    <linearGradient id="fade-l" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="{a}" stop-opacity="0"/>
+      <stop offset="1" stop-color="{a}" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="fade-r" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="{a}" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="{a}" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="{H/2 - 0.8:g}" width="{mid - gap:g}" height="1.6" rx="0.8" fill="url(#fade-l)"/>
+  <rect x="{mid + gap:g}" y="{H/2 - 0.8:g}" width="{mid - gap:g}" height="1.6" rx="0.8" fill="url(#fade-r)"/>
+
+  <g transform="translate({mid:g} {H/2:g})" fill="none" stroke="{a}">
+    <rect x="-4.9" y="-4.9" width="9.8" height="9.8" rx="1.8"
+          transform="rotate(45)" stroke-width="1.4" stroke-opacity="0.9"/>
+    <circle r="1.9" fill="{a}" stroke="none"/>
+  </g>
+  <circle cx="{mid - gap - 12:g}" cy="{H/2:g}" r="1.5" fill="{a}" fill-opacity="0.55"/>
+  <circle cx="{mid + gap + 12:g}" cy="{H/2:g}" r="1.5" fill="{a}" fill-opacity="0.55"/>
+</svg>
+'''
+
+
 def main():
     grids = {}
     stamps = {}
@@ -488,6 +533,13 @@ def main():
             fh.write(svg)
         stamps[L["out"]] = hashlib.sha256(svg.encode()).hexdigest()[:10]
         print(f"wrote {L['out']}  ({len(svg)/1024:.1f} KB, {L['W']}x{L['H']})")
+
+    svg = divider_svg(DIVIDER)
+    with open(os.path.join(HERE, DIVIDER["out"]), "w") as fh:
+        fh.write(svg)
+    stamps[DIVIDER["out"]] = hashlib.sha256(svg.encode()).hexdigest()[:10]
+    print(f"wrote {DIVIDER['out']}  ({len(svg)/1024:.1f} KB, "
+          f"{DIVIDER['W']}x{DIVIDER['H']})")
 
     for L in (FOOT_WIDE, FOOT_NARROW):
         svg = footer_svg(L)

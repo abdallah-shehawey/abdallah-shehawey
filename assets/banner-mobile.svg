@@ -37,7 +37,7 @@
     text { font-family: ui-monospace,'SF Mono','JetBrains Mono','Fira Code','DejaVu Sans Mono',Menlo,Consolas,monospace; white-space: pre; }
     .bar  { font-size: 9px;  fill: #8b949e; }
     .lbl  { font-size: 7.5px;  fill: #6e7b8b; letter-spacing: 1.5px; }
-    .art  { font-size: 4.73px; letter-spacing: 0.876px; }
+    .art  { font-size: 4.73px; }
     .hd   { font-size: 10px;   fill: #f0f6fc; font-weight: 600; }
     .sc   { font-size: 9px;   fill: #8b949e; letter-spacing: 0.6px; }
     .k    { font-size: 9.5px;   fill: #58a6ff; font-weight: 600; }
@@ -86,102 +86,102 @@
           fill-opacity="0.38" stroke="url(#edge)" stroke-opacity="0.42"/>
     <text class="lbl" x="22" y="58">PORTRAIT / ABDALLAH</text>
     <text class="art" fill="#e9f3fc">
-      <tspan x="64.00" y="74.04" xml:space="preserve">..............       ```````             ``````                         ```````    `</tspan>
-      <tspan x="64.00" y="78.97" xml:space="preserve">..............        `````.             `````            ``            .``````    `</tspan>
-      <tspan x="64.00" y="83.89" xml:space="preserve">..............        ``````             `````         `` ``            .``````</tspan>
-      <tspan x="64.00" y="88.82" xml:space="preserve">..............        ````.~. '.         `````            `             ```.```</tspan>
-      <tspan x="64.00" y="93.75" xml:space="preserve">..............       ``.~=nw=~l='.      ``````         `  ``           `.`...``</tspan>
-      <tspan x="64.00" y="98.67" xml:space="preserve">..............       `./wXl/''~!'~''`   ``````         ` ````           ```````</tspan>
-      <tspan x="64.00" y="103.60" xml:space="preserve">..............       `'|/''''~'''''!'   ``````         ``````           .``````</tspan>
-      <tspan x="64.00" y="108.53" xml:space="preserve">..............       `~.'|wMmm8Xl''!!`  ``````         ``````          ````..``</tspan>
-      <tspan x="64.00" y="113.45" xml:space="preserve">..............       `''mB@@@@@@Bm|'!`  ``````         ``````          ````..``</tspan>
-      <tspan x="64.00" y="118.38" xml:space="preserve">..............       .'|BBB@@B@@BQM;~.  ``````         `````           `.`..`.`</tspan>
+      <tspan x="64.00" y="74.04" textLength="312.00" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..............       ```````             ``````                         ```````    `</tspan>
+      <tspan x="64.00" y="78.97" textLength="312.00" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..............        `````.             `````            ``            .``````    `</tspan>
+      <tspan x="64.00" y="83.89" textLength="293.43" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..............        ``````             `````         `` ``            .``````</tspan>
+      <tspan x="64.00" y="88.82" textLength="293.43" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..............        ````.~. '.         `````            `             ```.```</tspan>
+      <tspan x="64.00" y="93.75" textLength="293.43" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..............       ``.~=nw=~l='.      ``````         `  ``           `.`...``</tspan>
+      <tspan x="64.00" y="98.67" textLength="293.43" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..............       `./wXl/''~!'~''`   ``````         ` ````           ```````</tspan>
+      <tspan x="64.00" y="103.60" textLength="293.43" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..............       `'|/''''~'''''!'   ``````         ``````           .``````</tspan>
+      <tspan x="64.00" y="108.53" textLength="293.43" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..............       `~.'|wMmm8Xl''!!`  ``````         ``````          ````..``</tspan>
+      <tspan x="64.00" y="113.45" textLength="293.43" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..............       `''mB@@@@@@Bm|'!`  ``````         ``````          ````..``</tspan>
+      <tspan x="64.00" y="118.38" textLength="293.43" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..............       .'|BBB@@B@@BQM;~.  ``````         `````           `.`..`.`</tspan>
     </text>
     <text class="art" fill="#daecfd">
-      <tspan x="64.00" y="123.31" xml:space="preserve">..............       .~wM8XXM@B8wmM=!.  ``````                         ````````</tspan>
-      <tspan x="64.00" y="128.24" xml:space="preserve">..............       .!amXlswBX|ln8l~.  ``````         ``````          ```..`.`</tspan>
-      <tspan x="64.00" y="133.16" xml:space="preserve">..............       .|wBQ8w8BXna8ml!`  ``````         ``````          `......`</tspan>
-      <tspan x="64.00" y="138.09" xml:space="preserve">..............       .lQ@@@QQ$MQBBmm|</tspan>
-      <tspan x="64.00" y="143.02" xml:space="preserve">..............       `|mBQMMMQmmQBMm!                                              `</tspan>
-      <tspan x="64.00" y="147.94" xml:space="preserve">`.............        ~sM8lnnXstnMMX`                                              `</tspan>
-      <tspan x="64.00" y="152.87" xml:space="preserve">`.............         !aM88QQMna8s~                                               `</tspan>
-      <tspan x="64.00" y="157.80" xml:space="preserve">`.............         .|XM@Q8MBMX'                             ``                 `</tspan>
-      <tspan x="67.71" y="162.72" xml:space="preserve">.............       ``.;=;lXmwl;;                                     ```````     `</tspan>
-      <tspan x="67.71" y="167.65" xml:space="preserve">.............       `` .lX|;/!;s~         ```         `` `            ```````     `</tspan>
+      <tspan x="64.00" y="123.31" textLength="293.43" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..............       .~wM8XXM@B8wmM=!.  ``````                         ````````</tspan>
+      <tspan x="64.00" y="128.24" textLength="293.43" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..............       .!amXlswBX|ln8l~.  ``````         ``````          ```..`.`</tspan>
+      <tspan x="64.00" y="133.16" textLength="293.43" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..............       .|wBQ8w8BXna8ml!`  ``````         ``````          `......`</tspan>
+      <tspan x="64.00" y="138.09" textLength="137.43" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..............       .lQ@@@QQ$MQBBmm|</tspan>
+      <tspan x="64.00" y="143.02" textLength="312.00" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..............       `|mBQMMMQmmQBMm!                                              `</tspan>
+      <tspan x="64.00" y="147.94" textLength="312.00" lengthAdjust="spacingAndGlyphs" xml:space="preserve">`.............        ~sM8lnnXstnMMX`                                              `</tspan>
+      <tspan x="64.00" y="152.87" textLength="312.00" lengthAdjust="spacingAndGlyphs" xml:space="preserve">`.............         !aM88QQMna8s~                                               `</tspan>
+      <tspan x="64.00" y="157.80" textLength="312.00" lengthAdjust="spacingAndGlyphs" xml:space="preserve">`.............         .|XM@Q8MBMX'                             ``                 `</tspan>
+      <tspan x="67.71" y="162.72" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.............       ``.;=;lXmwl;;                                     ```````     `</tspan>
+      <tspan x="67.71" y="167.65" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.............       `` .lX|;/!;s~         ```         `` `            ```````     `</tspan>
     </text>
     <text class="art" fill="#cbe5fd">
-      <tspan x="67.71" y="172.58" xml:space="preserve">.............          .!8BQM8M8.         ```        ```````          ```````     `</tspan>
-      <tspan x="67.71" y="177.50" xml:space="preserve">.............         'nXMQQQmMw~      `` ```         `````           ```````     `</tspan>
-      <tspan x="67.71" y="182.43" xml:space="preserve">.............   ``..'''M@MBQMMMMl'''.  ``````        ````             ```````     `</tspan>
-      <tspan x="67.71" y="187.36" xml:space="preserve">.........` ..`.''''''~'s$mMQQQwQl'''''!/'````         ` ```           ```````     `</tspan>
-      <tspan x="67.71" y="192.28" xml:space="preserve">........  `.''''''''''';$$8mMaa$;'''''~lt~```        ``````           ```````     `</tspan>
-      <tspan x="67.71" y="197.21" xml:space="preserve">.......` .~'''''''~~''''B$B88a$$~'''''''~/!``           ```           ```````     `</tspan>
-      <tspan x="67.71" y="202.14" xml:space="preserve">.......  '''''''''''''''Xss88anQ!'''''''''|!`        ``` ``           ```````</tspan>
-      <tspan x="67.71" y="207.06" xml:space="preserve">.......`'~''''''''''''~'sa|tt|nM~''''''''';l.        ` ` `            ```````</tspan>
-      <tspan x="67.71" y="211.99" xml:space="preserve">......``'~'''''''''~''~'|BnllsBM''''''''''~s!        `                ```````</tspan>
-      <tspan x="71.43" y="216.92" xml:space="preserve">`.``. `~~~~''''''''~''';@M||m$m''''''''''~wl        ``               ```````</tspan>
+      <tspan x="67.71" y="172.58" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.............          .!8BQM8M8.         ```        ```````          ```````     `</tspan>
+      <tspan x="67.71" y="177.50" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.............         'nXMQQQmMw~      `` ```         `````           ```````     `</tspan>
+      <tspan x="67.71" y="182.43" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.............   ``..'''M@MBQMMMMl'''.  ``````        ````             ```````     `</tspan>
+      <tspan x="67.71" y="187.36" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.........` ..`.''''''~'s$mMQQQwQl'''''!/'````         ` ```           ```````     `</tspan>
+      <tspan x="67.71" y="192.28" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">........  `.''''''''''';$$8mMaa$;'''''~lt~```        ``````           ```````     `</tspan>
+      <tspan x="67.71" y="197.21" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.......` .~'''''''~~''''B$B88a$$~'''''''~/!``           ```           ```````     `</tspan>
+      <tspan x="67.71" y="202.14" textLength="286.00" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.......  '''''''''''''''Xss88anQ!'''''''''|!`        ``` ``           ```````</tspan>
+      <tspan x="67.71" y="207.06" textLength="286.00" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.......`'~''''''''''''~'sa|tt|nM~''''''''';l.        ` ` `            ```````</tspan>
+      <tspan x="67.71" y="211.99" textLength="286.00" lengthAdjust="spacingAndGlyphs" xml:space="preserve">......``'~'''''''''~''~'|BnllsBM''''''''''~s!        `                ```````</tspan>
+      <tspan x="71.43" y="216.92" textLength="282.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">`.``. `~~~~''''''''~''';@M||m$m''''''''''~wl        ``               ```````</tspan>
     </text>
     <text class="art" fill="#bcdefd">
-      <tspan x="82.57" y="221.84" xml:space="preserve">.. .~~~~~'''''''~'''~Qa|=m@8''''''''''~8n.            `           ````` `</tspan>
-      <tspan x="86.29" y="226.77" xml:space="preserve">` '!!~~~''''''''''''8t=sQBw''''''''''!8w~       ``````           `````</tspan>
-      <tspan x="93.71" y="231.70" xml:space="preserve">'!~~~''''''''''''!88mBQQX''''''''''/MM;       ``````           ``````</tspan>
-      <tspan x="93.71" y="236.63" xml:space="preserve">'!~~~''''''''''';QB@@BQX!!!!~~~''''!ll;;/~`</tspan>
-      <tspan x="93.71" y="241.55" xml:space="preserve">~!~'''''''''''''n@QBBMBX;=;;;!!!!!;!~~!/X=.</tspan>
-      <tspan x="93.71" y="246.48" xml:space="preserve">~!~~''''''''''''a@BBQmXXnXl!;==//;!!/t|!;!.</tspan>
-      <tspan x="90.00" y="251.41" xml:space="preserve">`~!!~~~'''''''''=MBMmQl'|XXt!=||l|l;!sXn=!~`</tspan>
-      <tspan x="90.00" y="256.33" xml:space="preserve">.~!!!~''''''''l88BBQQM/!;===||ll|ll=/lst;;='</tspan>
-      <tspan x="90.00" y="261.26" xml:space="preserve">.!;;!''''''~!/BMmBQBw|!;!!!;;;;/////=!!!!|n;                ```</tspan>
-      <tspan x="90.00" y="266.19" xml:space="preserve">.!!~''''~!;;;!aMmQMX!!!;;;;;!;;/=!!!~!!!!lw/```````````````` ```````````</tspan>
-      <tspan x="90.00" y="271.11" xml:space="preserve">.~~''~'!;;!!!~XBXln;!!!;;!!!!;===|;!!!!!~s8=.````````````````````````````````</tspan>
+      <tspan x="82.57" y="221.84" textLength="271.14" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.. .~~~~~'''''''~'''~Qa|=m@8''''''''''~8n.            `           ````` `</tspan>
+      <tspan x="86.29" y="226.77" textLength="260.00" lengthAdjust="spacingAndGlyphs" xml:space="preserve">` '!!~~~''''''''''''8t=sQBw''''''''''!8w~       ``````           `````</tspan>
+      <tspan x="93.71" y="231.70" textLength="256.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">'!~~~''''''''''''!88mBQQX''''''''''/MM;       ``````           ``````</tspan>
+      <tspan x="93.71" y="236.63" textLength="159.71" lengthAdjust="spacingAndGlyphs" xml:space="preserve">'!~~~''''''''''';QB@@BQX!!!!~~~''''!ll;;/~`</tspan>
+      <tspan x="93.71" y="241.55" textLength="159.71" lengthAdjust="spacingAndGlyphs" xml:space="preserve">~!~'''''''''''''n@QBBMBX;=;;;!!!!!;!~~!/X=.</tspan>
+      <tspan x="93.71" y="246.48" textLength="159.71" lengthAdjust="spacingAndGlyphs" xml:space="preserve">~!~~''''''''''''a@BBQmXXnXl!;==//;!!/t|!;!.</tspan>
+      <tspan x="90.00" y="251.41" textLength="163.43" lengthAdjust="spacingAndGlyphs" xml:space="preserve">`~!!~~~'''''''''=MBMmQl'|XXt!=||l|l;!sXn=!~`</tspan>
+      <tspan x="90.00" y="256.33" textLength="163.43" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.~!!!~''''''''l88BBQQM/!;===||ll|ll=/lst;;='</tspan>
+      <tspan x="90.00" y="261.26" textLength="234.00" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.!;;!''''''~!/BMmBQBw|!;!!!;;;;/////=!!!!|n;                ```</tspan>
+      <tspan x="90.00" y="266.19" textLength="267.43" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.!!~''''~!;;;!aMmQMX!!!;;;;;!;;/=!!!~!!!!lw/```````````````` ```````````</tspan>
+      <tspan x="90.00" y="271.11" textLength="286.00" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.~~''~'!;;!!!~XBXln;!!!;;!!!!;===|;!!!!!~s8=.````````````````````````````````</tspan>
     </text>
     <text class="art" fill="#add8fe">
-      <tspan x="90.00" y="276.04" xml:space="preserve">.~!!;!;;;;!!!~!s~'8;!!!;;|=//;;;!!!!~~~!~nM|.````````````````````````````````</tspan>
-      <tspan x="90.00" y="280.97" xml:space="preserve">.!!!;!!!!!~~~~!''n8!!!;;/stlntsnttsntss/~XMl...``````````````````````````````</tspan>
-      <tspan x="67.71" y="285.89" xml:space="preserve">````` .~!~!~~~~~''''''|MX~!!;;;!!!!;/;;;;;///;!wMl.`.``````````````````````````````</tspan>
-      <tspan x="67.71" y="290.82" xml:space="preserve">..... .~~'!~'~~''''''|mmn~!!;;;;;/;=l|||;!!~~!!8Qs'.........``..```````````````````</tspan>
-      <tspan x="67.71" y="295.75" xml:space="preserve">````. .~~'~''''''''~sM8mt~!!;;;;;=||==|=|=!!!!;MBman/.......`...``.```..```````````</tspan>
-      <tspan x="71.43" y="300.67" xml:space="preserve">````.~''''''''''!la888Ms~!!;;;;;;!;/;;;!!!!!!;s|;~~'` ..`.`..`````.~'.....````````</tspan>
-      <tspan x="67.71" y="305.60" xml:space="preserve">````.`.~~''''''~;=tna8mMs!!!//;;;;;=l||/~!!!!!~''''''`  .````'/|ttlsa=`````````````</tspan>
-      <tspan x="67.71" y="310.53" xml:space="preserve">.``.. .!~'''~!!;;;;;;'~!~;!!//;;/|||||===/~~~!''''''''   ...;n8mmmmmnX|=/;'````````</tspan>
-      <tspan x="67.71" y="315.45" xml:space="preserve">....` .~~!!;;;///;;!~'''~/;;=lll|ll|///ll|//;!/'''''''   .`!XMmM888wnmmmmwX|!.`````</tspan>
-      <tspan x="67.71" y="320.38" xml:space="preserve">....  .~;!;;;/////;!!~''!/;;/////;/;!!!/////=;t~''''''    `/wmm8mmmwwM88m88ma/`````</tspan>
+      <tspan x="90.00" y="276.04" textLength="286.00" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.~!!;!;;;;!!!~!s~'8;!!!;;|=//;;;!!!!~~~!~nM|.````````````````````````````````</tspan>
+      <tspan x="90.00" y="280.97" textLength="286.00" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.!!!;!!!!!~~~~!''n8!!!;;/stlntsnttsntss/~XMl...``````````````````````````````</tspan>
+      <tspan x="67.71" y="285.89" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">````` .~!~!~~~~~''''''|MX~!!;;;!!!!;/;;;;;///;!wMl.`.``````````````````````````````</tspan>
+      <tspan x="67.71" y="290.82" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..... .~~'!~'~~''''''|mmn~!!;;;;;/;=l|||;!!~~!!8Qs'.........``..```````````````````</tspan>
+      <tspan x="67.71" y="295.75" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">````. .~~'~''''''''~sM8mt~!!;;;;;=||==|=|=!!!!;MBman/.......`...``.```..```````````</tspan>
+      <tspan x="71.43" y="300.67" textLength="304.57" lengthAdjust="spacingAndGlyphs" xml:space="preserve">````.~''''''''''!la888Ms~!!;;;;;;!;/;;;!!!!!!;s|;~~'` ..`.`..`````.~'.....````````</tspan>
+      <tspan x="67.71" y="305.60" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">````.`.~~''''''~;=tna8mMs!!!//;;;;;=l||/~!!!!!~''''''`  .````'/|ttlsa=`````````````</tspan>
+      <tspan x="67.71" y="310.53" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.``.. .!~'''~!!;;;;;;'~!~;!!//;;/|||||===/~~~!''''''''   ...;n8mmmmmnX|=/;'````````</tspan>
+      <tspan x="67.71" y="315.45" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">....` .~~!!;;;///;;!~'''~/;;=lll|ll|///ll|//;!/'''''''   .`!XMmM888wnmmmmwX|!.`````</tspan>
+      <tspan x="67.71" y="320.38" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">....  .~;!;;;/////;!!~''!/;;/////;/;!!!/////=;t~''''''    `/wmm8mmmwwM88m88ma/`````</tspan>
     </text>
     <text class="art" fill="#9ed1fe">
-      <tspan x="67.71" y="325.31" xml:space="preserve">.`.`  .!;!!;;;;;;;!!!~''!//=////;;;|===!!!!!!~s=''''''`  `.|w8wXnaXsXXa8w888wn!````</tspan>
-      <tspan x="67.71" y="330.24" xml:space="preserve">...   `!~!!!~!;;;;!!~~'';//al;;;;;;//=/~!/~!!!n~''''''   `.lw8astXsnl|X888mm8w|.```</tspan>
-      <tspan x="67.71" y="335.16" xml:space="preserve">.`.    ~'~~''!;;;;!!~~'';///''''''''''/aXMalwwQ~'''''.  .`.tmaanllt||=/|X88mMml.```</tspan>
-      <tspan x="67.71" y="340.09" xml:space="preserve">...    '''''!!!;;!!~~~''///;'''''''''''|tsXmaXt'''''..`..`.t8;lnstatnQmnaQm8mm|.```</tspan>
-      <tspan x="67.71" y="345.02" xml:space="preserve">...    `'''~!!;;;;!~~~''///;'''''''''''''''''''''''/!.....'nn;'/=;ss=nsaXanam8=````</tspan>
-      <tspan x="67.71" y="349.94" xml:space="preserve">...     ''''!;;!!!!~''''///~''''''''''''''''''''';l~.......tat'==~sX=''|/|/swa;.. `</tspan>
-      <tspan x="67.71" y="354.87" xml:space="preserve">..`    .''''!!!!!!~~''''';''''''''''''''''''''.!;~.``````.`'ll'Xn~n8n=/||st=|=...</tspan>
-      <tspan x="67.71" y="359.80" xml:space="preserve">..      .'''!!!!!!~~''''''''''''''''''''''`  .'.` ```````   '.'ns'!s~~''!l;.'.```</tspan>
-      <tspan x="67.71" y="364.72" xml:space="preserve">..`    `;tt=~!!!!!~~'~;!!''''''''''''''''           `````````.'!..'''''''.  `````</tspan>
-      <tspan x="67.71" y="369.65" xml:space="preserve">....``../8Qs'!!!!!!~'!nXs!'''''''''''''..  `````````````````````.'~~~'~'.  ``````</tspan>
+      <tspan x="67.71" y="325.31" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.`.`  .!;!!;;;;;;;!!!~''!//=////;;;|===!!!!!!~s=''''''`  `.|w8wXnaXsXXa8w888wn!````</tspan>
+      <tspan x="67.71" y="330.24" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">...   `!~!!!~!;;;;!!~~'';//al;;;;;;//=/~!/~!!!n~''''''   `.lw8astXsnl|X888mm8w|.```</tspan>
+      <tspan x="67.71" y="335.16" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.`.    ~'~~''!;;;;!!~~'';///''''''''''/aXMalwwQ~'''''.  .`.tmaanllt||=/|X88mMml.```</tspan>
+      <tspan x="67.71" y="340.09" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">...    '''''!!!;;!!~~~''///;'''''''''''|tsXmaXt'''''..`..`.t8;lnstatnQmnaQm8mm|.```</tspan>
+      <tspan x="67.71" y="345.02" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">...    `'''~!!;;;;!~~~''///;'''''''''''''''''''''''/!.....'nn;'/=;ss=nsaXanam8=````</tspan>
+      <tspan x="67.71" y="349.94" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">...     ''''!;;!!!!~''''///~''''''''''''''''''''';l~.......tat'==~sX=''|/|/swa;.. `</tspan>
+      <tspan x="67.71" y="354.87" textLength="300.86" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..`    .''''!!!!!!~~''''';''''''''''''''''''''.!;~.``````.`'ll'Xn~n8n=/||st=|=...</tspan>
+      <tspan x="67.71" y="359.80" textLength="300.86" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..      .'''!!!!!!~~''''''''''''''''''''''`  .'.` ```````   '.'ns'!s~~''!l;.'.```</tspan>
+      <tspan x="67.71" y="364.72" textLength="300.86" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..`    `;tt=~!!!!!~~'~;!!''''''''''''''''           `````````.'!..'''''''.  `````</tspan>
+      <tspan x="67.71" y="369.65" textLength="300.86" lengthAdjust="spacingAndGlyphs" xml:space="preserve">....``../8Qs'!!!!!!~'!nXs!'''''''''''''..  `````````````````````.'~~~'~'.  ``````</tspan>
     </text>
     <text class="art" fill="#8fcafe">
-      <tspan x="67.71" y="374.58" xml:space="preserve">.....`.`'sms'~~!!!~~'~a8asn!''''''''''!;```````````..............................</tspan>
-      <tspan x="67.71" y="379.50" xml:space="preserve">```````.`~Xn'~~!~~~'.~wMmB$Qt|''''''/lt~ ` ````````````.`...............`...``.``</tspan>
-      <tspan x="71.43" y="384.43" xml:space="preserve">`  `     ~l~'~~~~. .;Mmm@$@$$t~''!=ll/.        `````````````````````````````````</tspan>
-      <tspan x="108.57" y="389.36" xml:space="preserve">~~....'''.;$$$$$$$@Qw=!!!!;~            `             ``` `````` `  `</tspan>
-      <tspan x="127.14" y="394.28" xml:space="preserve">.~~~.'M$$$$$$$Bt'~~~~~.</tspan>
-      <tspan x="127.14" y="399.21" xml:space="preserve">'~~''.l@$$$$$$$$='''''</tspan>
-      <tspan x="127.14" y="404.14" xml:space="preserve">.''''.'X@$$$$$$$@n/''</tspan>
-      <tspan x="127.14" y="409.06" xml:space="preserve">'''''''|m@@$$$$$$$Bs.                                            ``</tspan>
-      <tspan x="64.00" y="413.99" xml:space="preserve">```````          '''''''tXB@@$$$$$@m=.`                                           ``</tspan>
-      <tspan x="67.71" y="418.92" xml:space="preserve">````````        ''''''''~/lX8Mmas|!...                                           ``</tspan>
+      <tspan x="67.71" y="374.58" textLength="300.86" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.....`.`'sms'~~!!!~~'~a8asn!''''''''''~!```````````..............................</tspan>
+      <tspan x="67.71" y="379.50" textLength="300.86" lengthAdjust="spacingAndGlyphs" xml:space="preserve">```````.`!an'~~!~~~~'~wMmB$Qt|'''''';;'    ````````````.`...............`...``.``</tspan>
+      <tspan x="71.43" y="384.43" textLength="297.14" lengthAdjust="spacingAndGlyphs" xml:space="preserve">`  `  ` `;s~'~~~~~~';Mmm@$@$$t~''!!'           `````````````````````````````````</tspan>
+      <tspan x="104.86" y="389.36" textLength="260.00" lengthAdjust="spacingAndGlyphs" xml:space="preserve">'|!'~~~~~~'/$$$$$$$@Qw=~.                `             ``` `````` `  `</tspan>
+      <tspan x="104.86" y="394.28" textLength="92.86" lengthAdjust="spacingAndGlyphs" xml:space="preserve">`;/'~~~~~~';@$$$$$$$Bt''.</tspan>
+      <tspan x="108.57" y="399.21" textLength="92.86" lengthAdjust="spacingAndGlyphs" xml:space="preserve">';''''~~''!B$$$$$$$$$=''`</tspan>
+      <tspan x="108.57" y="404.14" textLength="92.86" lengthAdjust="spacingAndGlyphs" xml:space="preserve">`~'''''''''n$@$$$$$$$@n/.</tspan>
+      <tspan x="112.29" y="409.06" textLength="263.71" lengthAdjust="spacingAndGlyphs" xml:space="preserve">~''''''''';$@@@$$$$$$$Bn~                                            ``</tspan>
+      <tspan x="64.00" y="413.99" textLength="312.00" lengthAdjust="spacingAndGlyphs" xml:space="preserve">```````      !/'''''''''XQ@@@$$$$$$$$@n'                                          ``</tspan>
+      <tspan x="67.71" y="418.92" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">````````    'l!'''''''''~lm@$$$$$$$$$$=                                          ``</tspan>
     </text>
     <text class="art" fill="#80c3ff">
-      <tspan x="67.71" y="423.84" xml:space="preserve">.`````````````  '''''''l|!` .~'.......                  ``   ``````````````````````</tspan>
-      <tspan x="67.71" y="428.77" xml:space="preserve">`````````````.  .'''''~8M8/`````...```````````````````````````````````` `````````</tspan>
-      <tspan x="67.71" y="433.70" xml:space="preserve">..........```.` .''''''X8wt'..`.```````````````````....`......`...............```</tspan>
-      <tspan x="67.71" y="438.63" xml:space="preserve">...............  ''''''=wwX!`....``...```.`.```````...``..`````````````````````.`</tspan>
-      <tspan x="67.71" y="443.55" xml:space="preserve">``````````````.  ''''''!Xaw|.```.....................................`..........`</tspan>
-      <tspan x="67.71" y="448.48" xml:space="preserve">```````````````  '''''''lss|.    ``````````````..`.`...```.......................</tspan>
-      <tspan x="67.71" y="453.41" xml:space="preserve">``````````````.` `';nwt=lXXl'    ``````````````````````````````````````````````.`</tspan>
-      <tspan x="82.57" y="458.33" xml:space="preserve">`     `  `   ;m$$$$Blsn='  `````````````````` `   ```  `` ```` ` ``   `` ```</tspan>
-      <tspan x="75.14" y="463.26" xml:space="preserve">`             `l@$$$$$aln='   `` `   `     `</tspan>
-      <tspan x="127.14" y="468.19" xml:space="preserve">`/Q$$$$$@tl/'</tspan>
-      <tspan x="127.14" y="473.11" xml:space="preserve">.!m$$$$$$w//~</tspan>
+      <tspan x="67.71" y="423.84" textLength="308.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">.```````````.|=''''''''|/;;twMB@@@@@@w'                 ``   ``````````````````````</tspan>
+      <tspan x="67.71" y="428.77" textLength="300.86" lengthAdjust="spacingAndGlyphs" xml:space="preserve">`````````````/t'''''''~n~~//;//=////;~````````````````````````````````` `````````</tspan>
+      <tspan x="67.71" y="433.70" textLength="300.86" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..........```~s~'''''''=.``````````````````````````....`......`...............```</tspan>
+      <tspan x="67.71" y="438.63" textLength="300.86" lengthAdjust="spacingAndGlyphs" xml:space="preserve">..............t;'''''''~.``...........```.`.```````...``..`````````````````````.`</tspan>
+      <tspan x="67.71" y="443.55" textLength="300.86" lengthAdjust="spacingAndGlyphs" xml:space="preserve">````````````.`//''''''''.```````.....................................`..........`</tspan>
+      <tspan x="67.71" y="448.48" textLength="300.86" lengthAdjust="spacingAndGlyphs" xml:space="preserve">``````````````~='''''''``        ``````````````..`.`...```.......................</tspan>
+      <tspan x="67.71" y="453.41" textLength="300.86" lengthAdjust="spacingAndGlyphs" xml:space="preserve">``````````````'t''';nwt;'        ``````````````````````````````````````````````.`</tspan>
+      <tspan x="82.57" y="458.33" textLength="282.29" lengthAdjust="spacingAndGlyphs" xml:space="preserve">`     `  `'t|tM$$$$B=~`    `````````````````` `   ```  `` ```` ` ``   `` ```</tspan>
+      <tspan x="75.14" y="463.26" textLength="163.43" lengthAdjust="spacingAndGlyphs" xml:space="preserve">`           'lw$$$$$$$a|!     `` `   `     `</tspan>
+      <tspan x="119.71" y="468.19" textLength="52.00" lengthAdjust="spacingAndGlyphs" xml:space="preserve">~|m$$$$$$$Bt|'</tspan>
+      <tspan x="119.71" y="473.11" textLength="52.00" lengthAdjust="spacingAndGlyphs" xml:space="preserve">~lM$$$$$$$$w/!</tspan>
     </text>
 
     <rect x="10" y="500" width="420" height="386" rx="12" fill="#161b22"

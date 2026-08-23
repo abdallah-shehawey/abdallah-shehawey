@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(max-width: 760px)" srcset="assets/banner-mobile.svg?v=f415c9215d">
-    <img src="assets/banner.svg?v=402c7f3449" width="900" alt="Abdallah Shehawey — Embedded Software Engineer" />
+    <source media="(max-width: 760px)" srcset="assets/banner-mobile.svg?v=7082c8c4c5">
+    <img src="assets/banner.svg?v=b71d1fd2ad" width="900" alt="Abdallah Shehawey — Embedded Software Engineer" />
   </picture>
 </p>
 
@@ -28,7 +28,9 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
 - ✍️ &nbsp; **Writing** — [shinux-blog](https://shinux.vercel.app), *notes from below the OS* — Embedded Linux, RTOS internals, and the road from firmware to the kernel
 - 🏆 &nbsp; **5-star C (Gold)** on HackerRank &nbsp;·&nbsp; fluent in Arabic & English
 
----
+<p align="center">
+  <img src="assets/divider.svg?v=a80ccd500d" width="900" alt="" />
+</p>
 
 ### 🛠️ Skills & Tools
 
@@ -110,14 +112,18 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
   <img src="https://img.shields.io/badge/-Markdown-333333?style=flat&logo=markdown" alt="Markdown"/>
 </p>
 
----
+<p align="center">
+  <img src="assets/divider.svg?v=a80ccd500d" width="900" alt="" />
+</p>
 
 ### 💡 Goals
 
 - 🌍 &nbsp; Grow into a skilled embedded engineer on an international team building automotive solutions
 - 📈 &nbsp; Keep deepening my embedded systems expertise and explore advanced topics in the field
 
----
+<p align="center">
+  <img src="assets/divider.svg?v=a80ccd500d" width="900" alt="" />
+</p>
 
 ### 📊 GitHub Stats
 
@@ -126,7 +132,9 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
   <img height="165" src="https://github-readme-streak-stats-three-sand.vercel.app?user=abdallah-shehawey&background=0b1017&ring=58a6ff&fire=3fb950&currStreakLabel=58a6ff&sideLabels=c5d2e0&currStreakNum=e6edf6&sideNums=e6edf6&dates=5b6b80&border=182231" alt="GitHub Streak"/>
 </p>
 
----
+<p align="center">
+  <img src="assets/divider.svg?v=a80ccd500d" width="900" alt="" />
+</p>
 
 <p align="center">
   <picture>
