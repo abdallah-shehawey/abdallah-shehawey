@@ -188,13 +188,13 @@
       <text class="v" x="538" y="376">C, C++, Python, Assembly</text>
       <text class="k" x="394" y="396">IDE:</text>
       <line class="ld" x1="478" y1="393" x2="530" y2="393"/>
-      <text class="v" x="538" y="396">CubeIDE, Keil uVision, Eclipse</text>
+      <text class="v" x="538" y="396">CubeIDE, MPLAB X, Keil, Eclipse, VS Code</text>
       <text class="k" x="394" y="416">Debug:</text>
       <line class="ld" x1="478" y1="413" x2="530" y2="413"/>
       <text class="v" x="538" y="416">JTAG, logic analyzer, scope</text>
       <text class="k" x="394" y="436">Build:</text>
       <line class="ld" x1="478" y1="433" x2="530" y2="433"/>
-      <text class="v" x="538" y="436">GCC, Make, Yocto, Git</text>
+      <text class="v" x="538" y="436">arm-none-eabi-gcc, avr-gcc, XC8, Make</text>
       <text class="tg" x="384" y="478">FROM BARE-METAL DRIVERS TO EMBEDDED LINUX</text>
 
   <line x1="0" y1="516" x2="900" y2="516" stroke="#182231"/>

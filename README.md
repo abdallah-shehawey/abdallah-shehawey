@@ -64,10 +64,15 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
 **Tools & Environment**
 
 <p>
+  <img src="https://img.shields.io/badge/-arm--none--eabi--gcc-333333?style=flat&logo=arm&logoColor=0091BD" alt="arm-none-eabi-gcc"/>
+  <img src="https://img.shields.io/badge/-avr--gcc-333333?style=flat&logo=gnu&logoColor=A42E2B" alt="avr-gcc"/>
+  <img src="https://img.shields.io/badge/-XC8-333333?style=flat" alt="XC8"/>
+  <img src="https://img.shields.io/badge/-Make-333333?style=flat&logo=gnu&logoColor=A42E2B" alt="Make"/>
   <img src="https://img.shields.io/badge/-Git-333333?style=flat&logo=git" alt="Git"/>
   <img src="https://img.shields.io/badge/-GitHub-333333?style=flat&logo=github" alt="GitHub"/>
   <img src="https://img.shields.io/badge/-Visual%20Studio%20Code-333333?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iJTIzMDA3QUNDIj48cGF0aCBkPSJNMjMuMTUgMi41ODdMMTguMjEuMjFhMS40OTQgMS40OTQgMCAwIDAtMS43MDUuMjlsLTkuNDYgOC42My00LjEyLTMuMTI4YS45OTkuOTk5IDAgMCAwLTEuMjc2LjA1N0wuMzI3IDcuMjYxQTEgMSAwIDAgMCAuMzI2IDguNzRMMy44OTkgMTIgLjMyNiAxNS4yNmExIDEgMCAwIDAgLjAwMSAxLjQ3OUwxLjY1IDE3Ljk0YS45OTkuOTk5IDAgMCAwIDEuMjc2LjA1N2w0LjEyLTMuMTI4IDkuNDYgOC42M2ExLjQ5MiAxLjQ5MiAwIDAgMCAxLjcwNC4yOWw0Ljk0Mi0yLjM3N0ExLjUgMS41IDAgMCAwIDI0IDIwLjA2VjMuOTM5YTEuNSAxLjUgMCAwIDAtLjg1LTEuMzUyem0tNS4xNDYgMTQuODYxTDEwLjgyNiAxMmw3LjE3OC01LjQ0OHYxMC44OTZ6Ii8+PC9zdmc+" alt="VS Code"/>
   <img src="https://img.shields.io/badge/-STM32%20CubeIDE-333333?style=flat&logo=stmicroelectronics&logoColor=03234B" alt="STM32 CubeIDE"/>
+  <img src="https://img.shields.io/badge/-MPLAB%20X-333333?style=flat" alt="MPLAB X"/>
   <img src="https://img.shields.io/badge/-Keil%20uVision-333333?style=flat" alt="Keil uVision"/>
   <img src="https://img.shields.io/badge/-Eclipse-333333?style=flat&logo=eclipse-ide&logoColor=2C2255" alt="Eclipse"/>
   <img src="https://img.shields.io/badge/-Linux-333333?style=flat&logo=Linux&logoColor=FCC624" alt="Linux"/>

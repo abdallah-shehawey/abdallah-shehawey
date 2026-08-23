@@ -134,9 +134,9 @@ INFO = [
     ("gap", None, None),
     ("sec", "TOOLCHAIN", None),
     ("kv", "Code:", "C, C++, Python, Assembly"),
-    ("kv", "IDE:", "CubeIDE, Keil uVision, Eclipse"),
+    ("kv", "IDE:", "CubeIDE, MPLAB X, Keil, Eclipse, VS Code"),
     ("kv", "Debug:", "JTAG, logic analyzer, scope"),
-    ("kv", "Build:", "GCC, Make, Yocto, Git"),
+    ("kv", "Build:", "arm-none-eabi-gcc, avr-gcc, XC8, Make"),
     ("gap", None, None),
     ("tag", "FROM BARE-METAL DRIVERS TO EMBEDDED LINUX", None),
 ]
