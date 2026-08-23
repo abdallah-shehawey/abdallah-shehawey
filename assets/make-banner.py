@@ -109,7 +109,7 @@ def ascii_art():
 W, H = 900, 556
 TITLE_H, FOOT_Y = 32, 516
 AX, AY, AW, AH = 28.0, 76.0, 316.0, 409.0     # art box, matches CROP's aspect
-KX, LX0, LX1, VX, LINE = 394, 478, 530, 538, 18.0
+KX, LX0, LX1, VX, LINE = 394, 478, 530, 538, 20.0
 
 MONO = ("ui-monospace,'SF Mono','JetBrains Mono','Fira Code',"
         "'DejaVu Sans Mono',Menlo,Consolas,monospace")
@@ -125,9 +125,7 @@ INFO = [
     ("kv", "Role:", "Embedded Software Engineer"),
     ("kv", "Based:", "El Mahalla El Kubra, Gharbia, Egypt"),
     ("kv", "Mode:", "Bare-Metal / RTOS / Embedded Linux"),
-    ("kv", "Runs:", "Fedora Linux, GNU userland, zsh"),
     ("kv", "Writes:", "shinux.vercel.app / Notes from below the OS"),
-    ("kv", "Ships:", "shinux repo / GPG-signed dnf + apt"),
     ("gap", None, None),
     ("sec", "BUILD.FOCUS", None),
     ("kv", "MCU:", "ARM Cortex-M, AVR, PIC"),
