@@ -196,75 +196,115 @@ def main():
   <title>Abdallah Shehawey - Embedded Software Engineer</title>
 
   <defs>
-    <linearGradient id="ink" x1="0" y1="0" x2="0.25" y2="1">
-      <stop offset="0"    stop-color="#d6e6ff"/>
-      <stop offset="0.35" stop-color="#8cc0ff"/>
-      <stop offset="0.75" stop-color="#5b95e6"/>
-      <stop offset="1"    stop-color="#3d74c2"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
     </linearGradient>
-    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#1e60c8" stop-opacity="0.16"/>
-      <stop offset="1" stop-color="#1e60c8" stop-opacity="0"/>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0"    stop-color="#8b949e"/>
+      <stop offset="0.48" stop-color="#58a6ff"/>
+      <stop offset="1"    stop-color="#8b949e"/>
     </linearGradient>
-    <clipPath id="win"><rect x="1" y="1" width="{W-2}" height="{H-2}" rx="12"/></clipPath>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0f6fc"/>
+      <stop offset="1" stop-color="#79c0ff"/>
+    </linearGradient>
+    <linearGradient id="scan" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#58a6ff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#58a6ff" stop-opacity="0.46"/>
+      <stop offset="1"   stop-color="#8b949e" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="halo">
+      <stop offset="0"    stop-color="#58a6ff" stop-opacity="0.12"/>
+      <stop offset="0.48" stop-color="#c9d1d9" stop-opacity="0.055"/>
+      <stop offset="1"    stop-color="#8b949e" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="win"><rect x="1" y="1" width="{W-2}" height="{H-2}" rx="14"/></clipPath>
   </defs>
 
   <style>
     text {{ font-family: {MONO}; white-space: pre; }}
-    .bar  {{ font-size: 10.5px; fill: {C['dim']}; }}
-    .lbl  {{ font-size: 8.5px;  fill: {C['label']}; letter-spacing: 1.5px; }}
+    .bar  {{ font-size: 10.5px; fill: #8b949e; }}
+    .lbl  {{ font-size: 8.5px;  fill: #6e7b8b; letter-spacing: 1.5px; }}
     .art  {{ font-size: {FS}px; fill: url(#ink); }}
-    .hd   {{ font-size: 12px;   fill: #e6edf6; font-weight: 600; }}
-    .sc   {{ font-size: 10.5px; fill: {C['sec']}; letter-spacing: 0.6px; }}
-    .k    {{ font-size: 12px;   fill: {C['key']}; }}
-    .v    {{ font-size: 12px;   fill: {C['val']}; }}
-    .rl   {{ stroke: {C['rule']}; stroke-width: 1; }}
-    .ld   {{ stroke: #2b3a4d; stroke-width: 1; stroke-dasharray: 1.5 3.5;
+    .hd   {{ font-size: 12px;   fill: #f0f6fc; font-weight: 600; }}
+    .sc   {{ font-size: 10.5px; fill: #7ee787; letter-spacing: 0.6px; }}
+    .k    {{ font-size: 12px;   fill: #58a6ff; font-weight: 600; }}
+    .v    {{ font-size: 12px;   fill: #c9d1d9; }}
+    .rl   {{ stroke: #30363d; stroke-width: 1; }}
+    .ld   {{ stroke: #3d4855; stroke-width: 1; stroke-dasharray: 1.5 3.5;
              stroke-linecap: round; }}
-    .foot {{ font-size: 9px; fill: {C['foot']}; letter-spacing: 2.2px; }}
-    .live {{ font-size: 9px; fill: {C['live']}; letter-spacing: 1.6px; }}
-    .tg   {{ font-size: 9px; fill: {C['tag']};  letter-spacing: 1.8px; }}
+    .foot {{ font-size: 9px; fill: #56606d; letter-spacing: 2.2px; }}
+    .live {{ font-size: 9px; fill: #3fb950; letter-spacing: 1.6px; }}
+    .tg   {{ font-size: 9px; fill: #6e7b8b; letter-spacing: 1.8px; }}
+    .orbit {{ transform-box: view-box; }}
 
-    .blink {{ animation: blink 1.15s steps(1) infinite; }}
-    .pulse {{ animation: pulse 2.4s ease-in-out infinite; }}
+    @keyframes scan  {{ from {{ transform: translateY(0); }}
+                       to   {{ transform: translateY({H + 80}px); }} }}
+    @keyframes spin  {{ to {{ transform: rotate(360deg); }} }}
+    @keyframes rspin {{ to {{ transform: rotate(-360deg); }} }}
     @keyframes blink {{ 0%,49% {{ opacity: 1 }} 50%,100% {{ opacity: 0 }} }}
     @keyframes pulse {{ 0%,100% {{ opacity: 1 }} 50% {{ opacity: 0.25 }} }}
+
+    @media (prefers-reduced-motion: no-preference) {{
+      .motion-scan {{ animation: scan 8s linear infinite; }}
+      .orbit--fwd  {{ animation: spin 42s linear infinite; }}
+      .orbit--rev  {{ animation: rspin 34s linear infinite; }}
+      .blink       {{ animation: blink 1.15s steps(1) infinite; }}
+      .pulse       {{ animation: pulse 2.4s ease-in-out infinite; }}
+    }}
     @media (prefers-reduced-motion: reduce) {{
-      .blink, .pulse {{ animation: none; }}
+      .motion-scan {{ display: none; }}
     }}
   </style>
 
-  <rect width="{W}" height="{H}" rx="12" fill="{C['shell']}"/>
+  <rect width="{W}" height="{H}" rx="14" fill="url(#bg)"/>
   <g clip-path="url(#win)">
-    <rect width="{W}" height="{H}" fill="{C['win']}"/>
-    <rect width="{W}" height="{TITLE_H}" fill="{C['bar']}"/>
-    <rect y="{TITLE_H}" width="{W}" height="170" fill="url(#glow)"/>
-  </g>
-  <rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="12" fill="none" stroke="{C['edge']}"/>
-  <line x1="0" y1="{TITLE_H}" x2="{W}" y2="{TITLE_H}" stroke="{C['edge']}"/>
+    <rect width="{W}" height="{TITLE_H}" fill="#0d1117" fill-opacity="0.7"/>
 
-  <!-- window chrome -->
-  <circle cx="20" cy="16" r="4.5" fill="#e05c54" opacity="0.75"/>
-  <circle cx="37" cy="16" r="4.5" fill="#d9a026" opacity="0.75"/>
-  <circle cx="54" cy="16" r="4.5" fill="#33a852" opacity="0.75"/>
-  <text class="bar" x="450" y="20" text-anchor="middle">shehawey@embedded  ~  %  ./profile<tspan class="blink" fill="#58a6ff"> &#9608;</tspan></text>
-  <circle class="pulse" cx="797" cy="16" r="3.4" fill="{C['live']}"/>
-  <text class="live" x="808" y="19.5">BUILDING</text>
+    <!-- portrait backdrop: halo plus two slow counter-rotating orbits -->
+    <ellipse cx="186" cy="278" rx="168" ry="216" fill="url(#halo)"/>
+    <ellipse class="orbit orbit--fwd" style="transform-origin:186px 278px"
+             cx="186" cy="278" rx="152" ry="200" fill="none"
+             stroke="#c9d1d9" stroke-width="1" stroke-dasharray="3 14" opacity="0.13"/>
+    <ellipse class="orbit orbit--rev" style="transform-origin:186px 278px"
+             cx="186" cy="278" rx="116" ry="156" fill="none"
+             stroke="#8b949e" stroke-width="1" stroke-dasharray="28 24" opacity="0.10"/>
 
   <!-- portrait -->
-  <rect x="14" y="46" width="344" height="454" rx="8" fill="{C['panel']}" stroke="{C['panel_edge']}"/>
+  <rect x="14" y="46" width="344" height="454" rx="12" fill="#161b22" fill-opacity="0.38"
+        stroke="url(#edge)" stroke-opacity="0.42"/>
   <text class="lbl" x="26" y="64">PORTRAIT / ABDALLAH</text>
   <g class="art">
       {ART}
   </g>
 
   <!-- profile -->
-  <rect x="370" y="46" width="516" height="454" rx="8" fill="{C['panel']}" stroke="{C['panel_edge']}"/>
+  <rect x="370" y="46" width="516" height="454" rx="12" fill="#161b22" fill-opacity="0.42"
+        stroke="url(#edge)" stroke-opacity="0.42"/>
   <text class="lbl" x="382" y="64">PROFILE / ENGINEER</text>
       {PANEL}
 
-  <line x1="0" y1="{FOOT_Y}" x2="{W}" y2="{FOOT_Y}" stroke="{C['edge']}"/>
+    <!-- the scanner: rides above everything, screen-blended so it only adds light -->
+    <rect class="motion-scan" x="0" y="-80" width="{W}" height="80"
+          fill="url(#scan)" opacity="0.42" style="mix-blend-mode:screen"/>
+  </g>
+
+  <line x1="0" y1="{TITLE_H}" x2="{W}" y2="{TITLE_H}" stroke="#30363d"/>
+
+  <!-- window chrome -->
+  <circle cx="20" cy="16" r="4.5" fill="#e05c54" opacity="0.75"/>
+  <circle cx="37" cy="16" r="4.5" fill="#d9a026" opacity="0.75"/>
+  <circle cx="54" cy="16" r="4.5" fill="#33a852" opacity="0.75"/>
+  <text class="bar" x="450" y="20" text-anchor="middle">shehawey@embedded  ~  %  ./profile<tspan class="blink" fill="#58a6ff"> &#9608;</tspan></text>
+  <circle class="pulse" cx="797" cy="16" r="3.4" fill="#3fb950"/>
+  <text class="live" x="808" y="19.5">BUILDING</text>
+
+  <line x1="0" y1="{FOOT_Y}" x2="{W}" y2="{FOOT_Y}" stroke="#30363d"/>
   <text class="foot" x="450" y="540" text-anchor="middle">{FOOTER}</text>
+
+  <rect x="1.5" y="1.5" width="{W-3}" height="{H-3}" rx="14" fill="none"
+        stroke="url(#edge)" stroke-width="2" opacity="0.76"/>
 </svg>
 '''
     with open(OUT, "w") as fh:
