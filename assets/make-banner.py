@@ -35,7 +35,6 @@ README = os.path.join(HERE, os.pardir, "README.md")
 # Ramp ordered by measured ink coverage of each glyph, not by guesswork —
 # a mis-ordered ramp is what makes ASCII portraits look like noise.
 RAMP = " `.'~!;/=|ltsnXaw8mMQB@$"
-COLS, ROWS = 84, 82
 CROP = (150, 0, 1120, 1254)        # trims the blurred padding off the square
 
 # Subject outlines, traced by hand in photo pixels.
@@ -67,7 +66,7 @@ BACKDROP = 0.08                    # background density, as a fraction of full
 SILHOUETTE = 0.14                  # minimum ink inside the subject outline
 P_LO, P_HI, CUT = 1, 99, 0.05
 
-def ascii_art():
+def ascii_art(cols, rows):
     photo = Image.open(PHOTO).convert("L")
 
     mask = Image.new("L", photo.size, 0)
@@ -89,7 +88,7 @@ def ascii_art():
 
     def cells(a):
         return np.asarray(Image.fromarray((np.clip(a, 0, 1) * 255).astype(np.uint8))
-                          .resize((COLS, ROWS), Image.LANCZOS), np.float32) / 255.0
+                          .resize((cols, rows), Image.LANCZOS), np.float32) / 255.0
 
     t, m = cells(tone), cells(np.asarray(mask, np.float32) / 255.0)
     lo, hi = np.percentile(t, P_LO), np.percentile(t, P_HI)
@@ -142,6 +141,7 @@ MONO = ("ui-monospace,'SF Mono','JetBrains Mono','Fira Code',"
 # monospace are unreadable.
 DESKTOP = dict(
     out="banner.svg", W=900, H=556, bar_h=34, foot_y=516, foot_text=540,
+    cols=84, rows=82,
     art=(28.0, 76.0, 316.0, 409.0),
     pa=(14, 46, 344, 454), pb=(370, 46, 516, 454),
     kx=394, lx0=478, lx1=530, vx=538, line=20.0, start=104.0, rule_x2=874,
@@ -150,27 +150,38 @@ DESKTOP = dict(
 )
 MOBILE = dict(
     out="banner-mobile.svg", W=440, H=940, bar_h=30, foot_y=898, foot_text=920,
+    cols=62, rows=61,
     art=(64.0, 70.0, 312.0, 404.0),
     pa=(10, 40, 420, 448), pb=(10, 500, 420, 386),
     kx=30, lx0=112, lx1=148, vx=156, line=17.0, start=544.0, rule_x2=412,
-    fs=dict(bar=9, lbl=7.5, hd=10, sc=9, kv=9.5, foot=7, live=7.5, tg=7.5),
-    prompt_x=196, live_x=336, live_cx=326, foot=FOOTER_SM, foot_ls=1.3,
+    fs=dict(bar=9, lbl=7.5, hd=10, sc=9, kv=9.5, foot=9, live=7.5, tg=8),
+    prompt_x=196, live_x=336, live_cx=326, foot=FOOTER_SM, foot_ls=1.5,
 )
 
 
 def art_svg(art, L):
+    """One text run per row, not one absolute x per glyph.
+
+    Per-glyph positioning forces the engine to lay out every character
+    independently: ~4500 of them cost ~540ms of layout on a throttled phone,
+    and every scroll that invalidates layout pays it again. A single run per
+    row with textLength keeps the grid exactly as font-independent — the run
+    is scaled to a known width — for roughly a tenth of the cost.
+    """
     ax, ay, aw, ah = L["art"]
-    cw, ch = aw / COLS, ah / ROWS
-    xs = [round(ax + i * cw, 2) for i in range(COLS)]
+    cols, rows = L["cols"], L["rows"]
+    cw, ch = aw / cols, ah / rows
     out = []
     for r, line in enumerate(art):
-        glyphs = [(i, c) for i, c in enumerate(line) if c != " "]
-        if not glyphs:
+        run = line.rstrip()
+        if not run.strip():
             continue
-        pos = " ".join(f"{xs[i]:g}" for i, _ in glyphs)
-        y = round(ay + (r + 0.82) * ch, 2)
-        out.append(f'<text x="{pos}" y="{y:g}">'
-                   f'{escape("".join(c for _, c in glyphs))}</text>')
+        i0 = len(run) - len(run.lstrip())
+        run = run[i0:]
+        out.append(
+            f'<tspan x="{ax + i0 * cw:.2f}" y="{ay + (r + 0.82) * ch:.2f}" '
+            f'textLength="{len(run) * cw:.2f}" lengthAdjust="spacingAndGlyphs" '
+            f'xml:space="preserve">{escape(run)}</tspan>')
     return "\n      ".join(out), round(ch * 0.96, 2)
 
 
@@ -306,9 +317,9 @@ def render(L, art):
     <rect x="{pax}" y="{pay}" width="{paw}" height="{pah}" rx="12" fill="#161b22"
           fill-opacity="0.38" stroke="url(#edge)" stroke-opacity="0.42"/>
     <text class="lbl" x="{pax+12}" y="{pay+18}">PORTRAIT / ABDALLAH</text>
-    <g class="art">
+    <text class="art">
       {ART}
-    </g>
+    </text>
 
     <rect x="{pbx}" y="{pby}" width="{pbw}" height="{pbh}" rx="12" fill="#161b22"
           fill-opacity="0.42" stroke="url(#edge)" stroke-opacity="0.42"/>
@@ -335,10 +346,13 @@ def render(L, art):
 
 
 def main():
-    art = ascii_art()
+    grids = {}
     stamps = {}
     for L in (DESKTOP, MOBILE):
-        svg = render(L, art)
+        key = (L["cols"], L["rows"])
+        if key not in grids:
+            grids[key] = ascii_art(*key)
+        svg = render(L, grids[key])
         path = os.path.join(HERE, L["out"])
         with open(path, "w") as fh:
             fh.write(svg)

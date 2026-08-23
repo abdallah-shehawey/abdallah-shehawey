@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(max-width: 760px)" srcset="assets/banner-mobile.svg?v=c7fab9a13d">
-    <img src="assets/banner.svg?v=402c7f3449" width="900" alt="Abdallah Shehawey — Embedded Software Engineer" />
+    <source media="(max-width: 760px)" srcset="assets/banner-mobile.svg?v=2bed5bf489">
+    <img src="assets/banner.svg?v=ae99d99212" width="900" alt="Abdallah Shehawey — Embedded Software Engineer" />
   </picture>
 </p>
 
