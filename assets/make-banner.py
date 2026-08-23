@@ -1,69 +1,83 @@
 #!/usr/bin/env python3
 """Regenerate assets/banner.svg — the terminal-style header of the profile README.
 
-Pulls the GitHub avatar, traces the subject out of the background, renders it as
-an ASCII silhouette, and composes the whole terminal window as one SVG.
+Renders assets/portrait.jpg (the same photo GitHub uses as my avatar) as ASCII
+art and composes it with a profile panel into one self-contained SVG.
 
     pip install pillow numpy
     python3 assets/make-banner.py
 
-Every glyph of the ASCII art carries its own absolute x, so the grid holds even
-when a browser substitutes a non-monospace font.
+Two things here are deliberate and easy to break:
+
+* Every glyph carries its own absolute x and spaces are dropped, so the
+  character grid survives font substitution and any whitespace handling.
+* The photo is a full scene — a person on stone steps in front of a wooden
+  door. Mapping luminance straight onto a ramp turns that into noise, because
+  the background carries as much contrast as the subject. So the subject is
+  isolated by a hand-traced outline and the background is kept at a fraction of
+  its density: present as a backdrop, never competing.
 """
 
 import os
-import urllib.request
 from xml.sax.saxutils import escape
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-AVATAR_URL = "https://github.com/abdallah-shehawey.png?size=460"
-AVATAR = os.path.join(HERE, ".avatar-cache.png")
+PHOTO = os.path.join(HERE, "portrait.jpg")
 OUT = os.path.join(HERE, "banner.svg")
 
 # --------------------------------------------------------------------- art
-# Ramp ordered by measured ink coverage of each glyph in a monospace face.
+# Ramp ordered by measured ink coverage of each glyph, not by guesswork —
+# a mis-ordered ramp is what makes ASCII portraits look like noise.
 RAMP = " `.'~!;/=|ltsnXaw8mMQB@$"
-COLS, ROWS = 56, 56
-CROP = (112, 18, 252, 205)         # head and shoulders in the 460x460 avatar
+COLS, ROWS = 84, 82
+CROP = (150, 0, 1120, 1254)        # trims the blurred padding off the square
 
-# Subject outline, traced by hand in avatar pixels. Everything outside is
-# dropped, which is what keeps the busy photo background out of the ASCII.
-FIGURE = [
-    (150, 28), (180, 23), (212, 33), (220, 58), (219, 92), (209, 110), (201, 124),
-    (228, 130), (252, 146), (264, 170), (273, 205), (282, 245), (293, 280),
-    (304, 300), (300, 313), (280, 319), (256, 323), (230, 331), (214, 341),
-    (199, 346), (225, 353), (229, 373), (222, 393), (200, 405), (170, 401),
-    (159, 379), (150, 361), (139, 373), (150, 396), (168, 416), (171, 441),
-    (155, 456), (125, 456), (114, 438), (112, 415), (104, 390), (92, 360),
-    (83, 330), (80, 300), (82, 255), (85, 215), (88, 180), (96, 152),
-    (112, 138), (140, 126), (167, 122), (173, 111), (157, 104), (146, 87),
-    (145, 57),
+# Subject outlines, traced by hand in photo pixels.
+BODY = [
+    (425, 80), (465, 60), (520, 58), (560, 78), (575, 115), (578, 175),
+    (570, 225), (556, 265), (538, 295), (528, 330),
+    (580, 340), (628, 368), (658, 405), (676, 455), (688, 500),
+    (724, 520), (730, 700), (726, 812),
+    (700, 832), (664, 862), (636, 900), (614, 940), (606, 990),
+    (588, 1040), (556, 1072), (505, 1085), (452, 1075), (416, 1042),
+    (398, 995), (394, 946),
+    (350, 1000), (340, 1080), (360, 1180), (372, 1254),
+    (490, 1254), (480, 1160), (455, 1080), (425, 1020), (400, 980),
+    (300, 990), (268, 940), (250, 880), (242, 800), (238, 700),
+    (240, 600), (246, 500), (252, 430), (266, 392), (296, 364),
+    (338, 348), (386, 336), (432, 328), (452, 324),
+    (448, 300), (428, 270), (412, 225), (408, 170), (412, 120),
+]
+CAR = [
+    (842, 790), (848, 742), (872, 712), (910, 696), (938, 660), (946, 690),
+    (1002, 700), (1046, 716), (1072, 764), (1068, 830), (1030, 872),
+    (960, 886), (890, 878), (848, 848),
 ]
 
-FEATHER, BLUR, GAMMA = 3, 0.25, 1.0
-L_SIGMA, L_STRENGTH, L_MIX = 0.10, 2.5, 0.85
-P_LO, P_HI, CUT = 1, 99, 0.03
+FEATHER, BLUR, GAMMA = 6, 0.9, 0.90
+L_SIGMA, L_STRENGTH, L_MIX = 0.14, 2.0, 0.30
+BACKDROP = 0.08                    # background density, as a fraction of full
+SILHOUETTE = 0.14                  # minimum ink inside the subject outline
+P_LO, P_HI, CUT = 1, 99, 0.05
 
 
-def ascii_portrait():
-    if not os.path.exists(AVATAR):
-        urllib.request.urlretrieve(AVATAR_URL, AVATAR)
-    rgb = Image.open(AVATAR).convert("RGB")
+def ascii_art():
+    photo = Image.open(PHOTO).convert("L")
 
-    mask = Image.new("L", rgb.size, 0)
-    ImageDraw.Draw(mask).polygon(FIGURE, fill=255)
+    mask = Image.new("L", photo.size, 0)
+    pen = ImageDraw.Draw(mask)
+    pen.polygon(BODY, fill=255)
+    pen.polygon(CAR, fill=255)
     mask = mask.filter(ImageFilter.GaussianBlur(FEATHER)).crop(CROP)
 
-    gray = rgb.convert("L").crop(CROP).filter(ImageFilter.GaussianBlur(BLUR))
+    im = photo.crop(CROP).filter(ImageFilter.GaussianBlur(BLUR))
+    g = np.asarray(im, np.float32) / 255.0
 
-    g = np.asarray(gray, np.float32) / 255.0
-
-    # Local contrast: subtract a heavily blurred copy so the lit face and the
-    # near-black suit each get the whole ramp instead of sharing one range.
-    # Without this the face flattens into blank space and stops being a face.
+    # A touch of local contrast lifts detail out of the black suit without
+    # flattening the large shapes that make the pose readable.
     sigma = L_SIGMA * (CROP[2] - CROP[0])
     lp = np.asarray(Image.fromarray((g * 255).astype(np.uint8))
                     .filter(ImageFilter.GaussianBlur(sigma)), np.float32) / 255.0
@@ -75,22 +89,26 @@ def ascii_portrait():
                           .resize((COLS, ROWS), Image.LANCZOS), np.float32) / 255.0
 
     t, m = cells(tone), cells(np.asarray(mask, np.float32) / 255.0)
-
-    inside = t[m > 0.5]
-    lo, hi = np.percentile(inside, P_LO), np.percentile(inside, P_HI)
+    lo, hi = np.percentile(t, P_LO), np.percentile(t, P_HI)
     t = np.clip((t - lo) / max(hi - lo, 1e-6), 0, 1)
 
-    dens = np.clip(1.0 - t, 0, 1) ** GAMMA * m
+    # Bright -> dense. On a dark panel that reproduces the photo the way a
+    # screen shows it; the usual dark->dense mapping turns the black suit and
+    # the dark plaque into one solid blob with no structure.
+    dens = t ** GAMMA
+    dens = np.maximum(dens, SILHOUETTE * m)   # or the black suit vanishes
+    dens *= BACKDROP + (1 - BACKDROP) * m
     dens[dens < CUT] = 0.0
+
     idx = (dens * (len(RAMP) - 1)).round().astype(int)
     return ["".join(RAMP[i] for i in row) for row in idx]
 
 
 # ------------------------------------------------------------------ layout
-W, H = 900, 520
-TITLE_H, FOOT_Y = 32, 480
-AX, AY, AW, AH = 26.0, 76.0, 280.0, 384.0     # art box, portrait orientation
-KX, LX0, LX1, VX, LINE = 356, 440, 492, 500, 18.0
+W, H = 900, 556
+TITLE_H, FOOT_Y = 32, 516
+AX, AY, AW, AH = 28.0, 76.0, 316.0, 409.0     # art box, matches CROP's aspect
+KX, LX0, LX1, VX, LINE = 394, 478, 530, 538, 20.0
 
 MONO = ("ui-monospace,'SF Mono','JetBrains Mono','Fira Code',"
         "'DejaVu Sans Mono',Menlo,Consolas,monospace")
@@ -105,7 +123,7 @@ INFO = [
     ("kv", "Name:", "Abdallah Shehawey"),
     ("kv", "Role:", "Embedded Software Engineer"),
     ("kv", "Based:", "El Mahalla El Kubra, Gharbia, Egypt"),
-    ("kv", "Mode:", "Bare-Metal / RTOS / Automotive"),
+    ("kv", "Mode:", "Bare-Metal / RTOS / Embedded Linux"),
     ("gap", None, None),
     ("sec", "BUILD.FOCUS", None),
     ("kv", "MCU:", "ARM Cortex-M, AVR, PIC"),
@@ -113,11 +131,11 @@ INFO = [
     ("kv", "Vehicle:", "AUTOSAR, CAN, V2X safety"),
     ("kv", "Linux:", "Yocto, drivers, Raspberry Pi"),
     ("gap", None, None),
-    ("sec", "ONLINE", None),
-    ("kv", "Site:", "abdallahshehawey.vercel.app"),
-    ("kv", "Blog:", "shinux.vercel.app"),
-    ("kv", "LinkedIn:", "in/abdallah-shehawey"),
-    ("kv", "GitHub:", "@abdallah-shehawey"),
+    ("sec", "TOOLCHAIN", None),
+    ("kv", "Code:", "C, C++, Python, Assembly"),
+    ("kv", "IDE:", "CubeIDE, Keil uVision, Eclipse"),
+    ("kv", "Debug:", "JTAG, logic analyzer, scope"),
+    ("kv", "Build:", "GCC, Make, Yocto, Git"),
     ("gap", None, None),
     ("tag", "FROM DATASHEET TO WORKING HARDWARE", None),
 ]
@@ -137,11 +155,11 @@ def art_svg(art):
         y = round(AY + (r + 0.82) * ch, 2)
         out.append(f'<text x="{pos}" y="{y:g}">'
                    f'{escape("".join(c for _, c in glyphs))}</text>')
-    return "\n      ".join(out), round(ch * 0.94, 2)
+    return "\n      ".join(out), round(ch * 0.96, 2)
 
 
 def info_svg():
-    out, y = [], 98.0
+    out, y = [], 104.0
     for kind, a, b in INFO:
         if kind == "gap":
             y += LINE * 0.8
@@ -164,8 +182,8 @@ def info_svg():
 
 
 def main():
-    ART, FS = art_svg(ascii_portrait())
-    BODY = info_svg()
+    ART, FS = art_svg(ascii_art())
+    PANEL = info_svg()
 
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}"
      viewBox="0 0 {W} {H}" role="img"
@@ -174,10 +192,10 @@ def main():
 
   <defs>
     <linearGradient id="ink" x1="0" y1="0" x2="0.25" y2="1">
-      <stop offset="0"    stop-color="#b9d4ff"/>
-      <stop offset="0.35" stop-color="#6ea8fe"/>
-      <stop offset="0.75" stop-color="#3878cf"/>
-      <stop offset="1"    stop-color="#1f4f8f"/>
+      <stop offset="0"    stop-color="#d6e6ff"/>
+      <stop offset="0.35" stop-color="#8cc0ff"/>
+      <stop offset="0.75" stop-color="#5b95e6"/>
+      <stop offset="1"    stop-color="#3d74c2"/>
     </linearGradient>
     <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#1e60c8" stop-opacity="0.16"/>
@@ -192,9 +210,9 @@ def main():
     .lbl  {{ font-size: 8.5px;  fill: {C['label']}; letter-spacing: 1.5px; }}
     .art  {{ font-size: {FS}px; fill: url(#ink); }}
     .hd   {{ font-size: 12px;   fill: #e6edf6; font-weight: 600; }}
-    .sc   {{ font-size: 10.5px;   fill: {C['sec']}; letter-spacing: 0.6px; }}
-    .k    {{ font-size: 12px; fill: {C['key']}; }}
-    .v    {{ font-size: 12px; fill: {C['val']}; }}
+    .sc   {{ font-size: 10.5px; fill: {C['sec']}; letter-spacing: 0.6px; }}
+    .k    {{ font-size: 12px;   fill: {C['key']}; }}
+    .v    {{ font-size: 12px;   fill: {C['val']}; }}
     .rl   {{ stroke: {C['rule']}; stroke-width: 1; }}
     .ld   {{ stroke: #2b3a4d; stroke-width: 1; stroke-dasharray: 1.5 3.5;
              stroke-linecap: round; }}
@@ -215,7 +233,7 @@ def main():
   <g clip-path="url(#win)">
     <rect width="{W}" height="{H}" fill="{C['win']}"/>
     <rect width="{W}" height="{TITLE_H}" fill="{C['bar']}"/>
-    <rect y="{TITLE_H}" width="{W}" height="150" fill="url(#glow)"/>
+    <rect y="{TITLE_H}" width="{W}" height="170" fill="url(#glow)"/>
   </g>
   <rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="12" fill="none" stroke="{C['edge']}"/>
   <line x1="0" y1="{TITLE_H}" x2="{W}" y2="{TITLE_H}" stroke="{C['edge']}"/>
@@ -229,19 +247,19 @@ def main():
   <text class="live" x="808" y="19.5">BUILDING</text>
 
   <!-- portrait -->
-  <rect x="14" y="46" width="306" height="420" rx="8" fill="{C['panel']}" stroke="{C['panel_edge']}"/>
+  <rect x="14" y="46" width="344" height="454" rx="8" fill="{C['panel']}" stroke="{C['panel_edge']}"/>
   <text class="lbl" x="26" y="64">PORTRAIT / ABDALLAH</text>
   <g class="art">
       {ART}
   </g>
 
   <!-- profile -->
-  <rect x="332" y="46" width="554" height="420" rx="8" fill="{C['panel']}" stroke="{C['panel_edge']}"/>
-  <text class="lbl" x="344" y="64">PROFILE / ENGINEER</text>
-      {BODY}
+  <rect x="370" y="46" width="516" height="454" rx="8" fill="{C['panel']}" stroke="{C['panel_edge']}"/>
+  <text class="lbl" x="382" y="64">PROFILE / ENGINEER</text>
+      {PANEL}
 
   <line x1="0" y1="{FOOT_Y}" x2="{W}" y2="{FOOT_Y}" stroke="{C['edge']}"/>
-  <text class="foot" x="450" y="504" text-anchor="middle">{FOOTER}</text>
+  <text class="foot" x="450" y="540" text-anchor="middle">{FOOTER}</text>
 </svg>
 '''
     with open(OUT, "w") as fh:
