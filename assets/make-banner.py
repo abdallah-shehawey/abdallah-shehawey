@@ -67,7 +67,6 @@ BACKDROP = 0.08                    # background density, as a fraction of full
 SILHOUETTE = 0.14                  # minimum ink inside the subject outline
 P_LO, P_HI, CUT = 1, 99, 0.05
 
-
 def ascii_art():
     photo = Image.open(PHOTO).convert("L")
 
@@ -107,21 +106,6 @@ def ascii_art():
     idx = (dens * (len(RAMP) - 1)).round().astype(int)
     return ["".join(RAMP[i] for i in row) for row in idx]
 
-
-# ------------------------------------------------------------------ layout
-W, H = 900, 556
-TITLE_H, FOOT_Y = 32, 516
-AX, AY, AW, AH = 28.0, 76.0, 316.0, 409.0     # art box, matches CROP's aspect
-KX, LX0, LX1, VX, LINE = 394, 478, 530, 538, 20.0
-
-MONO = ("ui-monospace,'SF Mono','JetBrains Mono','Fira Code',"
-        "'DejaVu Sans Mono',Menlo,Consolas,monospace")
-
-C = dict(shell="#070b10", win="#0b1017", edge="#182231", bar="#0c131c",
-         panel="#090e14", panel_edge="#16202c", label="#3b4b5f", key="#58a6ff",
-         val="#c5d2e0", dim="#5b6b80", rule="#1d2937", sec="#7ee787",
-         live="#3fb950", foot="#31435a", tag="#46586e")
-
 INFO = [
     ("head", "shehawey@embedded", None),
     ("kv", "Name:", "Abdallah Shehawey"),
@@ -146,101 +130,148 @@ INFO = [
 ]
 
 FOOTER = "EMBEDDED SYSTEMS  /  AUTOMOTIVE  /  RTOS &amp; AUTOSAR  /  EMBEDDED LINUX"
+FOOTER_SM = "EMBEDDED  /  AUTOMOTIVE  /  RTOS  /  LINUX"
+PROMPT = "shehawey@embedded  ~  %  ./profile"
+
+MONO = ("ui-monospace,'SF Mono','JetBrains Mono','Fira Code',"
+        "'DejaVu Sans Mono',Menlo,Consolas,monospace")
+
+# ------------------------------------------------------------------ layouts
+# Two shapes of the same card. The desktop one puts the panels side by side;
+# the mobile one stacks them, because at phone width two columns of 12px
+# monospace are unreadable.
+DESKTOP = dict(
+    out="banner.svg", W=900, H=556, bar_h=34, foot_y=516, foot_text=540,
+    art=(28.0, 76.0, 316.0, 409.0),
+    pa=(14, 46, 344, 454), pb=(370, 46, 516, 454),
+    kx=394, lx0=478, lx1=530, vx=538, line=20.0, start=104.0, rule_x2=874,
+    fs=dict(bar=10.5, lbl=8.5, hd=12, sc=10.5, kv=12, foot=9, live=9, tg=9),
+    prompt_x=450, live_x=808, live_cx=797, foot=FOOTER, foot_ls=2.2,
+)
+MOBILE = dict(
+    out="banner-mobile.svg", W=440, H=940, bar_h=30, foot_y=898, foot_text=920,
+    art=(64.0, 70.0, 312.0, 404.0),
+    pa=(10, 40, 420, 448), pb=(10, 500, 420, 386),
+    kx=30, lx0=112, lx1=148, vx=156, line=17.0, start=544.0, rule_x2=412,
+    fs=dict(bar=9, lbl=7.5, hd=10, sc=9, kv=9.5, foot=7, live=7.5, tg=7.5),
+    prompt_x=196, live_x=336, live_cx=326, foot=FOOTER_SM, foot_ls=1.3,
+)
 
 
-def art_svg(art):
-    cw, ch = AW / COLS, AH / ROWS
-    xs = [round(AX + i * cw, 2) for i in range(COLS)]
+def art_svg(art, L):
+    ax, ay, aw, ah = L["art"]
+    cw, ch = aw / COLS, ah / ROWS
+    xs = [round(ax + i * cw, 2) for i in range(COLS)]
     out = []
     for r, line in enumerate(art):
         glyphs = [(i, c) for i, c in enumerate(line) if c != " "]
         if not glyphs:
             continue
         pos = " ".join(f"{xs[i]:g}" for i, _ in glyphs)
-        y = round(AY + (r + 0.82) * ch, 2)
+        y = round(ay + (r + 0.82) * ch, 2)
         out.append(f'<text x="{pos}" y="{y:g}">'
                    f'{escape("".join(c for _, c in glyphs))}</text>')
     return "\n      ".join(out), round(ch * 0.96, 2)
 
 
-def info_svg():
-    out, y = [], 104.0
+def info_svg(L):
+    kx, x2, line = L["kx"], L["rule_x2"], L["line"]
+    key_w = L["fs"]["kv"] * 0.62
+    out, y = [], L["start"]
     for kind, a, b in INFO:
         if kind == "gap":
-            y += LINE * 0.8
+            y += line * 0.8
             continue
         if kind == "head":
-            out.append(f'<text class="hd" x="{KX-10}" y="{y:g}">{escape(a)}</text>')
-            out.append(f'<line class="rl" x1="{KX+134}" y1="{y-4:g}" x2="874" y2="{y-4:g}"/>')
+            out.append(f'<text class="hd" x="{kx-10}" y="{y:g}">{escape(a)}</text>')
+            out.append(f'<line class="rl" x1="{kx - 10 + len(a) * key_w + 14:g}" '
+                       f'y1="{y-4:g}" x2="{x2}" y2="{y-4:g}"/>')
         elif kind == "tag":
-            out.append(f'<text class="tg" x="{KX-10}" y="{y+6:g}">{escape(a)}</text>')
+            out.append(f'<text class="tg" x="{kx-10}" y="{y+6:g}">{escape(a)}</text>')
         elif kind == "sec":
-            out.append(f'<text class="sc" x="{KX-10}" y="{y:g}">- {escape(a)}</text>')
-            out.append(f'<line class="rl" x1="{KX+32+len(a)*7.6:g}" y1="{y-4:g}" '
-                       f'x2="874" y2="{y-4:g}"/>')
+            out.append(f'<text class="sc" x="{kx-10}" y="{y:g}">- {escape(a)}</text>')
+            out.append(f'<line class="rl" x1="{kx - 10 + (len(a) + 3) * key_w + 14:g}" '
+                       f'y1="{y-4:g}" x2="{x2}" y2="{y-4:g}"/>')
         else:
-            out.append(f'<text class="k" x="{KX}" y="{y:g}">{escape(a)}</text>')
-            out.append(f'<line class="ld" x1="{LX0}" y1="{y-3:g}" x2="{LX1}" y2="{y-3:g}"/>')
-            out.append(f'<text class="v" x="{VX}" y="{y:g}">{escape(b)}</text>')
-        y += LINE
-    return "\n      ".join(out)
+            out.append(f'<text class="k" x="{kx}" y="{y:g}">{escape(a)}</text>')
+            out.append(f'<line class="ld" x1="{L["lx0"]}" y1="{y-3:g}" '
+                       f'x2="{L["lx1"]}" y2="{y-3:g}"/>')
+            out.append(f'<text class="v" x="{L["vx"]}" y="{y:g}">{escape(b)}</text>')
+        y += line
+    return "\n      ".join(out), y
 
 
-def main():
-    ART, FS = art_svg(ascii_art())
-    PANEL = info_svg()
+def render(L, art):
+    W, H, BAR = L["W"], L["H"], L["bar_h"]
+    ART, FS = art_svg(art, L)
+    PANEL, _ = info_svg(L)
+    f = L["fs"]
+    pax, pay, paw, pah = L["pa"]
+    pbx, pby, pbw, pbh = L["pb"]
+    hx, hy = pax + paw / 2, pay + pah / 2          # portrait panel centre
 
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}"
+    live = ""
+    if L["live_cx"] is not None:
+        live = (f'<circle class="pulse" cx="{L["live_cx"]}" cy="{BAR/2:g}" r="3.4" fill="#58a6ff"/>\n'
+                f'  <text class="live" x="{L["live_x"]}" y="{BAR/2 + 3.5:g}">BUILDING</text>')
+
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}"
      viewBox="0 0 {W} {H}" role="img"
      aria-label="Abdallah Shehawey - Embedded Software Engineer">
   <title>Abdallah Shehawey - Embedded Software Engineer</title>
 
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0d1117"/>
-      <stop offset="1" stop-color="#161b22"/>
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#161b22"/>
     </linearGradient>
     <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0"    stop-color="#8b949e"/>
+      <stop offset="0" stop-color="#8b949e"/>
       <stop offset="0.48" stop-color="#58a6ff"/>
-      <stop offset="1"    stop-color="#8b949e"/>
+      <stop offset="1" stop-color="#8b949e"/>
     </linearGradient>
     <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f0f6fc"/>
-      <stop offset="1" stop-color="#79c0ff"/>
+      <stop offset="0" stop-color="#f0f6fc"/><stop offset="1" stop-color="#79c0ff"/>
     </linearGradient>
     <linearGradient id="scan" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0"   stop-color="#58a6ff" stop-opacity="0"/>
+      <stop offset="0" stop-color="#58a6ff" stop-opacity="0"/>
       <stop offset="0.5" stop-color="#58a6ff" stop-opacity="0.46"/>
-      <stop offset="1"   stop-color="#8b949e" stop-opacity="0"/>
+      <stop offset="1" stop-color="#8b949e" stop-opacity="0"/>
     </linearGradient>
     <radialGradient id="halo">
-      <stop offset="0"    stop-color="#58a6ff" stop-opacity="0.12"/>
+      <stop offset="0" stop-color="#58a6ff" stop-opacity="0.12"/>
       <stop offset="0.48" stop-color="#c9d1d9" stop-opacity="0.055"/>
-      <stop offset="1"    stop-color="#8b949e" stop-opacity="0"/>
+      <stop offset="1" stop-color="#8b949e" stop-opacity="0"/>
     </radialGradient>
-    <clipPath id="win"><rect x="1" y="1" width="{W-2}" height="{H-2}" rx="14"/></clipPath>
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#58a6ff" opacity="0.052"/>
+    </pattern>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M 44 0 H 0 V 44" fill="none" stroke="#c9d1d9" stroke-width="0.65" opacity="0.085"/>
+      <circle cx="0" cy="0" r="1.2" fill="#58a6ff" opacity="0.13"/>
+    </pattern>
+    <clipPath id="card"><rect x="3" y="3" width="{W-6}" height="{H-6}" rx="16"/></clipPath>
+    <clipPath id="portrait"><rect x="{pax}" y="{pay}" width="{paw}" height="{pah}" rx="12"/></clipPath>
   </defs>
 
   <style>
     text {{ font-family: {MONO}; white-space: pre; }}
-    .bar  {{ font-size: 10.5px; fill: #8b949e; }}
-    .lbl  {{ font-size: 8.5px;  fill: #6e7b8b; letter-spacing: 1.5px; }}
+    .bar  {{ font-size: {f['bar']}px;  fill: #8b949e; }}
+    .lbl  {{ font-size: {f['lbl']}px;  fill: #6e7b8b; letter-spacing: 1.5px; }}
     .art  {{ font-size: {FS}px; fill: url(#ink); }}
-    .hd   {{ font-size: 12px;   fill: #f0f6fc; font-weight: 600; }}
-    .sc   {{ font-size: 10.5px; fill: #7ee787; letter-spacing: 0.6px; }}
-    .k    {{ font-size: 12px;   fill: #58a6ff; font-weight: 600; }}
-    .v    {{ font-size: 12px;   fill: #c9d1d9; }}
+    .hd   {{ font-size: {f['hd']}px;   fill: #f0f6fc; font-weight: 600; }}
+    .sc   {{ font-size: {f['sc']}px;   fill: #8b949e; letter-spacing: 0.6px; }}
+    .k    {{ font-size: {f['kv']}px;   fill: #58a6ff; font-weight: 600; }}
+    .v    {{ font-size: {f['kv']}px;   fill: #c9d1d9; }}
     .rl   {{ stroke: #30363d; stroke-width: 1; }}
     .ld   {{ stroke: #3d4855; stroke-width: 1; stroke-dasharray: 1.5 3.5;
              stroke-linecap: round; }}
-    .foot {{ font-size: 9px; fill: #56606d; letter-spacing: 2.2px; }}
-    .live {{ font-size: 9px; fill: #3fb950; letter-spacing: 1.6px; }}
-    .tg   {{ font-size: 9px; fill: #6e7b8b; letter-spacing: 1.8px; }}
+    .foot {{ font-size: {f['foot']}px; fill: #6e7b8b; letter-spacing: {L['foot_ls']}px; }}
+    .live {{ font-size: {f['live']}px; fill: #58a6ff; letter-spacing: 1.6px; }}
+    .tg   {{ font-size: {f['tg']}px;   fill: #8b949e; letter-spacing: 1.8px; }}
     .orbit {{ transform-box: view-box; }}
 
     @keyframes scan  {{ from {{ transform: translateY(0); }}
-                       to   {{ transform: translateY({H + 80}px); }} }}
+                       to   {{ transform: translateY({H + 90}px); }} }}
     @keyframes spin  {{ to {{ transform: rotate(360deg); }} }}
     @keyframes rspin {{ to {{ transform: rotate(-360deg); }} }}
     @keyframes blink {{ 0%,49% {{ opacity: 1 }} 50%,100% {{ opacity: 0 }} }}
@@ -253,76 +284,77 @@ def main():
       .blink       {{ animation: blink 1.15s steps(1) infinite; }}
       .pulse       {{ animation: pulse 2.4s ease-in-out infinite; }}
     }}
-    @media (prefers-reduced-motion: reduce) {{
-      .motion-scan {{ display: none; }}
-    }}
+    @media (prefers-reduced-motion: reduce) {{ .motion-scan {{ display: none; }} }}
   </style>
 
-  <rect width="{W}" height="{H}" rx="14" fill="url(#bg)"/>
-  <g clip-path="url(#win)">
-    <rect width="{W}" height="{TITLE_H}" fill="#0d1117" fill-opacity="0.7"/>
+  <rect width="{W}" height="{H}" rx="18" fill="url(#bg)"/>
+  <rect width="{W}" height="{H}" rx="18" fill="url(#scanlines)"/>
+  <rect x="3" y="3" width="{W-6}" height="{BAR}" rx="16" fill="#161b22" fill-opacity="0.84"/>
 
-    <!-- portrait backdrop: halo plus two slow counter-rotating orbits -->
-    <ellipse cx="186" cy="278" rx="168" ry="216" fill="url(#halo)"/>
-    <ellipse class="orbit orbit--fwd" style="transform-origin:186px 278px"
-             cx="186" cy="278" rx="152" ry="200" fill="none"
+  <g clip-path="url(#card)">
+    <g clip-path="url(#portrait)">
+      <rect x="{pax}" y="{pay}" width="{paw}" height="{pah}" fill="url(#grid)"/>
+    </g>
+    <ellipse cx="{hx:g}" cy="{hy:g}" rx="{paw*0.49:g}" ry="{pah*0.48:g}" fill="url(#halo)"/>
+    <ellipse class="orbit orbit--fwd" style="transform-origin:{hx:g}px {hy:g}px"
+             cx="{hx:g}" cy="{hy:g}" rx="{paw*0.44:g}" ry="{pah*0.44:g}" fill="none"
              stroke="#c9d1d9" stroke-width="1" stroke-dasharray="3 14" opacity="0.13"/>
-    <ellipse class="orbit orbit--rev" style="transform-origin:186px 278px"
-             cx="186" cy="278" rx="116" ry="156" fill="none"
+    <ellipse class="orbit orbit--rev" style="transform-origin:{hx:g}px {hy:g}px"
+             cx="{hx:g}" cy="{hy:g}" rx="{paw*0.34:g}" ry="{pah*0.34:g}" fill="none"
              stroke="#8b949e" stroke-width="1" stroke-dasharray="28 24" opacity="0.10"/>
 
-  <!-- portrait -->
-  <rect x="14" y="46" width="344" height="454" rx="12" fill="#161b22" fill-opacity="0.38"
-        stroke="url(#edge)" stroke-opacity="0.42"/>
-  <text class="lbl" x="26" y="64">PORTRAIT / ABDALLAH</text>
-  <g class="art">
+    <rect x="{pax}" y="{pay}" width="{paw}" height="{pah}" rx="12" fill="#161b22"
+          fill-opacity="0.38" stroke="url(#edge)" stroke-opacity="0.42"/>
+    <text class="lbl" x="{pax+12}" y="{pay+18}">PORTRAIT / ABDALLAH</text>
+    <g class="art">
       {ART}
-  </g>
+    </g>
 
-  <!-- profile -->
-  <rect x="370" y="46" width="516" height="454" rx="12" fill="#161b22" fill-opacity="0.42"
-        stroke="url(#edge)" stroke-opacity="0.42"/>
-  <text class="lbl" x="382" y="64">PROFILE / ENGINEER</text>
+    <rect x="{pbx}" y="{pby}" width="{pbw}" height="{pbh}" rx="12" fill="#161b22"
+          fill-opacity="0.42" stroke="url(#edge)" stroke-opacity="0.42"/>
+    <text class="lbl" x="{pbx+12}" y="{pby+18}">PROFILE / ENGINEER</text>
       {PANEL}
 
-    <!-- the scanner: rides above everything, screen-blended so it only adds light -->
-    <rect class="motion-scan" x="0" y="-80" width="{W}" height="80"
+    <rect class="motion-scan" x="0" y="-90" width="{W}" height="90"
           fill="url(#scan)" opacity="0.42" style="mix-blend-mode:screen"/>
   </g>
 
-  <line x1="0" y1="{TITLE_H}" x2="{W}" y2="{TITLE_H}" stroke="#30363d"/>
+  <circle cx="24" cy="{BAR/2:g}" r="4.5" fill="#58a6ff" opacity="0.88"/>
+  <circle cx="42" cy="{BAR/2:g}" r="4.5" fill="#8b949e" opacity="0.70"/>
+  <circle cx="60" cy="{BAR/2:g}" r="4.5" fill="#8b949e" opacity="0.78"/>
+  <text class="bar" x="{L['prompt_x']}" y="{BAR/2 + 3.5:g}" text-anchor="middle">{PROMPT}<tspan class="blink" fill="#58a6ff"> &#9608;</tspan></text>
+  {live}
 
-  <!-- window chrome -->
-  <circle cx="20" cy="16" r="4.5" fill="#e05c54" opacity="0.75"/>
-  <circle cx="37" cy="16" r="4.5" fill="#d9a026" opacity="0.75"/>
-  <circle cx="54" cy="16" r="4.5" fill="#33a852" opacity="0.75"/>
-  <text class="bar" x="450" y="20" text-anchor="middle">shehawey@embedded  ~  %  ./profile<tspan class="blink" fill="#58a6ff"> &#9608;</tspan></text>
-  <circle class="pulse" cx="797" cy="16" r="3.4" fill="#3fb950"/>
-  <text class="live" x="808" y="19.5">BUILDING</text>
+  <line x1="3" y1="{L['foot_y']}" x2="{W-3}" y2="{L['foot_y']}" stroke="#30363d"/>
+  <text class="foot" x="{W/2:g}" y="{L['foot_text']}" text-anchor="middle">{L["foot"]}</text>
 
-  <line x1="0" y1="{FOOT_Y}" x2="{W}" y2="{FOOT_Y}" stroke="#30363d"/>
-  <text class="foot" x="450" y="540" text-anchor="middle">{FOOTER}</text>
-
-  <rect x="1.5" y="1.5" width="{W-3}" height="{H-3}" rx="14" fill="none"
+  <rect x="3" y="3" width="{W-6}" height="{H-6}" rx="16" fill="none"
         stroke="url(#edge)" stroke-width="2" opacity="0.76"/>
 </svg>
 '''
-    with open(OUT, "w") as fh:
-        fh.write(svg)
 
-    # GitHub caches README images by URL, so a rewritten banner.svg keeps
-    # serving the old picture for hours. Stamp the README's <img> with a hash
-    # of the file: new content, new URL, no stale banner.
-    digest = hashlib.sha256(svg.encode()).hexdigest()[:10]
+
+def main():
+    art = ascii_art()
+    stamps = {}
+    for L in (DESKTOP, MOBILE):
+        svg = render(L, art)
+        path = os.path.join(HERE, L["out"])
+        with open(path, "w") as fh:
+            fh.write(svg)
+        stamps[L["out"]] = hashlib.sha256(svg.encode()).hexdigest()[:10]
+        print(f"wrote {L['out']}  ({len(svg)/1024:.1f} KB, {L['W']}x{L['H']})")
+
+    # GitHub caches README images by URL, so a rewritten SVG keeps serving the
+    # old picture for hours. Stamp each reference with a hash of its file.
     with open(README) as fh:
         readme = fh.read()
-    stamped, n = re.subn(r'(src="assets/banner\.svg)(\?v=[0-9a-f]+)?"',
-                         f'\\1?v={digest}"', readme)
-    if n:
-        with open(README, "w") as fh:
-            fh.write(stamped)
-    print(f"wrote {OUT}  ({len(svg) / 1024:.1f} KB, {COLS}x{ROWS} ASCII grid)")
-    print(f"stamped README with ?v={digest} ({n} reference)")
+    for name, digest in stamps.items():
+        readme = re.sub(rf'(assets/{re.escape(name)})(\?v=[0-9a-f]+)?"',
+                        rf'\1?v={digest}"', readme)
+    with open(README, "w") as fh:
+        fh.write(readme)
+    print("stamped README:", ", ".join(f"{k}?v={v}" for k, v in stamps.items()))
 
 
 if __name__ == "__main__":

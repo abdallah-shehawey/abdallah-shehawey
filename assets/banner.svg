@@ -5,50 +5,56 @@
 
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0d1117"/>
-      <stop offset="1" stop-color="#161b22"/>
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#161b22"/>
     </linearGradient>
     <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0"    stop-color="#8b949e"/>
+      <stop offset="0" stop-color="#8b949e"/>
       <stop offset="0.48" stop-color="#58a6ff"/>
-      <stop offset="1"    stop-color="#8b949e"/>
+      <stop offset="1" stop-color="#8b949e"/>
     </linearGradient>
     <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f0f6fc"/>
-      <stop offset="1" stop-color="#79c0ff"/>
+      <stop offset="0" stop-color="#f0f6fc"/><stop offset="1" stop-color="#79c0ff"/>
     </linearGradient>
     <linearGradient id="scan" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0"   stop-color="#58a6ff" stop-opacity="0"/>
+      <stop offset="0" stop-color="#58a6ff" stop-opacity="0"/>
       <stop offset="0.5" stop-color="#58a6ff" stop-opacity="0.46"/>
-      <stop offset="1"   stop-color="#8b949e" stop-opacity="0"/>
+      <stop offset="1" stop-color="#8b949e" stop-opacity="0"/>
     </linearGradient>
     <radialGradient id="halo">
-      <stop offset="0"    stop-color="#58a6ff" stop-opacity="0.12"/>
+      <stop offset="0" stop-color="#58a6ff" stop-opacity="0.12"/>
       <stop offset="0.48" stop-color="#c9d1d9" stop-opacity="0.055"/>
-      <stop offset="1"    stop-color="#8b949e" stop-opacity="0"/>
+      <stop offset="1" stop-color="#8b949e" stop-opacity="0"/>
     </radialGradient>
-    <clipPath id="win"><rect x="1" y="1" width="898" height="554" rx="14"/></clipPath>
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#58a6ff" opacity="0.052"/>
+    </pattern>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M 44 0 H 0 V 44" fill="none" stroke="#c9d1d9" stroke-width="0.65" opacity="0.085"/>
+      <circle cx="0" cy="0" r="1.2" fill="#58a6ff" opacity="0.13"/>
+    </pattern>
+    <clipPath id="card"><rect x="3" y="3" width="894" height="550" rx="16"/></clipPath>
+    <clipPath id="portrait"><rect x="14" y="46" width="344" height="454" rx="12"/></clipPath>
   </defs>
 
   <style>
     text { font-family: ui-monospace,'SF Mono','JetBrains Mono','Fira Code','DejaVu Sans Mono',Menlo,Consolas,monospace; white-space: pre; }
-    .bar  { font-size: 10.5px; fill: #8b949e; }
+    .bar  { font-size: 10.5px;  fill: #8b949e; }
     .lbl  { font-size: 8.5px;  fill: #6e7b8b; letter-spacing: 1.5px; }
     .art  { font-size: 4.79px; fill: url(#ink); }
     .hd   { font-size: 12px;   fill: #f0f6fc; font-weight: 600; }
-    .sc   { font-size: 10.5px; fill: #7ee787; letter-spacing: 0.6px; }
+    .sc   { font-size: 10.5px;   fill: #8b949e; letter-spacing: 0.6px; }
     .k    { font-size: 12px;   fill: #58a6ff; font-weight: 600; }
     .v    { font-size: 12px;   fill: #c9d1d9; }
     .rl   { stroke: #30363d; stroke-width: 1; }
     .ld   { stroke: #3d4855; stroke-width: 1; stroke-dasharray: 1.5 3.5;
              stroke-linecap: round; }
-    .foot { font-size: 9px; fill: #56606d; letter-spacing: 2.2px; }
-    .live { font-size: 9px; fill: #3fb950; letter-spacing: 1.6px; }
-    .tg   { font-size: 9px; fill: #6e7b8b; letter-spacing: 1.8px; }
+    .foot { font-size: 9px; fill: #6e7b8b; letter-spacing: 2.2px; }
+    .live { font-size: 9px; fill: #58a6ff; letter-spacing: 1.6px; }
+    .tg   { font-size: 9px;   fill: #8b949e; letter-spacing: 1.8px; }
     .orbit { transform-box: view-box; }
 
     @keyframes scan  { from { transform: translateY(0); }
-                       to   { transform: translateY(636px); } }
+                       to   { transform: translateY(646px); } }
     @keyframes spin  { to { transform: rotate(360deg); } }
     @keyframes rspin { to { transform: rotate(-360deg); } }
     @keyframes blink { 0%,49% { opacity: 1 } 50%,100% { opacity: 0 } }
@@ -61,29 +67,29 @@
       .blink       { animation: blink 1.15s steps(1) infinite; }
       .pulse       { animation: pulse 2.4s ease-in-out infinite; }
     }
-    @media (prefers-reduced-motion: reduce) {
-      .motion-scan { display: none; }
-    }
+    @media (prefers-reduced-motion: reduce) { .motion-scan { display: none; } }
   </style>
 
-  <rect width="900" height="556" rx="14" fill="url(#bg)"/>
-  <g clip-path="url(#win)">
-    <rect width="900" height="32" fill="#0d1117" fill-opacity="0.7"/>
+  <rect width="900" height="556" rx="18" fill="url(#bg)"/>
+  <rect width="900" height="556" rx="18" fill="url(#scanlines)"/>
+  <rect x="3" y="3" width="894" height="34" rx="16" fill="#161b22" fill-opacity="0.84"/>
 
-    <!-- portrait backdrop: halo plus two slow counter-rotating orbits -->
-    <ellipse cx="186" cy="278" rx="168" ry="216" fill="url(#halo)"/>
-    <ellipse class="orbit orbit--fwd" style="transform-origin:186px 278px"
-             cx="186" cy="278" rx="152" ry="200" fill="none"
+  <g clip-path="url(#card)">
+    <g clip-path="url(#portrait)">
+      <rect x="14" y="46" width="344" height="454" fill="url(#grid)"/>
+    </g>
+    <ellipse cx="186" cy="273" rx="168.56" ry="217.92" fill="url(#halo)"/>
+    <ellipse class="orbit orbit--fwd" style="transform-origin:186px 273px"
+             cx="186" cy="273" rx="151.36" ry="199.76" fill="none"
              stroke="#c9d1d9" stroke-width="1" stroke-dasharray="3 14" opacity="0.13"/>
-    <ellipse class="orbit orbit--rev" style="transform-origin:186px 278px"
-             cx="186" cy="278" rx="116" ry="156" fill="none"
+    <ellipse class="orbit orbit--rev" style="transform-origin:186px 273px"
+             cx="186" cy="273" rx="116.96" ry="154.36" fill="none"
              stroke="#8b949e" stroke-width="1" stroke-dasharray="28 24" opacity="0.10"/>
 
-  <!-- portrait -->
-  <rect x="14" y="46" width="344" height="454" rx="12" fill="#161b22" fill-opacity="0.38"
-        stroke="url(#edge)" stroke-opacity="0.42"/>
-  <text class="lbl" x="26" y="64">PORTRAIT / ABDALLAH</text>
-  <g class="art">
+    <rect x="14" y="46" width="344" height="454" rx="12" fill="#161b22"
+          fill-opacity="0.38" stroke="url(#edge)" stroke-opacity="0.42"/>
+    <text class="lbl" x="26" y="64">PORTRAIT / ABDALLAH</text>
+    <g class="art">
       <text x="28 31.76 35.52 39.29 43.05 46.81 50.57 54.33 58.1 61.86 65.62 69.38 73.14 76.9 107 110.76 114.52 118.29 122.05 125.81 129.57 182.24 186 189.76 193.52 197.29 201.05 298.86 302.62 306.38 310.14 313.9 317.67 321.43 340.24" y="80.09">..............`````````````````````</text>
       <text x="28 31.76 35.52 39.29 43.05 46.81 50.57 54.33 58.1 61.86 65.62 69.38 73.14 76.9 110.76 114.52 118.29 122.05 125.81 129.57 182.24 186 189.76 193.52 197.29 246.19 249.95 298.86 302.62 306.38 310.14 313.9 317.67 321.43 340.24" y="85.08">..............`````.```````.```````</text>
       <text x="28 31.76 35.52 39.29 43.05 46.81 50.57 54.33 58.1 61.86 65.62 69.38 73.14 76.9 110.76 114.52 118.29 122.05 125.81 129.57 182.24 186 189.76 193.52 197.29 234.9 238.67 246.19 249.95 298.86 302.62 306.38 310.14 313.9 317.67 321.43" y="90.07">..............```````````````.``````</text>
@@ -166,14 +172,13 @@
       <text x="39.29 91.95 95.71 99.48 103.24 107 110.76 114.52 118.29 122.05 125.81 129.57 133.33 137.1 152.14 155.9 163.43 178.48 201.05" y="474.13">``l@$$$$$aln='`````</text>
       <text x="91.95 95.71 99.48 103.24 107 110.76 114.52 118.29 122.05 125.81 129.57 133.33 137.1" y="479.11">`/Q$$$$$@tl/'</text>
       <text x="91.95 95.71 99.48 103.24 107 110.76 114.52 118.29 122.05 125.81 129.57 133.33 137.1" y="484.1">.!m$$$$$$w//~</text>
-  </g>
+    </g>
 
-  <!-- profile -->
-  <rect x="370" y="46" width="516" height="454" rx="12" fill="#161b22" fill-opacity="0.42"
-        stroke="url(#edge)" stroke-opacity="0.42"/>
-  <text class="lbl" x="382" y="64">PROFILE / ENGINEER</text>
+    <rect x="370" y="46" width="516" height="454" rx="12" fill="#161b22"
+          fill-opacity="0.42" stroke="url(#edge)" stroke-opacity="0.42"/>
+    <text class="lbl" x="382" y="64">PROFILE / ENGINEER</text>
       <text class="hd" x="384" y="104">shehawey@embedded</text>
-      <line class="rl" x1="528" y1="100" x2="874" y2="100"/>
+      <line class="rl" x1="524.48" y1="100" x2="874" y2="100"/>
       <text class="k" x="394" y="124">Name:</text>
       <line class="ld" x1="478" y1="121" x2="530" y2="121"/>
       <text class="v" x="538" y="124">Abdallah Shehawey</text>
@@ -190,7 +195,7 @@
       <line class="ld" x1="478" y1="201" x2="530" y2="201"/>
       <text class="v" x="538" y="204">shinux.vercel.app / Notes from below the OS</text>
       <text class="sc" x="384" y="240">- BUILD.FOCUS</text>
-      <line class="rl" x1="509.6" y1="236" x2="874" y2="236"/>
+      <line class="rl" x1="502.16" y1="236" x2="874" y2="236"/>
       <text class="k" x="394" y="260">MCU:</text>
       <line class="ld" x1="478" y1="257" x2="530" y2="257"/>
       <text class="v" x="538" y="260">ARM Cortex-M, AVR, PIC, Arduino, ESP32</text>
@@ -204,7 +209,7 @@
       <line class="ld" x1="478" y1="317" x2="530" y2="317"/>
       <text class="v" x="538" y="320">Yocto, QEMU, drivers, Raspberry Pi</text>
       <text class="sc" x="384" y="356">- TOOLCHAIN</text>
-      <line class="rl" x1="494.4" y1="352" x2="874" y2="352"/>
+      <line class="rl" x1="487.28" y1="352" x2="874" y2="352"/>
       <text class="k" x="394" y="376">Code:</text>
       <line class="ld" x1="478" y1="373" x2="530" y2="373"/>
       <text class="v" x="538" y="376">C, C++, Python, Assembly, Bash</text>
@@ -219,24 +224,20 @@
       <text class="v" x="538" y="436">arm-none-eabi-gcc, avr-gcc, XC8, Make</text>
       <text class="tg" x="384" y="478">FROM BARE-METAL DRIVERS TO EMBEDDED LINUX</text>
 
-    <!-- the scanner: rides above everything, screen-blended so it only adds light -->
-    <rect class="motion-scan" x="0" y="-80" width="900" height="80"
+    <rect class="motion-scan" x="0" y="-90" width="900" height="90"
           fill="url(#scan)" opacity="0.42" style="mix-blend-mode:screen"/>
   </g>
 
-  <line x1="0" y1="32" x2="900" y2="32" stroke="#30363d"/>
+  <circle cx="24" cy="17" r="4.5" fill="#58a6ff" opacity="0.88"/>
+  <circle cx="42" cy="17" r="4.5" fill="#8b949e" opacity="0.70"/>
+  <circle cx="60" cy="17" r="4.5" fill="#8b949e" opacity="0.78"/>
+  <text class="bar" x="450" y="20.5" text-anchor="middle">shehawey@embedded  ~  %  ./profile<tspan class="blink" fill="#58a6ff"> &#9608;</tspan></text>
+  <circle class="pulse" cx="797" cy="17" r="3.4" fill="#58a6ff"/>
+  <text class="live" x="808" y="20.5">BUILDING</text>
 
-  <!-- window chrome -->
-  <circle cx="20" cy="16" r="4.5" fill="#e05c54" opacity="0.75"/>
-  <circle cx="37" cy="16" r="4.5" fill="#d9a026" opacity="0.75"/>
-  <circle cx="54" cy="16" r="4.5" fill="#33a852" opacity="0.75"/>
-  <text class="bar" x="450" y="20" text-anchor="middle">shehawey@embedded  ~  %  ./profile<tspan class="blink" fill="#58a6ff"> &#9608;</tspan></text>
-  <circle class="pulse" cx="797" cy="16" r="3.4" fill="#3fb950"/>
-  <text class="live" x="808" y="19.5">BUILDING</text>
-
-  <line x1="0" y1="516" x2="900" y2="516" stroke="#30363d"/>
+  <line x1="3" y1="516" x2="897" y2="516" stroke="#30363d"/>
   <text class="foot" x="450" y="540" text-anchor="middle">EMBEDDED SYSTEMS  /  AUTOMOTIVE  /  RTOS &amp; AUTOSAR  /  EMBEDDED LINUX</text>
 
-  <rect x="1.5" y="1.5" width="897" height="553" rx="14" fill="none"
+  <rect x="3" y="3" width="894" height="550" rx="16" fill="none"
         stroke="url(#edge)" stroke-width="2" opacity="0.76"/>
 </svg>
