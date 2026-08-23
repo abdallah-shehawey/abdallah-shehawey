@@ -15,7 +15,7 @@
   <img src="https://komarev.com/ghpvc/?username=abdallah-shehawey&label=Profile%20views&color=58a6ff&style=flat" alt="Profile views"/>
 </p>
 
-## Hey, I'm Abdallah
+### 👋 Hey, I'm Abdallah
 
 **Embedded Software Engineer** specializing in C/C++, RTOS, and hardware-software integration —
 from bare-metal drivers written from scratch to AUTOSAR and Embedded Linux, with a focus on the
