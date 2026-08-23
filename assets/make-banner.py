@@ -9,8 +9,10 @@ art and composes it with a profile panel into one self-contained SVG.
 
 Two things here are deliberate and easy to break:
 
-* Every glyph carries its own absolute x and spaces are dropped, so the
-  character grid survives font substitution and any whitespace handling.
+* GitHub serves this inside an <img>, so the cost that matters is raster, not
+  page layout: every animation frame redraws the whole image. See art_svg and
+  the per-layout `scanlines` / `art_bands` switches -- the phone card pays for
+  its own smoothness, the desktop one keeps the full texture.
 * The photo is a full scene — a person on stone steps in front of a wooden
   door. Mapping luminance straight onto a ramp turns that into noise, because
   the background carries as much contrast as the subject. So the subject is
@@ -132,6 +134,7 @@ FOOTER = "EMBEDDED SYSTEMS  /  AUTOMOTIVE  /  RTOS &amp; AUTOSAR  /  EMBEDDED LI
 FOOTER_SM = "EMBEDDED  /  AUTOMOTIVE  /  RTOS  /  LINUX"
 PROMPT = "shehawey@embedded  ~  %  ./profile"
 
+MONO_ADVANCE = 0.6          # every monospace face in the stack below
 MONO = ("ui-monospace,'SF Mono','JetBrains Mono','Fira Code',"
         "'DejaVu Sans Mono',Menlo,Consolas,monospace")
 
@@ -141,7 +144,7 @@ MONO = ("ui-monospace,'SF Mono','JetBrains Mono','Fira Code',"
 # monospace are unreadable.
 DESKTOP = dict(
     out="banner.svg", W=900, H=556, bar_h=34, foot_y=516, foot_text=540,
-    cols=84, rows=82,
+    cols=84, rows=82, scanlines=True, art_bands=1,
     art=(28.0, 76.0, 316.0, 409.0),
     pa=(14, 46, 344, 454), pb=(370, 46, 516, 454),
     kx=394, lx0=478, lx1=530, vx=538, line=20.0, start=104.0, rule_x2=874,
@@ -150,7 +153,7 @@ DESKTOP = dict(
 )
 MOBILE = dict(
     out="banner-mobile.svg", W=440, H=940, bar_h=30, foot_y=898, foot_text=920,
-    cols=62, rows=61,
+    cols=84, rows=82, scanlines=False, art_bands=8,
     art=(64.0, 70.0, 312.0, 404.0),
     pa=(10, 40, 420, 448), pb=(10, 500, 420, 386),
     kx=30, lx0=112, lx1=148, vx=156, line=17.0, start=544.0, rule_x2=412,
@@ -159,30 +162,57 @@ MOBILE = dict(
 )
 
 
-def art_svg(art, L):
-    """One text run per row, not one absolute x per glyph.
+INK = ((0xf0, 0xf6, 0xfc), (0x79, 0xc0, 0xff))   # art gradient, top-left -> bottom-right
 
-    Per-glyph positioning forces the engine to lay out every character
-    independently: ~4500 of them cost ~540ms of layout on a throttled phone,
-    and every scroll that invalidates layout pays it again. A single run per
-    row with textLength keeps the grid exactly as font-independent — the run
-    is scaled to a known width — for roughly a tenth of the cost.
+
+def art_svg(art, L):
+    """The ASCII grid as text runs, one per row.
+
+    Two measurements shape this, both taken with the SVG in an <img> and the
+    CPU throttled 4x, counting raster time over 3s of animation:
+
+    * per-glyph absolute x cost 5015ms against 790ms for one run per row.
+    * a gradient fill across the whole grid cost 885ms against 776ms flat.
+
+    So: one run per row, and the cell width comes from letter-spacing rather
+    than from textLength. textLength pins the width exactly, but both of its
+    modes are worse: lengthAdjust="spacing" places every glyph by hand and
+    costs 2438ms, and "spacingAndGlyphs" scales the run, which welds runs of
+    = and / into solid rules and smears the portrait. letter-spacing lands on
+    the same grid for any font whose advance is the usual 0.6em, and drifts
+    only a few percent for one that isn't. `art_bands` fakes the ink gradient
+    with flat-filled bands, which reads identically at this size.
     """
     ax, ay, aw, ah = L["art"]
     cols, rows = L["cols"], L["rows"]
     cw, ch = aw / cols, ah / rows
-    out = []
+    runs = []
     for r, line in enumerate(art):
         run = line.rstrip()
         if not run.strip():
             continue
         i0 = len(run) - len(run.lstrip())
         run = run[i0:]
-        out.append(
+        runs.append(
             f'<tspan x="{ax + i0 * cw:.2f}" y="{ay + (r + 0.82) * ch:.2f}" '
-            f'textLength="{len(run) * cw:.2f}" lengthAdjust="spacingAndGlyphs" '
             f'xml:space="preserve">{escape(run)}</tspan>')
-    return "\n      ".join(out), round(ch * 0.96, 2)
+
+    bands = L.get("art_bands", 1)
+    if bands <= 1:
+        body = ['<text class="art">\n      ' + "\n      ".join(runs) + "\n    </text>"]
+    else:
+        body = []
+        for i in range(bands):
+            chunk = runs[i * len(runs) // bands:(i + 1) * len(runs) // bands]
+            if not chunk:
+                continue
+            t = (i + 0.5) / bands
+            col = "#%02x%02x%02x" % tuple(round(a + (b - a) * t)
+                                          for a, b in zip(*INK))
+            body.append(f'<text class="art" fill="{col}">\n      '
+                        + "\n      ".join(chunk) + "\n    </text>")
+    fs = round(ch * 0.96, 2)
+    return "\n    ".join(body), fs, round(cw - fs * MONO_ADVANCE, 3)
 
 
 def info_svg(L):
@@ -214,12 +244,23 @@ def info_svg(L):
 
 def render(L, art):
     W, H, BAR = L["W"], L["H"], L["bar_h"]
-    ART, FS = art_svg(art, L)
+    ART, FS, LS = art_svg(art, L)
     PANEL, _ = info_svg(L)
     f = L["fs"]
     pax, pay, paw, pah = L["pa"]
     pbx, pby, pbw, pbh = L["pb"]
     hx, hy = pax + paw / 2, pay + pah / 2          # portrait panel centre
+
+    # A pattern tiled over the whole card is the single most expensive thing
+    # to re-raster, and at phone scale its 4px pitch is invisible anyway:
+    # dropping it took the phone card from 1292ms of raster per 3s to 851ms.
+    scanlines = L.get("scanlines", True)
+    SCANLINE_DEF = ('<pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">\n'
+                    '      <rect width="4" height="1" fill="#58a6ff" opacity="0.052"/>\n'
+                    '    </pattern>\n') if scanlines else ""
+    SCANLINES = (f'<rect width="{W}" height="{H}" rx="18" fill="url(#scanlines)"/>\n'
+                 ) if scanlines else ""
+    ART_FILL = "fill: url(#ink); " if L.get("art_bands", 1) <= 1 else ""
 
     live = ""
     if L["live_cx"] is not None:
@@ -253,10 +294,7 @@ def render(L, art):
       <stop offset="0.48" stop-color="#c9d1d9" stop-opacity="0.055"/>
       <stop offset="1" stop-color="#8b949e" stop-opacity="0"/>
     </radialGradient>
-    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
-      <rect width="4" height="1" fill="#58a6ff" opacity="0.052"/>
-    </pattern>
-    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+    {SCANLINE_DEF}    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
       <path d="M 44 0 H 0 V 44" fill="none" stroke="#c9d1d9" stroke-width="0.65" opacity="0.085"/>
       <circle cx="0" cy="0" r="1.2" fill="#58a6ff" opacity="0.13"/>
     </pattern>
@@ -268,7 +306,7 @@ def render(L, art):
     text {{ font-family: {MONO}; white-space: pre; }}
     .bar  {{ font-size: {f['bar']}px;  fill: #8b949e; }}
     .lbl  {{ font-size: {f['lbl']}px;  fill: #6e7b8b; letter-spacing: 1.5px; }}
-    .art  {{ font-size: {FS}px; fill: url(#ink); }}
+    .art  {{ font-size: {FS}px; letter-spacing: {LS}px; {ART_FILL}}}
     .hd   {{ font-size: {f['hd']}px;   fill: #f0f6fc; font-weight: 600; }}
     .sc   {{ font-size: {f['sc']}px;   fill: #8b949e; letter-spacing: 0.6px; }}
     .k    {{ font-size: {f['kv']}px;   fill: #58a6ff; font-weight: 600; }}
@@ -299,8 +337,7 @@ def render(L, art):
   </style>
 
   <rect width="{W}" height="{H}" rx="18" fill="url(#bg)"/>
-  <rect width="{W}" height="{H}" rx="18" fill="url(#scanlines)"/>
-  <rect x="3" y="3" width="{W-6}" height="{BAR}" rx="16" fill="#161b22" fill-opacity="0.84"/>
+  {SCANLINES}  <rect x="3" y="3" width="{W-6}" height="{BAR}" rx="16" fill="#161b22" fill-opacity="0.84"/>
 
   <g clip-path="url(#card)">
     <g clip-path="url(#portrait)">
@@ -317,9 +354,7 @@ def render(L, art):
     <rect x="{pax}" y="{pay}" width="{paw}" height="{pah}" rx="12" fill="#161b22"
           fill-opacity="0.38" stroke="url(#edge)" stroke-opacity="0.42"/>
     <text class="lbl" x="{pax+12}" y="{pay+18}">PORTRAIT / ABDALLAH</text>
-    <text class="art">
-      {ART}
-    </text>
+    {ART}
 
     <rect x="{pbx}" y="{pby}" width="{pbw}" height="{pbh}" rx="12" fill="#161b22"
           fill-opacity="0.42" stroke="url(#edge)" stroke-opacity="0.42"/>
