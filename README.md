@@ -20,6 +20,8 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
 
 - 🎓 &nbsp; **Education** — Electronics & Communication Engineering, Al-Azhar University (Oct 2021 – May 2026) — Cumulative Grade: **Very Good**, graduation project: **Excellent**
 - 🌱 &nbsp; **Currently learning** — **AUTOSAR**, and **Embedded Linux** (Yocto, Linux kernel, Raspberry Pi)
+- 🐧 &nbsp; **Daily driver** — **Fedora Linux**, GNU userland, `zsh` — I live in the terminal
+- 📦 &nbsp; **Maintaining** — [shinux](https://abdallah-shehawey.github.io/shinux/), a GPG-signed **dnf + apt** package repository
 - ✍️ &nbsp; **Writing** — [shinux](https://shinux.vercel.app), *notes from below the OS* — Embedded Linux, RTOS internals, and the road from firmware to the kernel
 - 🏆 &nbsp; **5-star C (Gold)** on HackerRank &nbsp;·&nbsp; fluent in Arabic & English
 
@@ -34,6 +36,9 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
   <img src="https://img.shields.io/badge/-C++-333333?style=flat&logo=C%2B%2B&logoColor=00599C" alt="C++"/>
   <img src="https://img.shields.io/badge/-Python-333333?style=flat&logo=python" alt="Python"/>
   <img src="https://img.shields.io/badge/-Assembly-333333?style=flat&logo=assemblyscript&logoColor=00599C" alt="Assembly"/>
+  <img src="https://img.shields.io/badge/-Bash-333333?style=flat&logo=gnubash&logoColor=4EAA25" alt="Bash"/>
+  <img src="https://img.shields.io/badge/-Verilog-333333?style=flat" alt="Verilog"/>
+  <img src="https://img.shields.io/badge/-MATLAB-333333?style=flat" alt="MATLAB"/>
 </p>
 
 **Embedded & Firmware**
@@ -47,8 +52,19 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
   <img src="https://img.shields.io/badge/-ARM%20Cortex--M-333333?style=flat&logo=arm&logoColor=0091BD" alt="ARM Cortex-M"/>
   <img src="https://img.shields.io/badge/-FreeRTOS-333333?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iJTIzNENBRjUwIj48cGF0aCBkPSJNMTIgMEM1LjM3MyAwIDAgNS4zNzMgMCAxMnM1LjM3MyAxMiAxMiAxMiAxMi01LjM3MyAxMi0xMlMxOC42MjcgMCAxMiAwem0wIDMuNmE4LjQgOC40IDAgMSAxIDAgMTYuOCA4LjQgOC40IDAgMCAxIDAtMTYuOHptLTEuMiAzLjZ2OS42bDYtNC44LTYtNC44eiIvPjwvc3ZnPg==" alt="FreeRTOS"/>
   <img src="https://img.shields.io/badge/-AUTOSAR-333333?style=flat&logo=autodesk" alt="AUTOSAR"/>
-  <img src="https://img.shields.io/badge/-CAN%20Bus-333333?style=flat" alt="CAN Bus"/>
   <img src="https://img.shields.io/badge/-Proteus-333333?style=flat&logo=proteus" alt="Proteus"/>
+</p>
+
+**Protocols & Interfaces**
+
+<p>
+  <img src="https://img.shields.io/badge/-UART-333333?style=flat" alt="UART"/>
+  <img src="https://img.shields.io/badge/-SPI-333333?style=flat" alt="SPI"/>
+  <img src="https://img.shields.io/badge/-I2C-333333?style=flat" alt="I2C"/>
+  <img src="https://img.shields.io/badge/-CAN-333333?style=flat" alt="CAN"/>
+  <img src="https://img.shields.io/badge/-LIN-333333?style=flat" alt="LIN"/>
+  <img src="https://img.shields.io/badge/-Ethernet-333333?style=flat" alt="Ethernet"/>
+  <img src="https://img.shields.io/badge/-DSRC%20%2F%20V2X-333333?style=flat" alt="DSRC / V2X"/>
 </p>
 
 **Embedded Linux**
@@ -58,12 +74,16 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
   <img src="https://img.shields.io/badge/-Linux%20Kernel-333333?style=flat&logo=linux&logoColor=FCC624" alt="Linux Kernel"/>
   <img src="https://img.shields.io/badge/-Yocto%20%2F%20Buildroot-333333?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iJTIzREJBNTEwIj48cGF0aCBkPSJNMTEuOTk5IDBDNS4zNzUgMCAuMDAyIDUuMzczLjAwMiAxMS45OTdjMCA2LjYyNSA1LjM3MyAxMS45OTggMTEuOTk3IDExLjk5OCA2LjYyNSAwIDExLjk5OC01LjM3MyAxMS45OTgtMTEuOTk4QzIzLjk5NyA1LjM3MyAxOC42MjQgMCAxMS45OTkgMHptMCAyLjRhOS41OTggOS41OTggMCAwIDEgOS41OTggOS41OTcgOS41OTggOS41OTggMCAwIDEtOS41OTggOS41OThBOS41OTggOS41OTggMCAwIDEgMi40IDExLjk5NyA5LjU5OCA5LjU5OCAwIDAgMSAxMS45OTkgMi40em0wIDMuNmE1Ljk5NyA1Ljk5NyAwIDAgMC01Ljk5NyA1Ljk5NyA1Ljk5NyA1Ljk5NyAwIDAgMCA1Ljk5NyA1Ljk5OCA1Ljk5NyA1Ljk5NyAwIDAgMCA1Ljk5OC01Ljk5OEE1Ljk5NyA1Ljk5NyAwIDAgMCAxMS45OTkgNnptMCAyLjRhMy41OTggMy41OTggMCAwIDEgMy41OTggMy41OTcgMy41OTggMy41OTggMCAwIDEtMy41OTggMy41OTggMy41OTggMy41OTggMCAwIDEtMy41OTctMy41OThBMy41OTggMy41OTggMCAwIDEgMTEuOTk5IDguNHoiLz48L3N2Zz4=" alt="Yocto / Buildroot"/>
   <img src="https://img.shields.io/badge/-QEMU-333333?style=flat&logo=qemu&logoColor=FF6600" alt="QEMU"/>
-  <img src="https://img.shields.io/badge/-Bash-333333?style=flat&logo=gnubash&logoColor=4EAA25" alt="Bash"/>
+  <img src="https://img.shields.io/badge/-systemd-333333?style=flat" alt="systemd"/>
+  <img src="https://img.shields.io/badge/-Device%20Drivers-333333?style=flat" alt="Device Drivers"/>
 </p>
 
 **Tools & Environment**
 
 <p>
+  <img src="https://img.shields.io/badge/-GNU-333333?style=flat&logo=gnu&logoColor=A42E2B" alt="GNU"/>
+  <img src="https://img.shields.io/badge/-GCC-333333?style=flat&logo=gnu&logoColor=A42E2B" alt="GCC"/>
+  <img src="https://img.shields.io/badge/-GDB-333333?style=flat&logo=gnu&logoColor=A42E2B" alt="GDB"/>
   <img src="https://img.shields.io/badge/-arm--none--eabi--gcc-333333?style=flat&logo=arm&logoColor=0091BD" alt="arm-none-eabi-gcc"/>
   <img src="https://img.shields.io/badge/-avr--gcc-333333?style=flat&logo=gnu&logoColor=A42E2B" alt="avr-gcc"/>
   <img src="https://img.shields.io/badge/-XC8-333333?style=flat" alt="XC8"/>
@@ -78,6 +98,12 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
   <img src="https://img.shields.io/badge/-Linux-333333?style=flat&logo=Linux&logoColor=FCC624" alt="Linux"/>
   <img src="https://img.shields.io/badge/-Ubuntu-333333?style=flat&logo=ubuntu" alt="Ubuntu"/>
   <img src="https://img.shields.io/badge/-Fedora-333333?style=flat&logo=fedora&logoColor=51A2DA" alt="Fedora"/>
+  <img src="https://img.shields.io/badge/-zsh-333333?style=flat&logo=zsh&logoColor=F15A24" alt="zsh"/>
+  <img src="https://img.shields.io/badge/-JTAG%20%2F%20SWD-333333?style=flat" alt="JTAG / SWD"/>
+  <img src="https://img.shields.io/badge/-Logic%20Analyzer-333333?style=flat" alt="Logic Analyzer"/>
+  <img src="https://img.shields.io/badge/-Oscilloscope-333333?style=flat" alt="Oscilloscope"/>
+  <img src="https://img.shields.io/badge/-Docker-333333?style=flat&logo=docker&logoColor=2496ED" alt="Docker"/>
+  <img src="https://img.shields.io/badge/-Ansible-333333?style=flat&logo=ansible&logoColor=EE0000" alt="Ansible"/>
   <img src="https://img.shields.io/badge/-Markdown-333333?style=flat&logo=markdown" alt="Markdown"/>
 </p>
 
@@ -122,8 +148,3 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
   </a>
   <img src="https://komarev.com/ghpvc/?username=abdallah-shehawey&label=Profile%20views&color=58a6ff&style=flat" alt="Profile views"/>
 </p>
-
----
-
-<sub>The banner above is generated from my avatar by
-<a href="assets/make-banner.py">assets/make-banner.py</a> — run it to rebuild <code>assets/banner.svg</code>.</sub>

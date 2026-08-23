@@ -40,8 +40,9 @@ BODY = [
     (425, 80), (465, 60), (520, 58), (560, 78), (575, 115), (578, 175),
     (570, 225), (556, 265), (538, 295), (528, 330),
     (580, 340), (628, 368), (658, 405), (676, 455), (688, 500),
-    (724, 520), (730, 700), (726, 812),
-    (700, 832), (664, 862), (636, 900), (614, 940), (606, 990),
+    (726, 515), (734, 690),
+    (762, 692), (790, 745), (792, 792), (776, 832), (744, 864),
+    (704, 886), (648, 896), (614, 940), (606, 990),
     (588, 1040), (556, 1072), (505, 1085), (452, 1075), (416, 1042),
     (398, 995), (394, 946),
     (350, 1000), (340, 1080), (360, 1180), (372, 1254),
@@ -52,9 +53,9 @@ BODY = [
     (448, 300), (428, 270), (412, 225), (408, 170), (412, 120),
 ]
 CAR = [
-    (842, 790), (848, 742), (872, 712), (910, 696), (938, 660), (946, 690),
-    (1002, 700), (1046, 716), (1072, 764), (1068, 830), (1030, 872),
-    (960, 886), (890, 878), (848, 848),
+    (848, 800), (852, 758), (872, 734), (902, 724), (935, 726), (958, 714),
+    (968, 742), (1010, 745), (1050, 766), (1068, 800), (1064, 862),
+    (1038, 900), (988, 918), (918, 918), (868, 900), (846, 858),
 ]
 
 FEATHER, BLUR, GAMMA = 6, 0.9, 0.90
@@ -108,7 +109,7 @@ def ascii_art():
 W, H = 900, 556
 TITLE_H, FOOT_Y = 32, 516
 AX, AY, AW, AH = 28.0, 76.0, 316.0, 409.0     # art box, matches CROP's aspect
-KX, LX0, LX1, VX, LINE = 394, 478, 530, 538, 20.0
+KX, LX0, LX1, VX, LINE = 394, 478, 530, 538, 18.0
 
 MONO = ("ui-monospace,'SF Mono','JetBrains Mono','Fira Code',"
         "'DejaVu Sans Mono',Menlo,Consolas,monospace")
@@ -124,7 +125,9 @@ INFO = [
     ("kv", "Role:", "Embedded Software Engineer"),
     ("kv", "Based:", "El Mahalla El Kubra, Gharbia, Egypt"),
     ("kv", "Mode:", "Bare-Metal / RTOS / Embedded Linux"),
+    ("kv", "Runs:", "Fedora Linux, GNU userland, zsh"),
     ("kv", "Writes:", "shinux.vercel.app / Notes from below the OS"),
+    ("kv", "Ships:", "shinux repo / GPG-signed dnf + apt"),
     ("gap", None, None),
     ("sec", "BUILD.FOCUS", None),
     ("kv", "MCU:", "ARM Cortex-M, AVR, PIC"),
@@ -133,7 +136,7 @@ INFO = [
     ("kv", "Linux:", "Yocto, QEMU, drivers, Raspberry Pi"),
     ("gap", None, None),
     ("sec", "TOOLCHAIN", None),
-    ("kv", "Code:", "C, C++, Python, Assembly"),
+    ("kv", "Code:", "C, C++, Python, Assembly, Bash"),
     ("kv", "IDE:", "CubeIDE, MPLAB X, Keil, Eclipse, VS Code"),
     ("kv", "Debug:", "JTAG, logic analyzer, scope"),
     ("kv", "Build:", "arm-none-eabi-gcc, avr-gcc, XC8, Make"),
