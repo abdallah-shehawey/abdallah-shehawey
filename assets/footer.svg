@@ -34,8 +34,6 @@
   </g>
   <rect x="0.5" y="0.5" width="899" height="119" rx="12" fill="none" stroke="#182231"/>
 
-  <!-- top separator -->
-  <line class="sep" x1="0" y1="0" x2="900" y2="0"/>
 
   <!-- terminal session line -->
   <text class="prompt" x="30" y="38">abdallah@embedded  ~  % </text>
