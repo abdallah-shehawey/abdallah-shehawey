@@ -3,13 +3,25 @@
 </p>
 
 <p align="center">
-  <a href="https://abdallahshehawey.vercel.app">Portfolio</a>
-  &nbsp;·&nbsp;
-  <a href="https://shinux.vercel.app">Blog</a>
-  &nbsp;·&nbsp;
-  <a href="https://www.linkedin.com/in/abdallah-shehawey">LinkedIn</a>
-  &nbsp;·&nbsp;
-  <a href="mailto:shehawey9@gmail.com">Email</a>
+  <a href="https://abdallahshehawey.vercel.app">
+    <img src="https://img.shields.io/badge/-Portfolio-333333?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSI+PHBvbHlsaW5lIHBvaW50cz0iMjIsMjAgMTIsMzIgMjIsNDQiIHN0cm9rZT0iIzM4YmRmOCIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cG9seWxpbmUgcG9pbnRzPSI0MiwyMCA1MiwzMiA0Miw0NCIgc3Ryb2tlPSIjMzhiZGY4IiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxsaW5lIHgxPSIzNiIgeTE9IjE2IiB4Mj0iMjgiIHkyPSI0OCIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjQuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+" alt="Portfolio"/>
+  </a>
+  <a href="https://shinux.vercel.app">
+    <img src="https://img.shields.io/badge/-Blog-333333?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHRleHQgeD0iMiIgeT0iMTciIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjE0IiBmaWxsPSIjM2ZiOTUwIj5zaF88L3RleHQ+PC9zdmc+" alt="Blog"/>
+  </a>
+  <a href="https://www.linkedin.com/in/abdallah-shehawey">
+    <img src="https://img.shields.io/badge/-LinkedIn-333333?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyByb2xlPSJpbWciIGZpbGw9IiMwQTY2QzIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TGlua2VkSW48L3RpdGxlPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg==" alt="LinkedIn"/>
+  </a>
+  <a href="https://wa.me/+201501899476">
+    <img src="https://img.shields.io/badge/-WhatsApp-333333?style=flat&logo=whatsapp&logoColor=25D366" alt="WhatsApp"/>
+  </a>
+  <a href="https://www.facebook.com/abdullahshehawey">
+    <img src="https://img.shields.io/badge/-Facebook-333333?style=flat&logo=facebook&logoColor=1877F2" alt="Facebook"/>
+  </a>
+  <a href="mailto:shehawey9@gmail.com">
+    <img src="https://img.shields.io/badge/-Gmail-333333?style=flat&logo=gmail&logoColor=EA4335" alt="Gmail"/>
+  </a>
+  <img src="https://komarev.com/ghpvc/?username=abdallah-shehawey&label=Profile%20views&color=58a6ff&style=flat" alt="Profile views"/>
 </p>
 
 ## Hey, I'm Abdallah
@@ -21,8 +33,8 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
 - 🎓 &nbsp; **Education** — Electronics & Communication Engineering, Al-Azhar University (Oct 2021 – May 2026) — Cumulative Grade: **Very Good**, graduation project: **Excellent**
 - 🌱 &nbsp; **Currently learning** — **AUTOSAR**, and **Embedded Linux** (Yocto, Linux kernel, Raspberry Pi)
 - 🐧 &nbsp; **Daily driver** — **Fedora Linux**, GNU userland, `zsh` — I live in the terminal
-- 📦 &nbsp; **Maintaining** — [shinux](https://abdallah-shehawey.github.io/shinux/), a GPG-signed **dnf + apt** package repository
-- ✍️ &nbsp; **Writing** — [shinux](https://shinux.vercel.app), *notes from below the OS* — Embedded Linux, RTOS internals, and the road from firmware to the kernel
+- 📦 &nbsp; **Maintaining** — [shinux-Repo](https://abdallah-shehawey.github.io/shinux/), a GPG-signed **dnf + apt** package repository
+- ✍️ &nbsp; **Writing** — [shinux-blog](https://shinux.vercel.app), *notes from below the OS* — Embedded Linux, RTOS internals, and the road from firmware to the kernel
 - 🏆 &nbsp; **5-star C (Gold)** on HackerRank &nbsp;·&nbsp; fluent in Arabic & English
 
 ---
@@ -125,26 +137,6 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
 
 ---
 
-### 🔗 Connect with Me
-
-<p align="left">
-  <a href="https://www.linkedin.com/in/abdallah-shehawey">
-    <img src="https://img.shields.io/badge/-LinkedIn-333333?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyByb2xlPSJpbWciIGZpbGw9IiMwQTY2QzIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU%2BTGlua2VkSW48L3RpdGxlPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg%3D%3D" alt="LinkedIn"/>
-  </a>
-  <a href="https://wa.me/+201501899476">
-    <img src="https://img.shields.io/badge/-WhatsApp-333333?style=flat&logo=whatsapp&logoColor=25D366" alt="WhatsApp"/>
-  </a>
-  <a href="https://www.facebook.com/abdullahshehawey">
-    <img src="https://img.shields.io/badge/-Facebook-333333?style=flat&logo=facebook&logoColor=1877F2" alt="Facebook"/>
-  </a>
-  <a href="mailto:shehawey9@gmail.com">
-    <img src="https://img.shields.io/badge/-Gmail-333333?style=flat&logo=gmail&logoColor=EA4335" alt="Gmail"/>
-  </a>
-  <a href="https://shinux.vercel.app">
-    <img src="https://img.shields.io/badge/-Blog-333333?style=flat&logo=vercel&logoColor=FFFFFF" alt="Blog"/>
-  </a>
-  <a href="https://www.hackerrank.com/abdallahShehawey">
-    <img src="https://img.shields.io/badge/-HackerRank-333333?style=flat&logo=hackerrank&logoColor=00EA64" alt="HackerRank"/>
-  </a>
-  <img src="https://komarev.com/ghpvc/?username=abdallah-shehawey&label=Profile%20views&color=58a6ff&style=flat" alt="Profile views"/>
+<p align="center">
+  <img src="assets/footer.svg" width="900" alt="Thanks for visiting!" />
 </p>
