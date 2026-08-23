@@ -551,6 +551,9 @@ ICONS = {
              '<path d="M12 3.4c2.3 2.4 3.6 5.4 3.6 8.6S14.3 18.2 12 20.6'
              'C9.7 18.2 8.4 15.2 8.4 12S9.7 5.8 12 3.4Z"/>',
     "trending": '<path d="m3.5 16.8 5.6-5.6 3.6 3.6 7.8-7.8"/><path d="M15.4 7h5.1v5.1"/>',
+    "node": '<rect x="-4.6" y="-4.6" width="9.2" height="9.2" rx="1.7" '
+            'transform="translate(12 12) rotate(45)"/>'
+            '<circle cx="12" cy="12" r="1.6" fill="' + ICON_ACCENT + '" stroke="none"/>',
     "chart": '<path d="M4 20.4h16"/><path d="M7.6 20.4v-6.2M12 20.4V6.4M16.4 20.4v-9.4"/>',
 }
 
