@@ -17,7 +17,8 @@ Two things here are deliberate and easy to break:
   door. Mapping luminance straight onto a ramp turns that into noise, because
   the background carries as much contrast as the subject. So the subject is
   isolated by a hand-traced outline and the background is kept at a fraction of
-  its density: present as a backdrop, never competing.
+  its density: present as a backdrop, never competing. The one exception is the
+  step the graduation project is parked on, which is drawn in full — see STEP.
 """
 
 import hashlib
@@ -60,11 +61,16 @@ BODY = [
     (338, 348), (386, 336), (432, 328), (452, 324),
     (448, 300), (428, 270), (412, 225), (408, 170), (412, 120),
 ]
-CAR = [
-    (848, 800), (852, 758), (872, 734), (902, 724), (935, 726), (958, 714),
-    (968, 742), (1010, 745), (1050, 766), (1068, 800), (1064, 862),
-    (1038, 900), (988, 918), (918, 918), (868, 900), (846, 858),
-]
+# The graduation project is parked to his right, and it lands on some 20x13
+# cells -- far too coarse to hold any detail of its own. It survives the way it
+# survives in the photograph: as a dark shape against lit stone. So it is not
+# masked as a subject at all. The step it stands on is drawn at full strength
+# and pushed high key, until the stone saturates into one solid field and the
+# car is the only dark thing standing in it.
+STEP = (960, 850, 215, 170)        # the lit pool of stone, cx cy rx ry
+STEP_FEATHER = 45
+STEP_KEY = (35, 65)                # percentiles of the step mapped to the ramp
+STEP_FLOOR = 0.06
 
 FEATHER, BLUR, GAMMA = 6, 0.9, 0.90
 L_SIGMA, L_STRENGTH, L_MIX = 0.14, 2.0, 0.30
@@ -75,29 +81,46 @@ P_LO, P_HI, CUT = 1, 99, 0.05
 def ascii_art(cols, rows):
     photo = Image.open(PHOTO).convert("L")
 
-    mask = Image.new("L", photo.size, 0)
-    pen = ImageDraw.Draw(mask)
-    pen.polygon(BODY, fill=255)
-    pen.polygon(CAR, fill=255)
-    mask = mask.filter(ImageFilter.GaussianBlur(FEATHER)).crop(CROP)
+    def stencil(shape, feather):
+        m = Image.new("L", photo.size, 0)
+        shape(ImageDraw.Draw(m))
+        return np.asarray(m.filter(ImageFilter.GaussianBlur(feather)).crop(CROP),
+                          np.float32) / 255.0
+
+    cx, cy, rx, ry = STEP
+    mask = stencil(lambda pen: pen.polygon(BODY, fill=255), FEATHER)
+    step = stencil(lambda pen: pen.ellipse([cx - rx, cy - ry, cx + rx, cy + ry],
+                                           fill=255), STEP_FEATHER)
+    step = np.clip(step - mask, 0, 1)      # he is lit as himself, not as stone
 
     im = photo.crop(CROP).filter(ImageFilter.GaussianBlur(BLUR))
     g = np.asarray(im, np.float32) / 255.0
 
+    def soften(a, sigma):
+        return np.asarray(Image.fromarray((np.clip(a, 0, 1) * 255).astype(np.uint8))
+                          .filter(ImageFilter.GaussianBlur(sigma)), np.float32) / 255.0
+
     # A touch of local contrast lifts detail out of the black suit without
     # flattening the large shapes that make the pose readable.
     sigma = L_SIGMA * (CROP[2] - CROP[0])
-    lp = np.asarray(Image.fromarray((g * 255).astype(np.uint8))
-                    .filter(ImageFilter.GaussianBlur(sigma)), np.float32) / 255.0
-    flat = np.clip(0.5 + L_STRENGTH * (g - lp), 0, 1)
+    flat = np.clip(0.5 + L_STRENGTH * (g - soften(g, sigma)), 0, 1)
     tone = np.clip(L_MIX * flat + (1 - L_MIX) * g, 0, 1)
+
+    # The step, high key. Anchoring the stretch to what the stone measures
+    # rather than to fixed levels is what keeps the field solid: everything
+    # from its dark quarter up saturates, and only the car falls below.
+    lo_s, hi_s = (np.percentile(tone[step > 0.5], k) for k in STEP_KEY)
+    hot = np.clip(STEP_FLOOR + (tone - lo_s) / max(hi_s - lo_s, 1e-6), 0, 1)
+    scene = tone * (1 - step) + hot * step
 
     def cells(a):
         return np.asarray(Image.fromarray((np.clip(a, 0, 1) * 255).astype(np.uint8))
                           .resize((cols, rows), Image.LANCZOS), np.float32) / 255.0
 
-    t, m = cells(tone), cells(np.asarray(mask, np.float32) / 255.0)
-    lo, hi = np.percentile(t, P_LO), np.percentile(t, P_HI)
+    # Measured on the photograph, never on the lit step: relighting the car
+    # must not be able to shift a single cell of the portrait.
+    t, m, lit_cells = cells(scene), cells(mask), cells(step)
+    lo, hi = np.percentile(cells(tone), P_LO), np.percentile(cells(tone), P_HI)
     t = np.clip((t - lo) / max(hi - lo, 1e-6), 0, 1)
 
     # Bright -> dense. On a dark panel that reproduces the photo the way a
@@ -105,7 +128,8 @@ def ascii_art(cols, rows):
     # the dark plaque into one solid blob with no structure.
     dens = t ** GAMMA
     dens = np.maximum(dens, SILHOUETTE * m)   # or the black suit vanishes
-    dens *= BACKDROP + (1 - BACKDROP) * m
+    lift = np.maximum(m, lit_cells)           # the step is scenery, drawn in full
+    dens *= BACKDROP + (1 - BACKDROP) * lift
     dens[dens < CUT] = 0.0
 
     idx = (dens * (len(RAMP) - 1)).round().astype(int)
