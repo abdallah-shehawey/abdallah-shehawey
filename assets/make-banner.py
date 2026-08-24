@@ -67,8 +67,8 @@ BODY = [
 # masked as a subject at all. The step it stands on is drawn at full strength
 # and pushed high key, until the stone saturates into one solid field and the
 # car is the only dark thing standing in it.
-STEP = (960, 850, 215, 170)        # the lit pool of stone, cx cy rx ry
-STEP_FEATHER = 45
+STEP = (958, 848, 155, 140)        # the lit pool of stone, cx cy rx ry
+STEP_FEATHER = 32
 STONE, STONE_KEY = (0.86, 1.0), (5, 95)    # the stone's whole range, squeezed
 CAR_BAND, CAR_KEY, CAR_FEATHER = (0.0, 0.35), (2, 98), 2   # ...the car's, below it
 # Traced by hand around the car itself -- wheels, loom and antenna, no stone.
