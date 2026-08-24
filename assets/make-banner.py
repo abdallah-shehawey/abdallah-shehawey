@@ -69,8 +69,20 @@ BODY = [
 # car is the only dark thing standing in it.
 STEP = (960, 850, 215, 170)        # the lit pool of stone, cx cy rx ry
 STEP_FEATHER = 45
-STEP_KEY = (35, 65)                # percentiles of the step mapped to the ramp
-STEP_FLOOR = 0.06
+STONE, STONE_KEY = (0.86, 1.0), (5, 95)    # the stone's whole range, squeezed
+CAR_BAND, CAR_KEY, CAR_FEATHER = (0.0, 0.35), (2, 98), 2   # ...the car's, below it
+# Traced by hand around the car itself -- wheels, loom and antenna, no stone.
+# It never draws anything; it only says which pixels are car, so the car can be
+# graded separately from the ground it stands on.
+CAR = [
+    (952, 726), (963, 737), (958, 758), (968, 770),
+    (988, 768), (1014, 780), (1036, 796), (1051, 813), (1059, 831), (1053, 846),
+    (1063, 853), (1071, 873), (1068, 899), (1052, 930), (1028, 942), (1000, 934),
+    (986, 901), (972, 906), (948, 910), (928, 907),
+    (911, 936), (888, 944), (861, 934), (845, 906), (839, 872), (843, 847),
+    (852, 831), (857, 806), (866, 786), (881, 771), (901, 763), (921, 761),
+    (937, 766), (945, 757), (942, 737),
+]
 
 FEATHER, BLUR, GAMMA = 6, 0.9, 0.90
 L_SIGMA, L_STRENGTH, L_MIX = 0.14, 2.0, 0.30
@@ -92,6 +104,7 @@ def ascii_art(cols, rows):
     step = stencil(lambda pen: pen.ellipse([cx - rx, cy - ry, cx + rx, cy + ry],
                                            fill=255), STEP_FEATHER)
     step = np.clip(step - mask, 0, 1)      # he is lit as himself, not as stone
+    car = stencil(lambda pen: pen.polygon(CAR, fill=255), CAR_FEATHER)
 
     im = photo.crop(CROP).filter(ImageFilter.GaussianBlur(BLUR))
     g = np.asarray(im, np.float32) / 255.0
@@ -106,12 +119,22 @@ def ascii_art(cols, rows):
     flat = np.clip(0.5 + L_STRENGTH * (g - soften(g, sigma)), 0, 1)
     tone = np.clip(L_MIX * flat + (1 - L_MIX) * g, 0, 1)
 
-    # The step, high key. Anchoring the stretch to what the stone measures
-    # rather than to fixed levels is what keeps the field solid: everything
-    # from its dark quarter up saturates, and only the car falls below.
-    lo_s, hi_s = (np.percentile(tone[step > 0.5], k) for k in STEP_KEY)
-    hot = np.clip(STEP_FLOOR + (tone - lo_s) / max(hi_s - lo_s, 1e-6), 0, 1)
+    # The stone's whole range squeezed into the top of the ramp. A *flat* field
+    # is the thing that makes a small dark object legible on it -- graded stone
+    # is texture, and texture and car compete. Measured with the car pulled out
+    # of the sample, or its shadows drag the stone's floor down with them.
+    field = (step > 0.5) & (car < 0.5)
+    lo_s, hi_s = (np.percentile(tone[field], k) for k in STONE_KEY)
+    hot = STONE[0] + (STONE[1] - STONE[0]) * np.clip(
+        (tone - lo_s) / max(hi_s - lo_s, 1e-6), 0, 1)
     scene = tone * (1 - step) + hot * step
+
+    # The car keeps a band of its own below the stone: low enough to hold the
+    # silhouette, graded enough that the tyres stay darker than the loom.
+    lo_c, hi_c = (np.percentile(g[car > 0.5], k) for k in CAR_KEY)
+    parked = CAR_BAND[0] + (CAR_BAND[1] - CAR_BAND[0]) * np.clip(
+        (g - lo_c) / max(hi_c - lo_c, 1e-6), 0, 1)
+    scene = scene * (1 - car) + parked * car
 
     def cells(a):
         return np.asarray(Image.fromarray((np.clip(a, 0, 1) * 255).astype(np.uint8))
