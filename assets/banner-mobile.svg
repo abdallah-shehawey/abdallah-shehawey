@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="440" height="940"
      viewBox="0 0 440 940" role="img"
-     aria-label="Abdallah Shehawey - Embedded Software Engineer">
-  <title>Abdallah Shehawey - Embedded Software Engineer</title>
+     aria-label="Abdallah Shehawey - Embedded Software Engineer &amp; PCB Designer">
+  <title>Abdallah Shehawey - Embedded Software Engineer &amp; PCB Designer</title>
 
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -194,13 +194,13 @@
       <text class="v" x="156" y="561">Abdallah Shehawey</text>
       <text class="k" x="30" y="578">Role:</text>
       <line class="ld" x1="112" y1="575" x2="148" y2="575"/>
-      <text class="v" x="156" y="578">Embedded Software Engineer</text>
-      <text class="k" x="30" y="595">Based:</text>
+      <text class="v" x="156" y="578">Embedded Software Engineer &amp; PCB Designer</text>
+      <text class="k" x="30" y="595">Works:</text>
       <line class="ld" x1="112" y1="592" x2="148" y2="592"/>
-      <text class="v" x="156" y="595">El Mahalla El Kubra, Gharbia, Egypt</text>
-      <text class="k" x="30" y="612">Mode:</text>
+      <text class="v" x="156" y="595">NiroTronix (Jun 2026 - Present)</text>
+      <text class="k" x="30" y="612">Based:</text>
       <line class="ld" x1="112" y1="609" x2="148" y2="609"/>
-      <text class="v" x="156" y="612">Bare-Metal / RTOS / Embedded Linux</text>
+      <text class="v" x="156" y="612">El Obour, Qalyubia, Egypt</text>
       <text class="k" x="30" y="629">Writes:</text>
       <line class="ld" x1="112" y1="626" x2="148" y2="626"/>
       <text class="v" x="156" y="629">shinux.vercel.app / Notes from below the OS</text>
@@ -208,7 +208,7 @@
       <line class="rl" x1="116.46" y1="655.6" x2="412" y2="655.6"/>
       <text class="k" x="30" y="676.6">MCU:</text>
       <line class="ld" x1="112" y1="673.6" x2="148" y2="673.6"/>
-      <text class="v" x="156" y="676.6">ARM Cortex-M, AVR, PIC, Arduino, ESP32</text>
+      <text class="v" x="156" y="676.6">STM32 (Cortex-M), AVR, PIC, ESP32</text>
       <text class="k" x="30" y="693.6">RTOS:</text>
       <line class="ld" x1="112" y1="690.6" x2="148" y2="690.6"/>
       <text class="v" x="156" y="693.6">FreeRTOS, scheduling, IPC</text>
@@ -217,7 +217,7 @@
       <text class="v" x="156" y="710.6">AUTOSAR, CAN, LIN, V2X safety</text>
       <text class="k" x="30" y="727.6">Linux:</text>
       <line class="ld" x1="112" y1="724.6" x2="148" y2="724.6"/>
-      <text class="v" x="156" y="727.6">Yocto, QEMU, drivers, Raspberry Pi</text>
+      <text class="v" x="156" y="727.6">Yocto, Buildroot, QEMU, Raspberry Pi</text>
       <text class="sc" x="20" y="758.2">- TOOLCHAIN</text>
       <line class="rl" x1="104.68" y1="754.2" x2="412" y2="754.2"/>
       <text class="k" x="30" y="775.2">Code:</text>
@@ -225,14 +225,14 @@
       <text class="v" x="156" y="775.2">C, C++, Python, Assembly, Bash</text>
       <text class="k" x="30" y="792.2">IDE:</text>
       <line class="ld" x1="112" y1="789.2" x2="148" y2="789.2"/>
-      <text class="v" x="156" y="792.2">CubeIDE, MPLAB X, Keil, Eclipse, VS Code</text>
-      <text class="k" x="30" y="809.2">Debug:</text>
+      <text class="v" x="156" y="792.2">CubeIDE, MPLAB X, Atmel Studio, Keil</text>
+      <text class="k" x="30" y="809.2">PCB:</text>
       <line class="ld" x1="112" y1="806.2" x2="148" y2="806.2"/>
-      <text class="v" x="156" y="809.2">JTAG, logic analyzer, scope</text>
-      <text class="k" x="30" y="826.2">Build:</text>
+      <text class="v" x="156" y="809.2">KiCad, ERC/DRC, Gerber, drill, BOM</text>
+      <text class="k" x="30" y="826.2">Debug:</text>
       <line class="ld" x1="112" y1="823.2" x2="148" y2="823.2"/>
-      <text class="v" x="156" y="826.2">arm-none-eabi-gcc, avr-gcc, XC8, Make</text>
-      <text class="tg" x="20" y="862.8">FROM BARE-METAL DRIVERS TO EMBEDDED LINUX</text>
+      <text class="v" x="156" y="826.2">JTAG, logic analyzer, scope, unit tests</text>
+      <text class="tg" x="20" y="862.8">FROM PCB LAYOUT TO FIRMWARE TO EMBEDDED LINUX</text>
 
     <rect class="motion-scan" x="0" y="-90" width="440" height="90"
           fill="url(#scan)" opacity="0.42" style="mix-blend-mode:screen"/>
@@ -246,7 +246,7 @@
   <text class="live" x="336" y="18.5">BUILDING</text>
 
   <line x1="3" y1="898" x2="437" y2="898" stroke="#30363d"/>
-  <text class="foot" x="220" y="920" text-anchor="middle">EMBEDDED  /  AUTOMOTIVE  /  RTOS  /  LINUX</text>
+  <text class="foot" x="220" y="920" text-anchor="middle">EMBEDDED  /  PCB  /  AUTOMOTIVE  /  RTOS  /  LINUX</text>
 
   <rect x="3" y="3" width="434" height="934" rx="16" fill="none"
         stroke="url(#edge)" stroke-width="2" opacity="0.76"/>

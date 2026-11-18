@@ -161,28 +161,28 @@ def ascii_art(cols, rows):
 INFO = [
     ("head", "shehawey@embedded", None),
     ("kv", "Name:", "Abdallah Shehawey"),
-    ("kv", "Role:", "Embedded Software Engineer"),
-    ("kv", "Based:", "El Mahalla El Kubra, Gharbia, Egypt"),
-    ("kv", "Mode:", "Bare-Metal / RTOS / Embedded Linux"),
+    ("kv", "Role:", "Embedded Software Engineer & PCB Designer"),
+    ("kv", "Works:", "NiroTronix (Jun 2026 - Present)"),
+    ("kv", "Based:", "El Obour, Qalyubia, Egypt"),
     ("kv", "Writes:", "shinux.vercel.app / Notes from below the OS"),
     ("gap", None, None),
     ("sec", "BUILD.FOCUS", None),
-    ("kv", "MCU:", "ARM Cortex-M, AVR, PIC, Arduino, ESP32"),
+    ("kv", "MCU:", "STM32 (Cortex-M), AVR, PIC, ESP32"),
     ("kv", "RTOS:", "FreeRTOS, scheduling, IPC"),
     ("kv", "Vehicle:", "AUTOSAR, CAN, LIN, V2X safety"),
-    ("kv", "Linux:", "Yocto, QEMU, drivers, Raspberry Pi"),
+    ("kv", "Linux:", "Yocto, Buildroot, QEMU, Raspberry Pi"),
     ("gap", None, None),
     ("sec", "TOOLCHAIN", None),
     ("kv", "Code:", "C, C++, Python, Assembly, Bash"),
-    ("kv", "IDE:", "CubeIDE, MPLAB X, Keil, Eclipse, VS Code"),
-    ("kv", "Debug:", "JTAG, logic analyzer, scope"),
-    ("kv", "Build:", "arm-none-eabi-gcc, avr-gcc, XC8, Make"),
+    ("kv", "IDE:", "CubeIDE, MPLAB X, Atmel Studio, Keil"),
+    ("kv", "PCB:", "KiCad, ERC/DRC, Gerber, drill, BOM"),
+    ("kv", "Debug:", "JTAG, logic analyzer, scope, unit tests"),
     ("gap", None, None),
-    ("tag", "FROM BARE-METAL DRIVERS TO EMBEDDED LINUX", None),
+    ("tag", "FROM PCB LAYOUT TO FIRMWARE TO EMBEDDED LINUX", None),
 ]
 
-FOOTER = "EMBEDDED SYSTEMS  /  AUTOMOTIVE  /  RTOS &amp; AUTOSAR  /  EMBEDDED LINUX"
-FOOTER_SM = "EMBEDDED  /  AUTOMOTIVE  /  RTOS  /  LINUX"
+FOOTER = "EMBEDDED SYSTEMS  /  PCB DESIGN  /  AUTOMOTIVE  /  RTOS &amp; AUTOSAR  /  EMBEDDED LINUX"
+FOOTER_SM = "EMBEDDED  /  PCB  /  AUTOMOTIVE  /  RTOS  /  LINUX"
 PROMPT = "shehawey@embedded  ~  %  ./profile"
 
 MONO_ADVANCE = 0.6          # every monospace face in the stack below
@@ -341,8 +341,8 @@ def render(L, art):
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}"
      viewBox="0 0 {W} {H}" role="img"
-     aria-label="Abdallah Shehawey - Embedded Software Engineer">
-  <title>Abdallah Shehawey - Embedded Software Engineer</title>
+     aria-label="Abdallah Shehawey - Embedded Software Engineer &amp; PCB Designer">
+  <title>Abdallah Shehawey - Embedded Software Engineer &amp; PCB Designer</title>
 
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -601,6 +601,10 @@ ICONS = {
     "node": '<rect x="-4.6" y="-4.6" width="9.2" height="9.2" rx="1.7" '
             'transform="translate(12 12) rotate(45)"/>'
             '<circle cx="12" cy="12" r="1.6" fill="' + ICON_ACCENT + '" stroke="none"/>',
+    "briefcase": '<rect x="2.8" y="7" width="18.4" height="13" rx="2.2"/>'
+                 '<path d="M8.6 7V5.4c0-1 .8-1.8 1.8-1.8h3.2c1 0 1.8.8 1.8 1.8V7"/>'
+                 '<path d="M2.8 12.6h18.4"/>',
+    "zap": '<path d="M13.2 2.8 4.6 13.6h6.6l-1 7.6 8.6-10.8h-6.6l1-7.6Z"/>',
     "chart": '<path d="M4 20.4h16"/><path d="M7.6 20.4v-6.2M12 20.4V6.4M16.4 20.4v-9.4"/>',
 }
 

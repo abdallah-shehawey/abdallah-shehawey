@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(max-width: 760px)" srcset="assets/banner-mobile.svg?v=25b3fdd8cb">
-    <img src="assets/banner.svg?v=3e8ca964d1" width="900" alt="Abdallah Shehawey — Embedded Software Engineer" />
+    <source media="(max-width: 760px)" srcset="assets/banner-mobile.svg?v=b66dd63f97">
+    <img src="assets/banner.svg?v=75f9fc1d0b" width="900" alt="Abdallah Shehawey — Embedded Software Engineer &amp; PCB Designer" />
   </picture>
 </p>
 
@@ -21,15 +21,18 @@
 
 ## <img src="assets/icons/user.svg?v=bb60fcbf51" width="23" alt="" /> Hey, I'm Abdallah
 
-**Embedded Software Engineer** specializing in C/C++, RTOS, and hardware-software integration —
-from bare-metal drivers written from scratch to AUTOSAR and Embedded Linux, with a focus on the
-automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
+**Embedded Software Engineer & PCB Designer** at [NiroTronix](https://nirotronix.com) — writing C
+firmware for STM32, AVR and PIC and designing the boards it runs on in KiCad. From bare-metal drivers
+and RTOS to AUTOSAR and Embedded Linux, with a focus on the automotive field. Based in El Obour,
+Qalyubia, Egypt.
 
 <p>
+<img src="assets/icons/briefcase.svg?v=a979cfc159" width="17" alt="" /> &nbsp; <strong>Working</strong> — Embedded Software Engineer & PCB Designer at <a href="https://nirotronix.com"><strong>NiroTronix</strong></a> (Jun 2026 – Present) — firmware, KiCad schematics & layouts, automated board tests<br/>
 <img src="assets/icons/graduation.svg?v=3bb43ec9f0" width="17" alt="" /> &nbsp; <strong>Education</strong> — Electronics & Communication Engineering, Al-Azhar University (Oct 2021 – May 2026) — Cumulative Grade: <strong>Very Good</strong>, graduation project: <strong>Excellent</strong><br/>
-<img src="assets/icons/book.svg?v=25a8974d15" width="17" alt="" /> &nbsp; <strong>Currently learning</strong> — <strong>AUTOSAR</strong>, and <strong>Embedded Linux</strong> (Yocto, Linux kernel, Raspberry Pi)<br/>
+<img src="assets/icons/book.svg?v=25a8974d15" width="17" alt="" /> &nbsp; <strong>Currently learning</strong> — <strong>AUTOSAR</strong>, and <strong>Embedded Linux</strong> (Yocto, Buildroot, Linux kernel, Raspberry Pi)<br/>
 <img src="assets/icons/terminal.svg?v=ed931b0ca7" width="17" alt="" /> &nbsp; <strong>Daily driver</strong> — <strong>Fedora Linux</strong>, GNU userland, <code>zsh</code> — I live in the terminal<br/>
 <img src="assets/icons/package.svg?v=0c0936a8b4" width="17" alt="" /> &nbsp; <strong>Maintaining</strong> — <a href="https://abdallah-shehawey.github.io/shinux/">shinux-Repo</a>, a GPG-signed <strong>dnf + apt</strong> package repository<br/>
+<img src="assets/icons/zap.svg?v=d85c3f1a1f" width="17" alt="" /> &nbsp; <strong>Published</strong> — <a href="https://github.com/abdallah-shehawey/NiroTronixMotorDriver">NiroTronixMotorDriver</a>, an Arduino library for the NiroTronix MD motor drivers (PWM/DIR, smooth ramps, 25 kHz PWM)<br/>
 <img src="assets/icons/pen.svg?v=89d1236162" width="17" alt="" /> &nbsp; <strong>Writing</strong> — <a href="https://shinux.vercel.app">shinux-blog</a>, <em>notes from below the OS</em> — Embedded Linux, RTOS internals, and the road from firmware to the kernel<br/>
 <img src="assets/icons/star.svg?v=9278e869c4" width="17" alt="" /> &nbsp; <strong>5-star C (Gold)</strong> on HackerRank &nbsp;·&nbsp; fluent in Arabic & English
 
@@ -45,6 +48,7 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
 
 <p>
   <img src="https://img.shields.io/badge/-C-161b22?style=flat&logo=c" alt="C"/>
+  <img src="https://img.shields.io/badge/-Embedded%20C-161b22?style=flat&logo=c" alt="Embedded C"/>
   <img src="https://img.shields.io/badge/-C++-161b22?style=flat&logo=C%2B%2B&logoColor=00599C" alt="C++"/>
   <img src="https://img.shields.io/badge/-Python-161b22?style=flat&logo=python" alt="Python"/>
   <img src="https://img.shields.io/badge/-Assembly-161b22?style=flat&logo=assemblyscript&logoColor=00599C" alt="Assembly"/>
@@ -65,6 +69,17 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
   <img src="https://img.shields.io/badge/-FreeRTOS-161b22?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iJTIzNENBRjUwIj48cGF0aCBkPSJNMTIgMEM1LjM3MyAwIDAgNS4zNzMgMCAxMnM1LjM3MyAxMiAxMiAxMiAxMi01LjM3MyAxMi0xMlMxOC42MjcgMCAxMiAwem0wIDMuNmE4LjQgOC40IDAgMSAxIDAgMTYuOCA4LjQgOC40IDAgMCAxIDAtMTYuOHptLTEuMiAzLjZ2OS42bDYtNC44LTYtNC44eiIvPjwvc3ZnPg==" alt="FreeRTOS"/>
   <img src="https://img.shields.io/badge/-AUTOSAR-161b22?style=flat&logo=autodesk" alt="AUTOSAR"/>
   <img src="https://img.shields.io/badge/-Proteus-161b22?style=flat&logo=proteus" alt="Proteus"/>
+</p>
+
+#### <img src="assets/icons/node.svg?v=ec01e25c15" width="11" alt="" /> &nbsp;PCB Design
+
+<p>
+  <img src="https://img.shields.io/badge/-KiCad-161b22?style=flat&logo=kicad&logoColor=314CB0" alt="KiCad"/>
+  <img src="https://img.shields.io/badge/-Schematic%20Capture-161b22?style=flat" alt="Schematic Capture"/>
+  <img src="https://img.shields.io/badge/-PCB%20Layout%20%26%20Routing-161b22?style=flat" alt="PCB Layout & Routing"/>
+  <img src="https://img.shields.io/badge/-Component%20Selection-161b22?style=flat" alt="Component Selection"/>
+  <img src="https://img.shields.io/badge/-ERC%20%2F%20DRC-161b22?style=flat" alt="ERC / DRC"/>
+  <img src="https://img.shields.io/badge/-Gerber%20%2F%20Drill%20%2F%20BOM-161b22?style=flat" alt="Gerber / Drill / BOM"/>
 </p>
 
 #### <img src="assets/icons/node.svg?v=ec01e25c15" width="11" alt="" /> &nbsp;Protocols & Interfaces
@@ -105,6 +120,7 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
   <img src="https://img.shields.io/badge/-Visual%20Studio%20Code-161b22?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iJTIzMDA3QUNDIj48cGF0aCBkPSJNMjMuMTUgMi41ODdMMTguMjEuMjFhMS40OTQgMS40OTQgMCAwIDAtMS43MDUuMjlsLTkuNDYgOC42My00LjEyLTMuMTI4YS45OTkuOTk5IDAgMCAwLTEuMjc2LjA1N0wuMzI3IDcuMjYxQTEgMSAwIDAgMCAuMzI2IDguNzRMMy44OTkgMTIgLjMyNiAxNS4yNmExIDEgMCAwIDAgLjAwMSAxLjQ3OUwxLjY1IDE3Ljk0YS45OTkuOTk5IDAgMCAwIDEuMjc2LjA1N2w0LjEyLTMuMTI4IDkuNDYgOC42M2ExLjQ5MiAxLjQ5MiAwIDAgMCAxLjcwNC4yOWw0Ljk0Mi0yLjM3N0ExLjUgMS41IDAgMCAwIDI0IDIwLjA2VjMuOTM5YTEuNSAxLjUgMCAwIDAtLjg1LTEuMzUyem0tNS4xNDYgMTQuODYxTDEwLjgyNiAxMmw3LjE3OC01LjQ0OHYxMC44OTZ6Ii8+PC9zdmc+" alt="VS Code"/>
   <img src="https://img.shields.io/badge/-STM32%20CubeIDE-161b22?style=flat&logo=stmicroelectronics&logoColor=03234B" alt="STM32 CubeIDE"/>
   <img src="https://img.shields.io/badge/-MPLAB%20X-161b22?style=flat" alt="MPLAB X"/>
+  <img src="https://img.shields.io/badge/-Atmel%20Studio-161b22?style=flat&logo=microchiptechnology&logoColor=EE2223" alt="Atmel Studio"/>
   <img src="https://img.shields.io/badge/-Keil%20uVision-161b22?style=flat" alt="Keil uVision"/>
   <img src="https://img.shields.io/badge/-Eclipse-161b22?style=flat&logo=eclipse-ide&logoColor=2C2255" alt="Eclipse"/>
   <img src="https://img.shields.io/badge/-Linux-161b22?style=flat&logo=Linux&logoColor=FCC624" alt="Linux"/>
@@ -114,6 +130,7 @@ automotive field. Based in El Mahalla El Kubra, Gharbia, Egypt.
   <img src="https://img.shields.io/badge/-JTAG%20%2F%20SWD-161b22?style=flat" alt="JTAG / SWD"/>
   <img src="https://img.shields.io/badge/-Logic%20Analyzer-161b22?style=flat" alt="Logic Analyzer"/>
   <img src="https://img.shields.io/badge/-Oscilloscope-161b22?style=flat" alt="Oscilloscope"/>
+  <img src="https://img.shields.io/badge/-Unit%20Testing-161b22?style=flat" alt="Unit Testing"/>
   <img src="https://img.shields.io/badge/-Docker-161b22?style=flat&logo=docker&logoColor=2496ED" alt="Docker"/>
   <img src="https://img.shields.io/badge/-Ansible-161b22?style=flat&logo=ansible&logoColor=EE0000" alt="Ansible"/>
   <img src="https://img.shields.io/badge/-Markdown-161b22?style=flat&logo=markdown" alt="Markdown"/>
