@@ -32,7 +32,6 @@ Qalyubia, Egypt.
 <img src="assets/icons/book.svg?v=25a8974d15" width="17" alt="" /> &nbsp; <strong>Currently learning</strong> — <strong>AUTOSAR</strong>, and <strong>Embedded Linux</strong> (Yocto, Buildroot, Linux kernel, Raspberry Pi)<br/>
 <img src="assets/icons/terminal.svg?v=ed931b0ca7" width="17" alt="" /> &nbsp; <strong>Daily driver</strong> — <strong>Fedora Linux</strong>, GNU userland, <code>zsh</code> — I live in the terminal<br/>
 <img src="assets/icons/package.svg?v=0c0936a8b4" width="17" alt="" /> &nbsp; <strong>Maintaining</strong> — <a href="https://abdallah-shehawey.github.io/shinux/">shinux-Repo</a>, a GPG-signed <strong>dnf + apt</strong> package repository<br/>
-<img src="assets/icons/zap.svg?v=d85c3f1a1f" width="17" alt="" /> &nbsp; <strong>Published</strong> — <a href="https://github.com/abdallah-shehawey/NiroTronixMotorDriver">NiroTronixMotorDriver</a>, an Arduino library for the NiroTronix MD motor drivers (PWM/DIR, smooth ramps, 25 kHz PWM)<br/>
 <img src="assets/icons/pen.svg?v=89d1236162" width="17" alt="" /> &nbsp; <strong>Writing</strong> — <a href="https://shinux.vercel.app">shinux-blog</a>, <em>notes from below the OS</em> — Embedded Linux, RTOS internals, and the road from firmware to the kernel<br/>
 <img src="assets/icons/star.svg?v=9278e869c4" width="17" alt="" /> &nbsp; <strong>5-star C (Gold)</strong> on HackerRank &nbsp;·&nbsp; fluent in Arabic & English
 
