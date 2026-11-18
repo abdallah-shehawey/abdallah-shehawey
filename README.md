@@ -120,7 +120,7 @@ Qalyubia, Egypt.
   <img src="https://img.shields.io/badge/-Visual%20Studio%20Code-161b22?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iJTIzMDA3QUNDIj48cGF0aCBkPSJNMjMuMTUgMi41ODdMMTguMjEuMjFhMS40OTQgMS40OTQgMCAwIDAtMS43MDUuMjlsLTkuNDYgOC42My00LjEyLTMuMTI4YS45OTkuOTk5IDAgMCAwLTEuMjc2LjA1N0wuMzI3IDcuMjYxQTEgMSAwIDAgMCAuMzI2IDguNzRMMy44OTkgMTIgLjMyNiAxNS4yNmExIDEgMCAwIDAgLjAwMSAxLjQ3OUwxLjY1IDE3Ljk0YS45OTkuOTk5IDAgMCAwIDEuMjc2LjA1N2w0LjEyLTMuMTI4IDkuNDYgOC42M2ExLjQ5MiAxLjQ5MiAwIDAgMCAxLjcwNC4yOWw0Ljk0Mi0yLjM3N0ExLjUgMS41IDAgMCAwIDI0IDIwLjA2VjMuOTM5YTEuNSAxLjUgMCAwIDAtLjg1LTEuMzUyem0tNS4xNDYgMTQuODYxTDEwLjgyNiAxMmw3LjE3OC01LjQ0OHYxMC44OTZ6Ii8+PC9zdmc+" alt="VS Code"/>
   <img src="https://img.shields.io/badge/-STM32%20CubeIDE-161b22?style=flat&logo=stmicroelectronics&logoColor=03234B" alt="STM32 CubeIDE"/>
   <img src="https://img.shields.io/badge/-MPLAB%20X-161b22?style=flat" alt="MPLAB X"/>
-  <img src="https://img.shields.io/badge/-Atmel%20Studio-161b22?style=flat&logo=microchiptechnology&logoColor=EE2223" alt="Atmel Studio"/>
+  <img src="https://img.shields.io/badge/-Atmel%20Studio-161b22?style=flat" alt="Atmel Studio"/>
   <img src="https://img.shields.io/badge/-Keil%20uVision-161b22?style=flat" alt="Keil uVision"/>
   <img src="https://img.shields.io/badge/-Eclipse-161b22?style=flat&logo=eclipse-ide&logoColor=2C2255" alt="Eclipse"/>
   <img src="https://img.shields.io/badge/-Linux-161b22?style=flat&logo=Linux&logoColor=FCC624" alt="Linux"/>
